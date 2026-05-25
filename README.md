@@ -10,6 +10,10 @@ https://liancataytayjk-coder.github.io/
 
 ```text
 index.html
+about.html
+projects.html
+contact.html
+theme.html
 assets/
   styles.css
   script.js

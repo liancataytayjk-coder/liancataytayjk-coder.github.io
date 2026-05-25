@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Lian Cataytay is a Data Analyst and Economist building decision-ready analytics, dashboards, and research workflows.">
-    <title>Lian Cataytay | Data Analyst &middot; Economist</title>
+    <meta name="description" content="Choose light or dark mode for Lian Cataytay's portfolio.">
+    <title>Light / Dark | Lian Cataytay</title>
     <link rel="icon" href="assets/lian-cataytay-lc-tech-logo.png" type="image/png">
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
   </head>
-  <body data-page="home">
+  <body data-page="theme">
     <main class="page-shell">
       <header class="site-header reveal">
         <a class="avatar" href="index.html" aria-label="Lian Cataytay home">
@@ -26,17 +26,13 @@
         </a>
       </header>
 
-      <section class="page-section reveal" aria-labelledby="home-title">
-        <p class="tagline">Data analysis with an economist&rsquo;s lens.</p>
-        <h2 class="section-title" id="home-title">Welcome to my portfolio</h2>
-        <p>Hello, hola, bonjour, ol&aacute; &amp; hallo!</p>
-        <p>I'm a data analyst who thinks like an economist. I care about how numbers work just as much as what decisions they support.</p>
-        <nav class="page-links" aria-label="Explore portfolio">
-          <a class="text-link" href="about.html">About</a>
-          <a class="text-link" href="projects.html">Projects</a>
-          <a class="text-link" href="contact.html">Contact</a>
-          <a class="text-link" href="theme.html">Light / Dark</a>
-        </nav>
+      <section class="page-section reveal" aria-labelledby="theme-title">
+        <h2 class="section-title" id="theme-title">Light / Dark</h2>
+        <p>Choose the reading mode that feels best. The setting is saved on this browser.</p>
+        <div class="theme-list" aria-label="Theme choices">
+          <button class="theme-choice" type="button" data-theme-choice="light">Light mode <span>Clean white notebook feel</span></button>
+          <button class="theme-choice" type="button" data-theme-choice="dark">Dark mode <span>Soft low-light reading</span></button>
+        </div>
       </section>
     </main>
 

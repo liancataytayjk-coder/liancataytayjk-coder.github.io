@@ -1,47 +1,102 @@
 (function () {
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var storageKey = "lian-portfolio-theme";
+  var root = document.documentElement;
   var body = document.body;
-  var dockLinks = Array.prototype.slice.call(document.querySelectorAll(".dock-link"));
+  var currentPage = body.dataset.page || "home";
 
-  function setActiveDock(target) {
-    dockLinks.forEach(function (link) {
-      var isActive = link.getAttribute("data-dock") === target;
-      link.classList.toggle("is-active", isActive);
-      if (isActive) {
-        link.setAttribute("aria-current", "page");
-      } else {
-        link.removeAttribute("aria-current");
-      }
-    });
-  }
-
-  if (body.dataset.page === "home") {
-    var sections = Array.prototype.slice.call(document.querySelectorAll("[data-section]"));
-
-    function syncDockToScroll() {
-      var current = "home";
-      var offset = window.innerHeight * 0.32;
-
-      sections.forEach(function (section) {
-        var rect = section.getBoundingClientRect();
-        if (rect.top <= offset) {
-          current = section.getAttribute("data-section");
-        }
-      });
-
-      setActiveDock(current);
+  function storedTheme() {
+    try {
+      return localStorage.getItem(storageKey);
+    } catch (error) {
+      return null;
     }
+  }
 
-    syncDockToScroll();
-    window.addEventListener("scroll", syncDockToScroll, { passive: true });
-    window.addEventListener("hashchange", function () {
-      var hash = window.location.hash.replace("#", "");
-      setActiveDock(hash || "home");
+  function preferredTheme() {
+    if (storedTheme()) return storedTheme();
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function applyTheme(theme) {
+    var nextTheme = theme === "dark" ? "dark" : "light";
+    root.dataset.theme = nextTheme;
+    document.querySelectorAll("[data-theme-choice]").forEach(function (button) {
+      var isActive = button.getAttribute("data-theme-choice") === nextTheme;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
     });
   }
 
-  if (!reduceMotion && "IntersectionObserver" in window) {
-    var revealItems = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  function saveTheme(theme) {
+    try {
+      localStorage.setItem(storageKey, theme);
+    } catch (error) {
+      return;
+    }
+    applyTheme(theme);
+  }
+
+  function icon(name) {
+    var icons = {
+      home: '<path d="M3.5 10.7 12 4l8.5 6.7v8.2a1.6 1.6 0 0 1-1.6 1.6h-4.4v-5.3h-5v5.3H5.1a1.6 1.6 0 0 1-1.6-1.6v-8.2Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+      about: '<path d="M12 12.1a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 8.4a7 7 0 0 0-14 0" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+      projects: '<path d="M5 6.5h14M5 12h14M5 17.5h14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+      contact: '<path d="M4.5 6.8h15v10.4h-15V6.8Zm0 .2 7.5 6 7.5-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+      theme: '<path d="M12 3.8a8.2 8.2 0 1 0 0 16.4 6.3 6.3 0 0 1 0-16.4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>'
+    };
+    return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none">' + icons[name] + "</svg>";
+  }
+
+  function dockMarkup(prefix) {
+    var items = [
+      ["home", "Home", prefix + "index.html"],
+      ["about", "About", prefix + "about.html"],
+      ["projects", "Projects", prefix + "projects.html"],
+      ["contact", "Contact", prefix + "contact.html"],
+      ["theme", "Theme", prefix + "theme.html"]
+    ];
+
+    return items
+      .map(function (item) {
+        var key = item[0];
+        var label = item[1];
+        var href = item[2];
+        var isActive = currentPage === key || (currentPage === "project" && key === "projects");
+        return (
+          '<a class="dock-link' +
+          (isActive ? " is-active" : "") +
+          '" href="' +
+          href +
+          '" data-dock="' +
+          key +
+          '" aria-label="' +
+          label +
+          '"' +
+          (isActive ? ' aria-current="page"' : "") +
+          ">" +
+          icon(key) +
+          '<span class="dock-label">' +
+          label +
+          "</span></a>"
+        );
+      })
+      .join("");
+  }
+
+  applyTheme(preferredTheme());
+
+  document.querySelectorAll(".dock").forEach(function (dock) {
+    var prefix = body.dataset.depth === "project" ? "../" : "";
+    dock.innerHTML = dockMarkup(prefix);
+  });
+
+  document.querySelectorAll("[data-theme-choice]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      saveTheme(button.getAttribute("data-theme-choice"));
+    });
+  });
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -51,10 +106,10 @@
           }
         });
       },
-      { threshold: 0.16 }
+      { threshold: 0.14 }
     );
 
-    revealItems.forEach(function (item) {
+    document.querySelectorAll(".reveal").forEach(function (item) {
       observer.observe(item);
     });
   } else {
