@@ -20,10 +20,13 @@
   function applyTheme(theme) {
     var nextTheme = theme === "dark" ? "dark" : "light";
     root.dataset.theme = nextTheme;
-    document.querySelectorAll("[data-theme-choice]").forEach(function (button) {
-      var isActive = button.getAttribute("data-theme-choice") === nextTheme;
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", String(isActive));
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
+      var targetTheme = nextTheme === "dark" ? "light" : "dark";
+      button.setAttribute("aria-label", "Switch to " + targetTheme + " mode");
+      button.setAttribute("title", "Switch to " + targetTheme + " mode");
+      button.innerHTML =
+        icon(nextTheme === "dark" ? "sun" : "moon") +
+        '<span class="dock-label">Theme</span><span class="visually-hidden">Switch theme</span>';
     });
   }
 
@@ -42,7 +45,8 @@
       about: '<path d="M12 12.1a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 8.4a7 7 0 0 0-14 0" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
       projects: '<path d="M5 6.5h14M5 12h14M5 17.5h14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
       contact: '<path d="M4.5 6.8h15v10.4h-15V6.8Zm0 .2 7.5 6 7.5-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
-      theme: '<path d="M12 3.8a8.2 8.2 0 1 0 0 16.4 6.3 6.3 0 0 1 0-16.4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>'
+      moon: '<path d="M12 3.8a8.2 8.2 0 1 0 0 16.4 6.3 6.3 0 0 1 0-16.4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+      sun: '<path d="M12 4v1.7m0 12.6V20m8-8h-1.7M5.7 12H4m13.7-5.7-1.2 1.2M7.5 16.5l-1.2 1.2m11.4 0-1.2-1.2M7.5 7.5 6.3 6.3M12 15.4a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>'
     };
     return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none">' + icons[name] + "</svg>";
   }
@@ -52,11 +56,11 @@
       ["home", "Home", prefix + "index.html"],
       ["about", "About", prefix + "about.html"],
       ["projects", "Projects", prefix + "projects.html"],
-      ["contact", "Contact", prefix + "contact.html"],
-      ["theme", "Theme", prefix + "theme.html"]
+      ["contact", "Contact", prefix + "contact.html"]
     ];
 
-    return items
+    return (
+      items
       .map(function (item) {
         var key = item[0];
         var label = item[1];
@@ -80,19 +84,34 @@
           "</span></a>"
         );
       })
-      .join("");
+      .join("") +
+      '<button class="dock-link theme-toggle" type="button" data-theme-toggle aria-label="Switch theme"></button>'
+    );
   }
-
-  applyTheme(preferredTheme());
 
   document.querySelectorAll(".dock").forEach(function (dock) {
     var prefix = body.dataset.depth === "project" ? "../" : "";
     dock.innerHTML = dockMarkup(prefix);
   });
 
-  document.querySelectorAll("[data-theme-choice]").forEach(function (button) {
+  applyTheme(preferredTheme());
+
+  document.querySelectorAll("[data-marquee-track]").forEach(function (track) {
+    if (track.dataset.cloned === "true") return;
+    Array.prototype.slice.call(track.children).forEach(function (slide) {
+      var clone = slide.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      clone.querySelectorAll("img").forEach(function (image) {
+        image.setAttribute("alt", "");
+      });
+      track.appendChild(clone);
+    });
+    track.dataset.cloned = "true";
+  });
+
+  document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
     button.addEventListener("click", function () {
-      saveTheme(button.getAttribute("data-theme-choice"));
+      saveTheme(root.dataset.theme === "dark" ? "light" : "dark");
     });
   });
 

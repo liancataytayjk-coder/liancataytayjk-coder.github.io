@@ -1,6 +1,6 @@
 # Lian Cataytay Portfolio
 
-A minimalist personal portfolio website for Lian Cataytay, Data Analyst &middot; Economist.
+A minimalist personal portfolio website for Lian Cataytay, Data Analyst & Economist.
 
 ## Live Site
 
@@ -13,7 +13,6 @@ index.html
 about.html
 projects.html
 contact.html
-theme.html
 assets/
   styles.css
   script.js
