@@ -34,7 +34,7 @@
     try {
       localStorage.setItem(storageKey, theme);
     } catch (error) {
-      return;
+      // Some file:// browser contexts block localStorage; the visual toggle should still work.
     }
     applyTheme(theme);
   }

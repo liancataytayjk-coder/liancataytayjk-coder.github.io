@@ -207,47 +207,87 @@ svg {
 }
 
 .tagline {
-  margin: 0 0 18px;
+  margin: 0 0 34px;
   color: var(--text-strong);
   font-size: 1.05rem;
   font-weight: 420;
 }
 
+.tagline + .section-title {
+  margin-bottom: 24px;
+}
+
 .home-projects {
   display: grid;
-  gap: 12px;
-  margin-top: 28px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 30px;
 }
 
 .home-project-card {
+  position: relative;
   display: block;
-  padding: 14px 16px 15px;
+  aspect-ratio: 1;
+  min-height: 0;
+  padding: 18px;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  transition: border-color 180ms ease, transform 180ms ease, opacity 180ms ease;
+  transition: border-color 180ms ease, transform 180ms ease, opacity 180ms ease, background-color 180ms ease;
+}
+
+.home-project-card::before,
+.home-project-card::after {
+  position: absolute;
+  pointer-events: none;
+  content: "";
+}
+
+.home-project-card::before {
+  inset: 0;
+  background:
+    linear-gradient(color-mix(in srgb, var(--border) 48%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--border) 48%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.22;
+}
+
+.home-project-card::after {
+  right: 14px;
+  bottom: 14px;
+  width: 34px;
+  height: 34px;
+  border-right: 1px solid color-mix(in srgb, var(--accent) 64%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 64%, transparent);
+  opacity: 0.7;
 }
 
 .home-project-card:hover {
   border-color: color-mix(in srgb, var(--accent) 38%, var(--border));
+  background: color-mix(in srgb, var(--surface) 92%, var(--accent));
   opacity: 0.92;
   transform: translateY(-2px);
 }
 
 .home-project-card strong {
+  position: relative;
+  z-index: 1;
   display: block;
   color: var(--text-strong);
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   font-weight: 520;
   line-height: 1.35;
 }
 
 .home-project-card span {
+  position: relative;
+  z-index: 1;
   display: block;
-  margin-top: 5px;
+  margin-top: 10px;
   color: var(--secondary);
-  font-size: 0.92rem;
-  line-height: 1.5;
+  font-size: 0.84rem;
+  line-height: 1.46;
 }
 
 .project-list {
@@ -630,6 +670,15 @@ svg {
     grid-template-columns: 1fr;
     gap: 8px;
     padding: 20px 0 22px;
+  }
+
+  .home-projects {
+    grid-template-columns: 1fr;
+  }
+
+  .home-project-card {
+    aspect-ratio: auto;
+    min-height: 150px;
   }
 
   .project-arrow {
