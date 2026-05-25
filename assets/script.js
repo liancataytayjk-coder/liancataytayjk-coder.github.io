@@ -12,14 +12,39 @@
     }
   }
 
+  function urlTheme() {
+    var value = new URLSearchParams(window.location.search).get("theme");
+    return value === "dark" || value === "light" ? value : null;
+  }
+
   function preferredTheme() {
+    if (urlTheme()) return urlTheme();
     if (storedTheme()) return storedTheme();
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function updateThemeLinks(theme) {
+    document.querySelectorAll("a[href]").forEach(function (link) {
+      var href = link.getAttribute("href");
+      if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("http")) return;
+
+      var parts = href.split("#");
+      var base = parts[0];
+      var hash = parts[1] ? "#" + parts[1] : "";
+      if (!base || base.match(/\.(png|jpg|jpeg|svg|gif|webp|pdf)$/i)) return;
+
+      var querySplit = base.split("?");
+      var path = querySplit[0];
+      var params = new URLSearchParams(querySplit[1] || "");
+      params.set("theme", theme);
+      link.setAttribute("href", path + "?" + params.toString() + hash);
+    });
   }
 
   function applyTheme(theme) {
     var nextTheme = theme === "dark" ? "dark" : "light";
     root.dataset.theme = nextTheme;
+    updateThemeLinks(nextTheme);
     document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
       var targetTheme = nextTheme === "dark" ? "light" : "dark";
       button.setAttribute("aria-label", "Switch to " + targetTheme + " mode");
@@ -31,12 +56,16 @@
   }
 
   function saveTheme(theme) {
+    var nextTheme = theme === "dark" ? "dark" : "light";
     try {
-      localStorage.setItem(storageKey, theme);
+      localStorage.setItem(storageKey, nextTheme);
     } catch (error) {
       // Some file:// browser contexts block localStorage; the visual toggle should still work.
     }
-    applyTheme(theme);
+    applyTheme(nextTheme);
+    var params = new URLSearchParams(window.location.search);
+    params.set("theme", nextTheme);
+    window.history.replaceState({}, "", window.location.pathname + "?" + params.toString() + window.location.hash);
   }
 
   function icon(name) {

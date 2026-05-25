@@ -18,6 +18,7 @@ assets/
   script.js
   lian-cataytay-lc-tech-logo.svg
   lian-cataytay-lc-tech-logo.png
+  about-night-sky.jpg
 projects/
   customer-sentiment-intelligence-dashboard.html
   ecommerce-customer-retention-analytics.html
