@@ -144,6 +144,35 @@
     });
   });
 
+  document.querySelectorAll('a[target="_blank"][href^="http"]').forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      var href = link.getAttribute("href");
+      var opened = window.open(href, "_blank", "noopener,noreferrer");
+      if (opened) {
+        event.preventDefault();
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-contact-form]").forEach(function (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var name = form.elements.name ? form.elements.name.value.trim() : "";
+      var email = form.elements.email ? form.elements.email.value.trim() : "";
+      var message = form.elements.message ? form.elements.message.value.trim() : "";
+      var body = ["Name: " + name, "Email: " + email, "", message].join("\\n");
+      var url =
+        "https://mail.google.com/mail/?view=cm&fs=1&to=liancataytayjk%40gmail.com&su=" +
+        encodeURIComponent("Portfolio inquiry") +
+        "&body=" +
+        encodeURIComponent(body);
+      var opened = window.open(url, "_blank", "noopener,noreferrer");
+      if (!opened) {
+        window.location.href = url;
+      }
+    });
+  });
+
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
     var observer = new IntersectionObserver(
       function (entries) {
