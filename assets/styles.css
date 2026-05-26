@@ -242,6 +242,7 @@ svg {
 }
 
 .home-projects {
+  counter-reset: home-project;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
@@ -250,14 +251,18 @@ svg {
 
 .home-project-card {
   position: relative;
+  counter-increment: home-project;
   display: block;
   aspect-ratio: 1;
   min-height: 0;
   padding: 18px;
   overflow: hidden;
-  background: var(--surface);
+  background:
+    radial-gradient(circle at 84% 14%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 26%),
+    linear-gradient(135deg, color-mix(in srgb, var(--surface) 86%, var(--accent)), var(--surface) 62%);
   border: 1px solid var(--border);
   border-radius: 8px;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #ffffff 62%, transparent);
   transition: border-color 180ms ease, transform 180ms ease, opacity 180ms ease, background-color 180ms ease;
 }
 
@@ -273,8 +278,9 @@ svg {
   background:
     linear-gradient(color-mix(in srgb, var(--border) 48%, transparent) 1px, transparent 1px),
     linear-gradient(90deg, color-mix(in srgb, var(--border) 48%, transparent) 1px, transparent 1px);
-  background-size: 22px 22px;
-  opacity: 0.22;
+  background-size: 20px 20px;
+  opacity: 0.28;
+  transition: opacity 180ms ease;
 }
 
 .home-project-card::after {
@@ -287,11 +293,21 @@ svg {
   opacity: 0.7;
 }
 
+.home-project-card:nth-child(5) {
+  grid-column: 1 / -1;
+  aspect-ratio: 2.15 / 1;
+}
+
 .home-project-card:hover {
   border-color: color-mix(in srgb, var(--accent) 38%, var(--border));
   background: color-mix(in srgb, var(--surface) 92%, var(--accent));
+  box-shadow: 0 14px 32px color-mix(in srgb, var(--accent) 16%, transparent);
   opacity: 0.92;
   transform: translateY(-2px);
+}
+
+.home-project-card:hover::before {
+  opacity: 0.42;
 }
 
 .home-project-card strong {
@@ -302,6 +318,20 @@ svg {
   font-size: 0.96rem;
   font-weight: 520;
   line-height: 1.35;
+}
+
+.home-project-card strong::before {
+  display: table;
+  margin-bottom: 18px;
+  padding: 4px 8px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 620;
+  line-height: 1;
+  content: "0" counter(home-project);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 999px;
 }
 
 .home-project-card span {
@@ -437,18 +467,10 @@ svg {
   margin-top: 0;
 }
 
-.contact-highlight {
-  display: inline;
+.contact-panel > p {
+  margin: 0;
   color: var(--secondary);
   line-height: 1.58;
-  background: linear-gradient(
-    transparent 18%,
-    color-mix(in srgb, var(--accent) 22%, transparent) 18%,
-    color-mix(in srgb, var(--accent) 22%, transparent) 88%,
-    transparent 88%
-  );
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .contact-email {
@@ -575,7 +597,7 @@ svg {
 
 .message-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 18px;
   align-items: center;
   margin-top: 22px;
@@ -889,6 +911,11 @@ svg {
   .home-project-card {
     aspect-ratio: auto;
     min-height: 150px;
+  }
+
+  .home-project-card:nth-child(5) {
+    grid-column: auto;
+    aspect-ratio: auto;
   }
 
   .project-arrow {
