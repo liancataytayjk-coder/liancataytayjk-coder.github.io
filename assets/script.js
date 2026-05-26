@@ -156,19 +156,13 @@
 
   document.querySelectorAll("[data-contact-form]").forEach(function (form) {
     form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var name = form.elements.name ? form.elements.name.value.trim() : "";
-      var email = form.elements.email ? form.elements.email.value.trim() : "";
-      var message = form.elements.message ? form.elements.message.value.trim() : "";
-      var body = ["Name: " + name, "Email: " + email, "", message].join("\\n");
-      var url =
-        "https://mail.google.com/mail/?view=cm&fs=1&to=liancataytayjk%40gmail.com&su=" +
-        encodeURIComponent("Portfolio inquiry") +
-        "&body=" +
-        encodeURIComponent(body);
-      var opened = window.open(url, "_blank", "noopener,noreferrer");
-      if (!opened) {
-        window.location.href = url;
+      var keyInput = form.querySelector('input[name="access_key"]');
+      if (!keyInput || keyInput.value === "YOUR_WEB3FORMS_ACCESS_KEY") {
+        event.preventDefault();
+        var status = form.querySelector("[data-form-status]");
+        if (status) {
+          status.textContent = "Add your Web3Forms access key in contact.html before this form can send.";
+        }
       }
     });
   });

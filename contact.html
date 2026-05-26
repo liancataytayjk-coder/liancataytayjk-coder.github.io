@@ -45,7 +45,11 @@
           </a>
         </div>
 
-        <form class="message-card" data-contact-form>
+        <form class="message-card" action="https://api.web3forms.com/submit" method="POST" data-contact-form>
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="New portfolio inquiry for Lian Cataytay">
+          <input type="hidden" name="from_name" value="Lian Cataytay Portfolio">
+          <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
           <div class="message-head">
             <h3>Send me a message</h3>
           </div>
@@ -56,7 +60,7 @@
             </label>
             <label>
               Email
-              <input type="email" name="email" placeholder="jane@example.com" autocomplete="email">
+              <input type="email" name="email" placeholder="juandelacruz@example.com" autocomplete="email">
             </label>
           </div>
           <label>
@@ -71,6 +75,7 @@
               Send message &rarr;
             </button>
           </div>
+          <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
       </section>
     </main>

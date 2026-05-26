@@ -659,6 +659,13 @@ svg {
   height: 18px;
 }
 
+.form-status {
+  min-height: 1.35em;
+  margin: 16px 0 0;
+  color: var(--secondary);
+  font-size: 0.88rem;
+}
+
 .project-header {
   margin-bottom: 32px;
 }

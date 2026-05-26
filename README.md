@@ -51,3 +51,5 @@ Open `index.html` directly in a browser.
 
 This website uses only HTML, CSS, and JavaScript.
 No build step is required.
+
+The contact form is prepared for Web3Forms. Replace `YOUR_WEB3FORMS_ACCESS_KEY` in `contact.html` with your Web3Forms access key before publishing.
