@@ -13,12 +13,15 @@ index.html
 about.html
 projects.html
 contact.html
+portfolio.html
 assets/
   styles.css
+  portfolio.css
   script.js
   lian-cataytay-lc-tech-logo.svg
   lian-cataytay-lc-tech-logo.png
   about-night-sky.jpg
+  portfolio.pdf
   lian-cataytay-resume.pdf
 projects/
   customer-sentiment-intelligence-dashboard.html
