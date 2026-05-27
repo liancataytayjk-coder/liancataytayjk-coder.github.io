@@ -762,26 +762,101 @@ svg {
   height: auto;
 }
 
-.visual-placeholder {
-  display: grid;
-  min-height: 220px;
-  padding: 28px;
-  place-items: center;
-  text-align: center;
-}
-
-.visual-placeholder strong {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--text-strong);
-  font-size: 0.98rem;
-  font-weight: 500;
-}
-
-.visual-placeholder span,
 .visual-caption {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.analytics-visual {
+  position: relative;
+  display: grid;
+  gap: 20px;
+  min-height: 260px;
+  padding: 28px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 86% 18%, rgba(var(--accent-rgb), 0.2), transparent 30%),
+    linear-gradient(135deg, color-mix(in srgb, var(--surface) 76%, var(--accent-deep)), var(--surface) 70%);
+}
+
+.analytics-visual::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(rgba(var(--accent-rgb), 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--accent-rgb), 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.35;
+}
+
+.analytics-visual-head,
+.analytics-grid,
+.analytics-bars {
+  position: relative;
+  z-index: 1;
+}
+
+.analytics-visual-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.analytics-visual-head span {
+  color: var(--secondary);
+  font-size: 0.92rem;
+}
+
+.analytics-visual-head strong {
+  color: var(--accent-ink);
+  font-size: 1.08rem;
+  font-weight: 560;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.analytics-grid div {
+  min-height: 92px;
+  padding: 14px;
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, var(--accent));
+  border-radius: 8px;
+}
+
+.analytics-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.analytics-grid strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--text-strong);
+  font-size: 1.24rem;
+  font-weight: 560;
+  line-height: 1;
+}
+
+.analytics-bars {
+  display: grid;
+  gap: 10px;
+}
+
+.analytics-bars span {
+  display: block;
+  width: var(--bar);
+  height: 9px;
+  background: linear-gradient(90deg, var(--accent-deep), rgba(var(--accent-rgb), 0.36));
+  border-radius: 999px;
 }
 
 .visual-caption {
@@ -979,6 +1054,19 @@ svg {
 
   .message-footer button {
     width: 100%;
+  }
+
+  .analytics-visual {
+    padding: 22px;
+  }
+
+  .analytics-visual-head,
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-grid {
+    display: grid;
   }
 
   .visual-track {
