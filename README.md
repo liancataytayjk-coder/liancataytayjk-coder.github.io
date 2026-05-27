@@ -19,6 +19,7 @@ assets/
   lian-cataytay-lc-tech-logo.svg
   lian-cataytay-lc-tech-logo.png
   about-night-sky.jpg
+  lian-cataytay-resume.pdf
 projects/
   customer-sentiment-intelligence-dashboard.html
   ecommerce-customer-retention-analytics.html
