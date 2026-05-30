@@ -1,0 +1,7 @@
+.next/
+node_modules/
+.tools/
+crm-event-marketing-data-hygiene-system/
+dev-server.*.log
+tsconfig.tsbuildinfo
+.env*
