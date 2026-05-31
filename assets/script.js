@@ -127,6 +127,11 @@
 
   document.querySelectorAll("[data-marquee-track]").forEach(function (track) {
     if (track.dataset.cloned === "true") return;
+    var sourceSlides = Array.prototype.slice.call(track.children);
+    if (!sourceSlides.length) return;
+    while (track.children.length < 3) {
+      track.appendChild(sourceSlides[track.children.length % sourceSlides.length].cloneNode(true));
+    }
     Array.prototype.slice.call(track.children).forEach(function (slide) {
       var clone = slide.cloneNode(true);
       clone.setAttribute("aria-hidden", "true");
