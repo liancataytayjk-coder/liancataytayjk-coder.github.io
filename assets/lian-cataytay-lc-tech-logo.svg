@@ -1,7 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="415" height="433" viewBox="0 0 415 433" role="img" aria-labelledby="title desc">
   <title id="title">Lian Cataytay LC Tech Logo</title>
-  <desc id="desc">High-contrast LC monogram in a GitHub-style near-black on a light rounded tile.</desc>
-  <rect x="18" y="18" width="476" height="476" rx="64" fill="#f6f8fa" stroke="#d0d7de" stroke-width="8"/>
-  <text x="256" y="310" fill="#24292f" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="205" font-weight="700" text-anchor="middle">LC</text>
-  <line x1="156" y1="384" x2="356" y2="384" stroke="#24292f" stroke-width="14" stroke-linecap="round"/>
+  <desc id="desc">LC monogram logo used as Lian Cataytay's profile avatar.</desc>
+  <image href="lian-cataytay-lc-tech-logo.png" width="415" height="433" preserveAspectRatio="xMidYMid meet" />
 </svg>
