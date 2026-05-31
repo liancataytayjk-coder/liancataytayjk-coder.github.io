@@ -761,6 +761,48 @@ svg {
   aspect-ratio: 16 / 9;
 }
 
+.result-panel {
+  align-content: space-between;
+  justify-items: stretch;
+  padding: 22px;
+  text-align: left;
+}
+
+.result-panel-kicker {
+  color: var(--secondary);
+  font-size: 0.78rem;
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.result-panel strong {
+  display: block;
+  margin-top: 18px;
+  color: var(--text-strong);
+  font-size: clamp(1.75rem, 1.42rem + 1.05vw, 2.45rem);
+  font-weight: 580;
+  line-height: 1;
+}
+
+.result-panel span:not(.result-panel-kicker) {
+  display: block;
+  margin-top: 10px;
+  color: var(--secondary);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.result-panel-bar {
+  display: block;
+  width: var(--bar, 64%);
+  height: 6px;
+  margin-top: 22px;
+  background: linear-gradient(90deg, var(--accent-deep), rgba(var(--accent-rgb), 0.28));
+  border-radius: 999px;
+}
+
 .visual-slide img {
   width: 100%;
   height: 100%;

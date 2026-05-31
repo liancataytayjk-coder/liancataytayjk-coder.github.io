@@ -24,22 +24,25 @@
         </ul>
       </header>
 
-      <div class="visual-frame reveal">
-        <div class="analytics-visual" aria-label="Banking risk analytics visual">
-          <div class="analytics-visual-head">
-            <span>Credit Risk View</span>
-            <strong>0.72 ROC AUC</strong>
+      <div class="visual-marquee reveal" aria-label="Banking risk result panels">
+        <div class="visual-track" data-marquee-track>
+          <div class="visual-slide result-panel">
+            <span class="result-panel-kicker">Model performance</span>
+            <strong>0.72</strong>
+            <span>ROC AUC for classifying borrower default exposure.</span>
+            <i class="result-panel-bar" style="--bar: 72%"></i>
           </div>
-          <div class="analytics-grid">
-            <div><span>Default Exposure</span><strong>18.4%</strong></div>
-            <div><span>High-Risk Loans</span><strong>246</strong></div>
-            <div><span>Portfolio Flags</span><strong>7</strong></div>
+          <div class="visual-slide result-panel">
+            <span class="result-panel-kicker">Portfolio exposure</span>
+            <strong>18.4%</strong>
+            <span>default exposure identified across the analyzed loan portfolio.</span>
+            <i class="result-panel-bar" style="--bar: 46%"></i>
           </div>
-          <div class="analytics-bars" aria-hidden="true">
-            <span style="--bar: 76%"></span>
-            <span style="--bar: 58%"></span>
-            <span style="--bar: 42%"></span>
-            <span style="--bar: 63%"></span>
+          <div class="visual-slide result-panel">
+            <span class="result-panel-kicker">High-risk segment</span>
+            <strong>246</strong>
+            <span>loans flagged for closer risk monitoring.</span>
+            <i class="result-panel-bar" style="--bar: 58%"></i>
           </div>
         </div>
       </div>
