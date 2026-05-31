@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="eCommerce Marketplace Ads Performance Dashboard by Lian Cataytay.">
+    <title>eCommerce Marketplace Ads Performance Dashboard | Lian Cataytay</title>
+    <link rel="icon" href="../assets/lian-cataytay-lc-tech-logo.png" type="image/png">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <script src="../assets/script.js" defer></script>
+  </head>
+  <body data-page="project" data-depth="project">
+    <main class="page-shell">
+      <a class="back-link reveal" href="../projects.html">&larr; Back to projects</a>
+
+      <header class="project-header reveal">
+        <p class="eyebrow">Marketplace ads &middot; ACoS/TACoS &middot; Budget allocation</p>
+        <h1 class="project-page-title">eCommerce Marketplace Ads Performance Dashboard</h1>
+        <ul class="tool-list" aria-label="Tools used">
+          <li>Excel</li>
+          <li>SQL</li>
+          <li>Python</li>
+          <li>Streamlit</li>
+        </ul>
+      </header>
+
+      <div class="visual-frame analytics-visual reveal" aria-label="Marketplace ads performance summary">
+        <div class="analytics-visual-head">
+          <span>Marketplace ads model</span>
+          <strong>42,360 ad rows</strong>
+        </div>
+        <div class="analytics-grid">
+          <div><span>Ad revenue</span><strong>$86.7M</strong></div>
+          <div><span>Average ROAS</span><strong>6.80</strong></div>
+          <div><span>Slow-moving SKUs</span><strong>485</strong></div>
+        </div>
+        <div class="analytics-bars" aria-hidden="true">
+          <span style="--bar: 88%"></span>
+          <span style="--bar: 68%"></span>
+          <span style="--bar: 46%"></span>
+        </div>
+      </div>
+
+      <article class="project-body reveal">
+        <section>
+          <h2>Context</h2>
+          <p>Marketplace advertising teams often manage separate exports from Amazon Ads, Google Ads, TikTok Ads, and eBay Ads, making it harder to compare spend, revenue, profit, and inventory impact.</p>
+        </section>
+        <section>
+          <h2>Data</h2>
+          <p>Synthetic ad platform exports, marketplace sales, product catalog, and inventory datasets covering 12 months of consumer electronics activity.</p>
+        </section>
+        <section>
+          <h2>Method</h2>
+          <p>I consolidated platform schemas, cleaned SKU and campaign fields, joined product and inventory data, calculated ACoS/TACoS-style KPIs, and built validation checks for reporting quality.</p>
+        </section>
+        <section>
+          <h2>Output</h2>
+          <p>A dashboard-ready ads dataset, Excel performance model, SQL queries, Streamlit dashboard, Power BI build guide, slow-moving product analysis, and budget allocation recommendations.</p>
+        </section>
+        <section>
+          <h2>Findings</h2>
+          <p>The workflow processed 42,360 ad rows and 6,500 sales rows, generated $86.7M in attributed ad revenue, produced a 6.80 average ROAS, and flagged 4,903 campaign/SKU rows for reduction or pause.</p>
+        </section>
+        <section>
+          <h2>Repository</h2>
+          <p><a class="text-link" href="https://github.com/liancataytayjk-coder/ecommerce-marketplace-ads-performance-dashboard" target="_blank" rel="noopener noreferrer">View GitHub repository</a></p>
+        </section>
+        <section>
+          <h2>Reflection</h2>
+          <p>The strongest part of this project is the operating layer: it does not just show performance, it turns messy marketplace exports into budget actions, data quality fixes, and product-level decisions.</p>
+        </section>
+      </article>
+    </main>
+
+    <nav class="dock" aria-label="Primary navigation"></nav>
+  </body>
+</html>
