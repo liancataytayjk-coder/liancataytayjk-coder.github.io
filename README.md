@@ -15,6 +15,8 @@ projects.html
 contact.html
 portfolio.html
 404.html
+sitemap.xml
+robots.txt
 assets/
   styles.css
   portfolio.css
@@ -23,6 +25,8 @@ assets/
   lian-cataytay-lc-tech-logo.png
   favicon-64.png
   apple-touch-icon.png
+  og-image.jpg            # 1200x630 link-preview image
+  projects/epiwatch-mindanao/  # charts generated from the EpiWatch repo data
   about-night-sky.jpg
   portfolio.pdf
   lian-cataytay-resume.pdf
@@ -41,6 +45,11 @@ projects/
   crm-event-marketing-data-hygiene-system.html
   epiwatch-mindanao-public-health-risk-forecasting.html
 ```
+
+## Updating the portfolio PDF
+
+`assets/portfolio.pdf` is printed from `portfolio.html`. After editing it, serve the folder locally
+and print the page to A4 PDF with background graphics enabled (Chrome: Print > Save as PDF, margins None).
 
 ## How to Run Locally
 

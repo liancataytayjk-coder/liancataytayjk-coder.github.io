@@ -11,8 +11,10 @@
     <meta property="og:title" content="EpiWatch Mindanao Public Health Risk Forecasting | Lian Cataytay">
     <meta property="og:description" content="EpiWatch Mindanao public health risk forecasting and early warning decision-support system by Lian Cataytay.">
     <meta property="og:url" content="https://liancataytayjk-coder.github.io/projects/epiwatch-mindanao-public-health-risk-forecasting.html">
-    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/lian-cataytay-lc-tech-logo.png">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="../assets/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <script>
@@ -46,17 +48,12 @@
         </ul>
       </header>
 
-      <div class="visual-marquee reveal" aria-label="EpiWatch tentative dashboard visuals">
+      <div class="visual-marquee reveal" aria-label="EpiWatch Mindanao charts">
         <div class="visual-track" data-marquee-track>
-          <div class="visual-slide">
-            <img src="../assets/projects/epiwatch-mindanao/early-warning-heatmap.png" alt="Early warning risk heatmap preview">
-          </div>
-          <div class="visual-slide">
-            <img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/municipality-risk-ranking.png" alt="Municipality risk ranking preview">
-          </div>
-          <div class="visual-slide">
-            <img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/dashboard-wireframe.png" alt="Public health dashboard layout wireframe">
-          </div>
+          <div class="visual-slide"><img src="../assets/projects/epiwatch-mindanao/weekly-case-trend.png" alt="Weekly reported cases across 24 Mindanao municipalities"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/forecast-vs-actual.png" alt="Forecast versus actual next-four-week case burden"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/municipality-risk-ranking.png" alt="Early Warning Risk Index ranking for all 24 municipalities"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/anomaly-detection.png" alt="Anomaly detection for Jolo against its historical baseline"></div>
         </div>
       </div>
 
@@ -79,7 +76,7 @@
         </section>
         <section>
           <h2>Findings</h2>
-          <p>The prototype produced 3,024 municipality-week records and classified the latest week into 1 High Risk, 1 Alert, 14 Watch, and 8 Normal municipalities.</p>
+          <p>The prototype produced 3,024 municipality-week records and classified the latest week into 1 High Risk, 1 Alert, 14 Watch, and 8 Normal municipalities. Jolo ranked highest with a 0.80 risk index after a sharp rise above its baseline, and the forecasting model&rsquo;s MAE was 36.76 cases.</p>
         </section>
         <section>
           <h2>Repository</h2>
@@ -90,6 +87,11 @@
           <p>This project is a planning-support analytics prototype, not an official surveillance system. Its value is in the transparent workflow: trend detection, risk drivers, and responsible decision-support reporting.</p>
         </section>
       </article>
+
+      <nav class="project-pager reveal" aria-label="More projects">
+        <a href="employee-attrition-risk-and-workforce-intelligence-analysis.html" rel="prev"><span>&larr; Previous</span><strong>Employee Attrition Risk and Workforce Intelligence Analysis</strong></a>
+        <a href="customer-sentiment-intelligence-dashboard.html" rel="next"><span>Next &rarr;</span><strong>Customer Sentiment Intelligence Dashboard</strong></a>
+      </nav>
     </main>
 
     <nav class="dock" aria-label="Primary navigation"></nav>

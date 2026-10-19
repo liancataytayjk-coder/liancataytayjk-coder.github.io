@@ -11,8 +11,10 @@
     <meta property="og:title" content="Lian Cataytay | Data Analyst &amp; Economist">
     <meta property="og:description" content="Lian Cataytay is a Data Analyst and Economist building decision-ready analytics, dashboards, and research workflows.">
     <meta property="og:url" content="https://liancataytayjk-coder.github.io/">
-    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/lian-cataytay-lc-tech-logo.png">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="assets/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <script>
@@ -26,6 +28,41 @@
         }
         document.documentElement.dataset.theme = theme;
       })();
+    </script>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Lian Cataytay",
+      "jobTitle": "Data Analyst & Economist",
+      "url": "https://liancataytayjk-coder.github.io/",
+      "email": "mailto:liancataytayjk@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Davao City",
+        "addressCountry": "PH"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Southeastern Philippines"
+      },
+      "knowsAbout": [
+        "Data analysis",
+        "Econometrics",
+        "Business intelligence",
+        "Machine learning",
+        "Python",
+        "SQL",
+        "R",
+        "Stata",
+        "Power BI",
+        "Tableau"
+      ],
+      "sameAs": [
+        "https://github.com/liancataytayjk-coder",
+        "https://www.linkedin.com/in/liancataytay/"
+      ]
+    }
     </script>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
@@ -64,8 +101,32 @@
         </div>
       </section>
 
+      <section class="page-section reveal" aria-labelledby="glance-title">
+        <h2 class="visually-hidden" id="glance-title">At a glance</h2>
+        <dl class="stat-row">
+          <div><dt>Experience</dt><dd>3+ yrs</dd><span>analytics &amp; research</span></div>
+          <div><dt>Projects</dt><dd>13</dd><span>with public code</span></div>
+          <div><dt>Education</dt><dd>BS Econ</dd><span>USeP, Davao City</span></div>
+        </dl>
+        <ul class="tool-list toolkit" aria-label="Toolkit">
+          <li>Python</li>
+          <li>SQL</li>
+          <li>R</li>
+          <li>Stata</li>
+          <li>Excel</li>
+          <li>Power BI</li>
+          <li>Tableau</li>
+          <li>Pandas</li>
+          <li>Scikit-learn</li>
+          <li>SHAP</li>
+        </ul>
+      </section>
+
       <section class="page-section reveal" aria-labelledby="featured-title">
-        <h2 class="section-title" id="featured-title">Key projects</h2>
+        <div class="section-head-row">
+          <h2 class="section-title" id="featured-title">Key projects</h2>
+          <a class="text-link" href="projects.html">All 13 &rarr;</a>
+        </div>
         <div class="home-projects">
           <a class="home-project-card" href="projects/epiwatch-mindanao-public-health-risk-forecasting.html">
             <strong data-kicker="Health">EpiWatch Mindanao Public Health Risk Forecasting</strong>
