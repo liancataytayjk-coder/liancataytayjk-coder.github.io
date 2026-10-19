@@ -14,12 +14,15 @@ about.html
 projects.html
 contact.html
 portfolio.html
+404.html
 assets/
   styles.css
   portfolio.css
   script.js
   lian-cataytay-lc-tech-logo.svg
   lian-cataytay-lc-tech-logo.png
+  favicon-64.png
+  apple-touch-icon.png
   about-night-sky.jpg
   portfolio.pdf
   lian-cataytay-resume.pdf
@@ -33,6 +36,10 @@ projects/
   philippine-emigration-ardl-macroeconomic-analysis.html
   banking-risk-and-financial-performance-analysis.html
   employee-attrition-risk-and-workforce-intelligence-analysis.html
+  ecommerce-marketplace-ads-performance-dashboard.html
+  fpa-revenue-cost-expense-forecasting-dashboard.html
+  crm-event-marketing-data-hygiene-system.html
+  epiwatch-mindanao-public-health-risk-forecasting.html
 ```
 
 ## How to Run Locally

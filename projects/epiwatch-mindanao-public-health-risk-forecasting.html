@@ -5,7 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="EpiWatch Mindanao public health risk forecasting and early warning decision-support system by Lian Cataytay.">
     <title>EpiWatch Mindanao Public Health Risk Forecasting | Lian Cataytay</title>
-    <link rel="icon" href="../assets/lian-cataytay-lc-tech-logo.png" type="image/png">
+    <link rel="canonical" href="https://liancataytayjk-coder.github.io/projects/epiwatch-mindanao-public-health-risk-forecasting.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lian Cataytay">
+    <meta property="og:title" content="EpiWatch Mindanao Public Health Risk Forecasting | Lian Cataytay">
+    <meta property="og:description" content="EpiWatch Mindanao public health risk forecasting and early warning decision-support system by Lian Cataytay.">
+    <meta property="og:url" content="https://liancataytayjk-coder.github.io/projects/epiwatch-mindanao-public-health-risk-forecasting.html">
+    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/lian-cataytay-lc-tech-logo.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="../assets/favicon-64.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <script>
+      (function () {
+        var theme = new URLSearchParams(window.location.search).get("theme");
+        try {
+          theme = theme || localStorage.getItem("lian-portfolio-theme");
+        } catch (error) {}
+        if (theme !== "dark" && theme !== "light") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="../assets/styles.css">
     <script src="../assets/script.js" defer></script>
   </head>
@@ -31,10 +52,10 @@
             <img src="../assets/projects/epiwatch-mindanao/early-warning-heatmap.png" alt="Early warning risk heatmap preview">
           </div>
           <div class="visual-slide">
-            <img src="../assets/projects/epiwatch-mindanao/municipality-risk-ranking.png" alt="Municipality risk ranking preview">
+            <img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/municipality-risk-ranking.png" alt="Municipality risk ranking preview">
           </div>
           <div class="visual-slide">
-            <img src="../assets/projects/epiwatch-mindanao/dashboard-wireframe.png" alt="Public health dashboard layout wireframe">
+            <img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/dashboard-wireframe.png" alt="Public health dashboard layout wireframe">
           </div>
         </div>
       </div>

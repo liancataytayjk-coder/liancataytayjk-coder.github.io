@@ -212,6 +212,18 @@ svg {
   margin-top: 16px;
 }
 
+.home-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-top: 22px;
+}
+
+.home-cta .text-link {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
 .tagline {
   margin: 0 0 34px;
   color: var(--text-strong);
