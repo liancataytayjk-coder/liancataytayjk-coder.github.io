@@ -15,22 +15,11 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#fbf9f4">
     <link rel="icon" href="assets/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <script>
-      (function () {
-        var theme = new URLSearchParams(window.location.search).get("theme");
-        try {
-          theme = theme || localStorage.getItem("lian-portfolio-theme");
-        } catch (error) {}
-        if (theme !== "dark" && theme !== "light") {
-          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
     <script type="application/ld+json">
-{
+    {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Lian Cataytay",
@@ -68,94 +57,178 @@
     <script src="assets/script.js" defer></script>
   </head>
   <body data-page="home">
-    <main class="page-shell">
-      <header class="site-header reveal">
-        <a class="avatar" href="index.html" aria-label="Lian Cataytay home">
-          <img src="assets/lian-cataytay-lc-tech-logo.png" alt="LC Tech logo">
-        </a>
-        <div class="identity">
-          <h1 class="identity-name">Lian Cataytay</h1>
-          <p class="identity-role">Data Analyst &amp; Economist</p>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead">
+      <div class="masthead-bar">
+        <span class="masthead-date" data-today></span>
+        <span class="masthead-place">Davao City, Philippines</span>
+        <span class="masthead-links"><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a></span>
+      </div>
+      <a class="nameplate" href="index.html">Lian Cataytay</a>
+      <p class="motto">Data Analyst &amp; Economist &middot; Analytics, dashboards, and econometric research</p>
+      <nav class="section-nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+    <main id="main" class="page">
+      <section class="front-top" aria-label="Front page">
+        <div class="front-intro">
+          <p class="kicker">Welcome</p>
+          <h2 class="intro-headline">Hello, hola, bonjour, ol&aacute; &amp; kumusta!</h2>
+          <p>I&rsquo;m a data analyst who thinks like an economist. I care about how numbers work just as much as what decisions they support.</p>
+          <p>Data is only valuable when it leads to better decisions. Many organizations already have the numbers; what they lack is a clear way to interpret them. That is the gap he focuses on closing.</p>
+          <p class="more-links"><a href="about.html">About me &rarr;</a><a href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">Read the r&eacute;sum&eacute; &rarr;</a><a href="contact.html">Get in touch &rarr;</a></p>
         </div>
-        <div class="header-actions">
-          <a class="icon-link" href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-              <path d="M7.5 10.5v6M7.5 7.5v.01M11 16.5v-6m0 2.6c0-1.6 1-2.6 2.4-2.6 1.4 0 2.1.9 2.1 2.6v3.4M5.5 3.5h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a class="icon-link" href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-              <path d="M9 19c-4.3 1.4-4.3-2.2-6-2.7m12 5.1v-3.7c0-1 .1-1.4-.5-2 2.7-.3 5.5-1.3 5.5-6A4.6 4.6 0 0 0 18.7 6c.1-.3.6-1.7-.2-3.6 0 0-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.6 0C5.8 2.1 4.7 2.4 4.7 2.4A4.8 4.8 0 0 0 4.5 6 4.6 4.6 0 0 0 3.2 9.7c0 4.7 2.8 5.7 5.5 6-.6.6-.7 1.2-.7 2v3.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </header>
 
-      <section class="page-section reveal" aria-labelledby="home-title">
-        <h2 class="section-title" id="home-title">Welcome to my portfolio</h2>
-        <p>Hello, hola, bonjour, ol&aacute; &amp; kumusta!</p>
-        <p>I'm a data analyst who thinks like an economist. I care about how numbers work just as much as what decisions they support.</p>
-        <div class="home-cta">
-          <a class="text-link" href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">View resume &rarr;</a>
-          <a class="text-link" href="contact.html">Get in touch &rarr;</a>
-        </div>
+        <article class="front-lead">
+          <a class="card-figure" href="projects/epiwatch-mindanao-public-health-risk-forecasting.html" tabindex="-1" aria-hidden="true"><img src="assets/projects/epiwatch-mindanao/municipality-risk-ranking.png" alt=""></a>
+          <p class="figure-caption">Early Warning Risk Index ranking for all 24 municipalities. Synthetic data.</p>
+          <p class="kicker">Lead project &middot; Public health &middot; Forecasting</p>
+          <h2 class="lead-headline"><a href="projects/epiwatch-mindanao-public-health-risk-forecasting.html">EpiWatch Mindanao Public Health Risk Forecasting</a></h2>
+          <p class="lead-deck">A simulated public health early warning system with case forecasting, anomaly detection, risk scoring, and dashboard-ready outputs.</p>
+          <p class="card-figure-line">1 High Risk, 1 Alert, and 14 Watch municipalities in the latest week.</p>
+        </article>
+
+        <aside class="front-rail" aria-label="At a glance">
+          <section class="rail-box">
+            <h2 class="rail-title">By the numbers</h2>
+            <dl class="numbers">
+              <div><dt>3+</dt><dd>years in analytics and research</dd></div>
+              <div><dt>13</dt><dd>end-to-end projects, each with public code</dd></div>
+              <div><dt>1.30</dt><dd>CGPA, BS Economics, University of Southeastern Philippines</dd></div>
+            </dl>
+          </section>
+          <section class="rail-box">
+            <h2 class="rail-title">Toolkit</h2>
+            <ul class="inline-list"><li>Python</li><li>SQL</li><li>R</li><li>Stata</li><li>Excel</li><li>Power BI</li><li>Tableau</li><li>Pandas</li><li>Scikit-learn</li><li>SHAP</li></ul>
+          </section>
+          <section class="rail-box">
+            <h2 class="rail-title">Recent roles</h2>
+            <ul class="rail-roles"><li><strong>Data Analyst Intern</strong><span>Socio-Economic Research and Data Analytics Center</span><span class="rail-date">Aug 2025 &ndash; Oct 2025</span></li><li><strong>Freelance Data Analyst</strong><span>Self-employed</span><span class="rail-date">Oct 2024 &ndash; Present</span></li><li><strong>Econometrics and Applied Economics Research Analyst</strong><span>University of Southeastern Philippines</span><span class="rail-date">Aug 2024 &ndash; Jan 2026</span></li></ul>
+            <a class="rail-more" href="about.html#cv">Full curriculum vitae &rarr;</a>
+          </section>
+        </aside>
       </section>
 
-      <section class="page-section reveal" aria-labelledby="glance-title">
-        <h2 class="visually-hidden" id="glance-title">At a glance</h2>
-        <dl class="stat-row">
-          <div><dt>Experience</dt><dd>3+ yrs</dd><span>analytics &amp; research</span></div>
-          <div><dt>Projects</dt><dd>13</dd><span>with public code</span></div>
-          <div><dt>Education</dt><dd>BS Econ</dd><span>USeP, Davao City</span></div>
-        </dl>
-        <ul class="tool-list toolkit" aria-label="Toolkit">
-          <li>Python</li>
-          <li>SQL</li>
-          <li>R</li>
-          <li>Stata</li>
-          <li>Excel</li>
-          <li>Power BI</li>
-          <li>Tableau</li>
-          <li>Pandas</li>
-          <li>Scikit-learn</li>
-          <li>SHAP</li>
-        </ul>
-      </section>
+      <blockquote class="pull-quote">
+        <p>&ldquo;Data is only valuable when it leads to better decisions.&rdquo;</p>
+      </blockquote>
 
-      <section class="page-section reveal" aria-labelledby="featured-title">
-        <div class="section-head-row">
-          <h2 class="section-title" id="featured-title">Key projects</h2>
-          <a class="text-link" href="projects.html">All 13 &rarr;</a>
+      <section class="front-section" aria-labelledby="sec-bi">
+        <div class="section-rule">
+          <h2 id="sec-bi">Business &amp; Intelligence</h2>
+          <a href="projects.html?filter=bi">More in this section &rarr;</a>
         </div>
-        <div class="home-projects">
-          <a class="home-project-card" href="projects/epiwatch-mindanao-public-health-risk-forecasting.html">
-            <strong data-kicker="Health">EpiWatch Mindanao Public Health Risk Forecasting</strong>
-            <span>Epidemiological forecasting, anomaly detection, early warning risk scoring, and dashboard-ready public health outputs.</span>
-          </a>
-          <a class="home-project-card" href="projects/ecommerce-marketplace-ads-performance-dashboard.html">
-            <strong data-kicker="Ads">eCommerce Marketplace Ads Performance Dashboard</strong>
-            <span>Marketplace ad performance, ACoS/TACoS KPIs, slow-moving SKUs, and budget allocation recommendations.</span>
-          </a>
-          <a class="home-project-card" href="projects/fpa-revenue-cost-expense-forecasting-dashboard.html">
-            <strong data-kicker="FP&amp;A">FP&amp;A Revenue, Cost &amp; Expense Forecasting Dashboard</strong>
-            <span>Monthly finance reporting, variance analysis, forecast scenarios, KPI trends, and anomaly review.</span>
-          </a>
-          <a class="home-project-card" href="projects/crm-event-marketing-data-hygiene-system.html">
-            <strong data-kicker="CRM">CRM &amp; Event Marketing Data Hygiene System</strong>
-            <span>CRM cleanup, duplicate resolution, contact validation, event follow-up, and marketing-ready outputs.</span>
-          </a>
-          <a class="home-project-card" href="projects/ai-customer-churn-intelligence-system.html">
-            <strong data-kicker="ML">AI Customer Churn Intelligence System</strong>
-            <span>Explainable churn prediction using machine learning, SHAP, and retention-focused reporting.</span>
-          </a>
-          <a class="home-project-card" href="projects/customer-sentiment-intelligence-dashboard.html">
-            <strong data-kicker="NLP">Customer Sentiment Intelligence Dashboard</strong>
-            <span>Sentiment analysis of customer reviews and business-facing pain point metrics.</span>
-          </a>
+        <div class="front-grid">
+        <article class="card card-feature">
+          <a class="card-figure" href="projects/ecommerce-customer-retention-analytics.html" tabindex="-1" aria-hidden="true"><img src="assets/projects/project-2/3.png" alt="" loading="lazy" decoding="async"></a>
+          <p class="kicker">Customer analytics &middot; Tableau</p>
+          <h3 class="card-headline"><a href="projects/ecommerce-customer-retention-analytics.html">E-commerce Customer Retention Analytics</a></h3>
+          <p class="card-deck">Customer behavior analysis focused on retention, segmentation, cohort patterns, and churn-risk insights.</p>
+          <p class="card-figure-line">59.1% churn across 93,358 customers.</p>
+        </article>
+          <div class="front-list">
+        <article class="card">
+          <p class="kicker">Marketing analytics</p>
+          <h3 class="card-headline"><a href="projects/ecommerce-marketplace-ads-performance-dashboard.html">eCommerce Marketplace Ads Performance Dashboard</a></h3>
+          <p class="card-deck">Marketplace ads reporting with ACoS/TACoS KPIs, slow-moving SKU analysis, data quality checks, and budget recommendations.</p>
+          <p class="card-figure-line">A 6.80 average ROAS on $86.7M in ad revenue.</p>
+        </article>
+        <article class="card">
+          <p class="kicker">FP&amp;A &middot; Forecasting</p>
+          <h3 class="card-headline"><a href="projects/fpa-revenue-cost-expense-forecasting-dashboard.html">FP&amp;A Revenue, Cost &amp; Expense Forecasting Dashboard</a></h3>
+          <p class="card-deck">Monthly FP&amp;A reporting with budget variance, forecast accuracy, KPI trends, scenario analysis, and anomaly review.</p>
+          <p class="card-figure-line">98.2% forecast accuracy on $281.6M in revenue.</p>
+        </article>
+        <article class="card">
+          <p class="kicker">CRM &middot; Data quality</p>
+          <h3 class="card-headline"><a href="projects/crm-event-marketing-data-hygiene-system.html">CRM &amp; Event Marketing Data Hygiene System</a></h3>
+          <p class="card-deck">CRM cleaning, duplicate resolution, contact validation, event follow-up, and marketing-ready outputs.</p>
+          <p class="card-figure-line">313 duplicates removed, leaving 1,187 clean contacts.</p>
+        </article>
+        <article class="card">
+          <p class="kicker">HR analytics</p>
+          <h3 class="card-headline"><a href="projects/employee-attrition-risk-and-workforce-intelligence-analysis.html">Employee Attrition Risk and Workforce Intelligence Analysis</a></h3>
+          <p class="card-deck">A workforce intelligence project identifying employee groups and teams with stronger attrition-risk patterns.</p>
+          <p class="card-figure-line">21.6% estimated attrition risk across employee groups.</p>
+        </article>
+          </div>
+        </div>
+      </section>
+      <section class="front-section" aria-labelledby="sec-research">
+        <div class="section-rule">
+          <h2 id="sec-research">Economics &amp; Research</h2>
+          <a href="projects.html?filter=research">More in this section &rarr;</a>
+        </div>
+        <div class="front-grid">
+        <article class="card card-feature">
+          <a class="card-figure" href="projects/agricultural-scm-productivity-analysis.html" tabindex="-1" aria-hidden="true"><img src="assets/projects/project-4/1.png" alt="" loading="lazy" decoding="async"></a>
+          <p class="kicker">Impact evaluation &middot; R</p>
+          <h3 class="card-headline"><a href="projects/agricultural-scm-productivity-analysis.html">CARP and Agricultural Productivity: A Synthetic Control Study</a></h3>
+          <p class="card-deck">A synthetic control evaluation of how the 1988 agrarian reform program affected Philippine labor productivity, land productivity, and TFP.</p>
+          <p class="card-figure-line">Labor productivity about 18.2% below its synthetic control.</p>
+        </article>
+          <div class="front-list">
+        <article class="card">
+          <p class="kicker">Time-series econometrics &middot; Stata</p>
+          <h3 class="card-headline"><a href="projects/philippine-emigration-ardl-macroeconomic-analysis.html">Philippine Emigration ARDL Macroeconomic Analysis</a></h3>
+          <p class="card-deck">An econometric analysis of how macroeconomic conditions relate to Philippine emigration trends.</p>
+          <p class="card-figure-line">A 1% rise in GDP per capita, a 0.46% fall in long-run emigration.</p>
+        </article>
+        <article class="card">
+          <p class="kicker">Labor economics</p>
+          <h3 class="card-headline"><a href="projects/philippines-labor-market-trend-analysis.html">Philippines Labor Market Trend Analysis</a></h3>
+          <p class="card-deck">A labor-market analysis of employment quality, workforce composition, and underemployment patterns in the Philippines.</p>
+          <p class="card-figure-line">Underemployment at 11.4%, almost three times unemployment.</p>
+        </article>
+        <article class="card">
+          <p class="kicker">Media insights</p>
+          <h3 class="card-headline"><a href="projects/media-audience-engagement-analysis.html">Media Insight Report: Philippine Inflation and Policy Debate</a></h3>
+          <p class="card-deck">A media insight report turning coverage of the 2026 inflation spike into risks and opportunities for a retail client.</p>
+          <p class="card-figure-line">15 sources on inflation&rsquo;s climb to a three-year-high 7.2%.</p>
+        </article>
+          </div>
+        </div>
+      </section>
+      <section class="front-section" aria-labelledby="sec-ml">
+        <div class="section-rule">
+          <h2 id="sec-ml">Machine Learning &amp; Risk</h2>
+          <a href="projects.html?filter=ml">More in this section &rarr;</a>
+        </div>
+        <div class="front-grid">
+        <article class="card card-feature">
+          <a class="card-figure" href="projects/ai-customer-churn-intelligence-system.html" tabindex="-1" aria-hidden="true"><img src="assets/projects/project-3/1.png" alt="" loading="lazy" decoding="async"></a>
+          <p class="kicker">Machine learning &middot; SHAP</p>
+          <h3 class="card-headline"><a href="projects/ai-customer-churn-intelligence-system.html">AI Customer Churn Intelligence System</a></h3>
+          <p class="card-deck">An explainable churn-prediction workflow using machine learning, SHAP, and retention-focused reporting.</p>
+          <p class="card-figure-line">78.8% churn in the High Risk segment, against 12.9% in Low Risk.</p>
+        </article>
+          <div class="front-list">
+        <article class="card">
+          <p class="kicker">Credit risk &middot; Classification</p>
+          <h3 class="card-headline"><a href="projects/banking-risk-and-financial-performance-analysis.html">Banking Risk and Financial Performance Analysis</a></h3>
+          <p class="card-deck">A financial-risk project identifying borrower and loan characteristics associated with default exposure.</p>
+          <p class="card-figure-line">0.72 ROC AUC; 53% vs 2% default by risk band.</p>
+        </article>
+        <article class="card">
+          <p class="kicker">NLP &middot; Power BI</p>
+          <h3 class="card-headline"><a href="projects/customer-sentiment-intelligence-dashboard.html">Customer Sentiment Intelligence Dashboard</a></h3>
+          <p class="card-deck">Sentiment analysis of customer reviews and business-facing metrics for interpreting customer pain points and satisfaction trends.</p>
+          <p class="card-figure-line">An NPS of 30 across 500 multilingual reviews.</p>
+        </article>
+          </div>
         </div>
       </section>
     </main>
 
-    <nav class="dock" aria-label="Primary navigation"></nav>
+    <footer class="site-footer">
+      <a class="footer-nameplate" href="index.html">Lian Cataytay</a>
+      <nav class="footer-nav" aria-label="Footer"><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></nav>
+      <p class="footer-links"><a href="mailto:liancataytayjk@gmail.com">liancataytayjk@gmail.com</a><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a><a href="assets/portfolio.pdf" target="_blank" rel="noopener noreferrer">Portfolio PDF</a></p>
+      <p class="footer-fine">&copy; 2026 Lian Cataytay &middot; Data Analyst &amp; Economist &middot; Davao City, Philippines</p>
+    </footer>
   </body>
 </html>

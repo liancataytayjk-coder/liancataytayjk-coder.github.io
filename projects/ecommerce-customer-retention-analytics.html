@@ -15,85 +15,113 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#fbf9f4">
     <link rel="icon" href="../assets/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-    <script>
-      (function () {
-        var theme = new URLSearchParams(window.location.search).get("theme");
-        try {
-          theme = theme || localStorage.getItem("lian-portfolio-theme");
-        } catch (error) {}
-        if (theme !== "dark" && theme !== "light") {
-          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
     <link rel="stylesheet" href="../assets/styles.css">
     <script src="../assets/script.js" defer></script>
   </head>
-  <body data-page="project" data-depth="project">
-    <main class="page-shell">
-      <a class="back-link reveal" href="../projects.html">&larr; Back to projects</a>
-
-      <header class="project-header reveal">
-        <p class="eyebrow">Customer analytics &middot; Retention &middot; Segmentation</p>
-        <h1 class="project-page-title">E-commerce Customer Retention Analytics</h1>
-        <ul class="tool-list" aria-label="Tools used">
-          <li>Python</li>
-          <li>Pandas</li>
-          <li>Tableau</li>
-          <li>Cohort analysis</li>
-        </ul>
-      </header>
-
-      <div class="visual-marquee reveal" aria-label="E-commerce Customer Retention Analytics screenshots">
-        <div class="visual-track" data-marquee-track>
-          <div class="visual-slide"><img src="../assets/projects/project-2/2.png" alt="E-commerce customer retention dashboard screenshot 1"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-2/3.png" alt="E-commerce customer retention dashboard screenshot 2"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-2/4.png" alt="E-commerce customer retention dashboard screenshot 3"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-2/5.png" alt="E-commerce customer retention dashboard screenshot 4"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-2/6.png" alt="E-commerce customer retention dashboard screenshot 5"></div>
-        </div>
+  <body data-page="project">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead masthead-compact">
+      <div class="masthead-bar">
+        <span class="masthead-date" data-today></span>
+        <span class="masthead-place">Davao City, Philippines</span>
+        <span class="masthead-links"><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="../assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a></span>
       </div>
-
-      <article class="project-body reveal">
-        <section>
-          <h2>Context</h2>
-          <p>I wanted to understand which customers drive the most value and which groups are most at risk of churn.</p>
-        </section>
-        <section>
-          <h2>Data</h2>
-          <p>The Brazilian Olist marketplace dataset: orders, payments, reviews, products, sellers, and customer geography.</p>
-        </section>
-        <section>
-          <h2>Method</h2>
-          <p>I used Python, Pandas, cohort analysis, customer segmentation, and Tableau dashboarding.</p>
-        </section>
-        <section>
-          <h2>Output</h2>
-          <p>Customer-retention dashboards, segmentation tables, and churn-risk insights.</p>
-        </section>
-        <section>
-          <h2>Findings</h2>
-          <p>Across 93,358 customers and $19.9M in revenue, the churn rate was 59.1%. Champions made up only 6.9% of customers while 14.0% were at risk, showing where retention effort should go first.</p>
-        </section>
-        <section>
-          <h2>Repository</h2>
-          <p><a class="text-link" href="https://github.com/liancataytayjk-coder/ecommerce-customer-retention-analytics" target="_blank" rel="noopener noreferrer">View GitHub repository</a> &middot; <a class="text-link" href="https://public.tableau.com/app/profile/lian.cataytay/viz/2-E-CommerceCustomerSegmentationandRetentionAnalysis/Home" target="_blank" rel="noopener noreferrer">Open Tableau dashboard</a></p>
-        </section>
-        <section>
-          <h2>Reflection</h2>
-          <p>I&rsquo;d improve this by adding predictive churn models and customer lifetime value estimation.</p>
-        </section>
+      <a class="nameplate" href="../index.html">Lian Cataytay</a>
+      <nav class="section-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../projects.html" aria-current="page">Projects</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </header>
+    <main id="main" class="page">
+      <article class="story">
+        <header class="story-head">
+          <p class="kicker"><a href="../projects.html">Projects</a> &middot; Customer analytics &middot; Retention &middot; Segmentation</p>
+          <h1 class="story-headline">E-commerce Customer Retention Analytics</h1>
+          <p class="story-deck">Customer behavior analysis focused on retention, segmentation, cohort patterns, and churn-risk insights.</p>
+          <p class="byline">By <a href="../about.html">Lian Cataytay</a> &middot; Python, Pandas, Tableau, Cohort analysis</p>
+        </header>
+      <figure class="lead-figure">
+        <img src="../assets/projects/project-2/2.png" alt="E-commerce customer retention dashboard screenshot 1">
+        <figcaption><span class="fig-label">Figure 1.</span> E-commerce customer retention dashboard screenshot 1.</figcaption>
+      </figure>
+        <div class="story-grid">
+          <div class="story-body">
+          <section>
+            <h2>Context</h2>
+            <p class="dropcap">I wanted to understand which customers drive the most value and which groups are most at risk of churn.</p>
+          </section>
+          <section>
+            <h2>Data</h2>
+            <p>The Brazilian Olist marketplace dataset: orders, payments, reviews, products, sellers, and customer geography.</p>
+          </section>
+          <section>
+            <h2>Method</h2>
+            <p>I used Python, Pandas, cohort analysis, customer segmentation, and Tableau dashboarding.</p>
+          </section>
+          <section>
+            <h2>Output</h2>
+            <p>Customer-retention dashboards, segmentation tables, and churn-risk insights.</p>
+          </section>
+          <section>
+            <h2>Findings</h2>
+            <p>Across 93,358 customers and $19.9M in revenue, the churn rate was 59.1%. Champions made up only 6.9% of customers while 14.0% were at risk, showing where retention effort should go first.</p>
+          </section>
+          <section>
+            <h2>Reflection</h2>
+            <p>I&rsquo;d improve this by adding predictive churn models and customer lifetime value estimation.</p>
+          </section>
+          </div>
+          <aside class="story-rail" aria-label="Project facts">
+            <section class="rail-box">
+              <h2 class="rail-title">At a glance</h2>
+              <dl class="facts">
+                <div><dt>Field</dt><dd>Customer analytics &middot; Retention &middot; Segmentation</dd></div>
+                <div><dt>Tools</dt><dd>Python, Pandas, Tableau, Cohort analysis</dd></div>
+                <div><dt>Key figure</dt><dd>59.1% churn across 93,358 customers.</dd></div>
+                <div><dt>Code</dt><dd><a class="text-link" href="https://github.com/liancataytayjk-coder/ecommerce-customer-retention-analytics" target="_blank" rel="noopener noreferrer">View GitHub repository</a><br><a class="text-link" href="https://public.tableau.com/app/profile/lian.cataytay/viz/2-E-CommerceCustomerSegmentationandRetentionAnalysis/Home" target="_blank" rel="noopener noreferrer">Open Tableau dashboard</a></dd></div>
+              </dl>
+            </section>
+          </aside>
+        </div>
+      <section class="figure-gallery" aria-labelledby="figures-title">
+        <h2 class="rule-title" id="figures-title">Figures</h2>
+        <div class="gallery-grid">
+          <figure>
+            <img src="../assets/projects/project-2/3.png" alt="E-commerce customer retention dashboard screenshot 2" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 2.</span> E-commerce customer retention dashboard screenshot 2.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/projects/project-2/4.png" alt="E-commerce customer retention dashboard screenshot 3" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 3.</span> E-commerce customer retention dashboard screenshot 3.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/projects/project-2/5.png" alt="E-commerce customer retention dashboard screenshot 4" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 4.</span> E-commerce customer retention dashboard screenshot 4.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/projects/project-2/6.png" alt="E-commerce customer retention dashboard screenshot 5" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 5.</span> E-commerce customer retention dashboard screenshot 5.</figcaption>
+          </figure>
+        </div>
+      </section>
       </article>
 
-      <nav class="project-pager reveal" aria-label="More projects">
-        <a href="customer-sentiment-intelligence-dashboard.html" rel="prev"><span>&larr; Previous</span><strong>Customer Sentiment Intelligence Dashboard</strong></a>
-        <a href="ecommerce-marketplace-ads-performance-dashboard.html" rel="next"><span>Next &rarr;</span><strong>eCommerce Marketplace Ads Performance Dashboard</strong></a>
+      <nav class="project-pager" aria-label="More projects">
+        <a href="customer-sentiment-intelligence-dashboard.html" rel="prev"><span class="kicker">&larr; Previous</span><strong>Customer Sentiment Intelligence Dashboard</strong></a>
+        <a href="ecommerce-marketplace-ads-performance-dashboard.html" rel="next"><span class="kicker">Next &rarr;</span><strong>eCommerce Marketplace Ads Performance Dashboard</strong></a>
       </nav>
     </main>
 
-    <nav class="dock" aria-label="Primary navigation"></nav>
+    <footer class="site-footer">
+      <a class="footer-nameplate" href="../index.html">Lian Cataytay</a>
+      <nav class="footer-nav" aria-label="Footer"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../projects.html">Projects</a><a href="../contact.html">Contact</a></nav>
+      <p class="footer-links"><a href="mailto:liancataytayjk@gmail.com">liancataytayjk@gmail.com</a><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="../assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a><a href="../assets/portfolio.pdf" target="_blank" rel="noopener noreferrer">Portfolio PDF</a></p>
+      <p class="footer-fine">&copy; 2026 Lian Cataytay &middot; Data Analyst &amp; Economist &middot; Davao City, Philippines</p>
+    </footer>
   </body>
 </html>

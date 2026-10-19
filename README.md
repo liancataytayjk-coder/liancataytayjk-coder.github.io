@@ -1,6 +1,8 @@
 # Lian Cataytay Portfolio
 
-A minimalist personal portfolio website for Lian Cataytay, Data Analyst & Economist.
+A personal portfolio website for Lian Cataytay, Data Analyst & Economist, designed as a classic
+broadsheet: Times New Roman throughout, a newspaper masthead, a multi-column front page, and
+article-style project pages.
 
 ## Live Site
 

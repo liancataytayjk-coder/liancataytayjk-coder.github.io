@@ -15,85 +15,109 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#fbf9f4">
     <link rel="icon" href="../assets/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-    <script>
-      (function () {
-        var theme = new URLSearchParams(window.location.search).get("theme");
-        try {
-          theme = theme || localStorage.getItem("lian-portfolio-theme");
-        } catch (error) {}
-        if (theme !== "dark" && theme !== "light") {
-          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
     <link rel="stylesheet" href="../assets/styles.css">
     <script src="../assets/script.js" defer></script>
   </head>
-  <body data-page="project" data-depth="project">
-    <main class="page-shell">
-      <a class="back-link reveal" href="../projects.html">&larr; Back to projects</a>
-
-      <header class="project-header reveal">
-        <p class="eyebrow">Public health analytics &middot; Forecasting &middot; Risk scoring</p>
-        <h1 class="project-page-title">EpiWatch Mindanao Public Health Risk Forecasting</h1>
-        <ul class="tool-list" aria-label="Tools used">
-          <li>Python</li>
-          <li>Pandas</li>
-          <li>NumPy</li>
-          <li>Excel</li>
-          <li>Power BI-ready CSV</li>
-        </ul>
-      </header>
-
-      <div class="visual-marquee reveal" aria-label="EpiWatch Mindanao charts">
-        <div class="visual-track" data-marquee-track>
-          <div class="visual-slide"><img src="../assets/projects/epiwatch-mindanao/weekly-case-trend.png" alt="Weekly reported cases across 24 Mindanao municipalities"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/forecast-vs-actual.png" alt="Forecast versus actual next-four-week case burden"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/municipality-risk-ranking.png" alt="Early Warning Risk Index ranking for all 24 municipalities"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/epiwatch-mindanao/anomaly-detection.png" alt="Anomaly detection for Jolo against its historical baseline"></div>
-        </div>
+  <body data-page="project">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead masthead-compact">
+      <div class="masthead-bar">
+        <span class="masthead-date" data-today></span>
+        <span class="masthead-place">Davao City, Philippines</span>
+        <span class="masthead-links"><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="../assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a></span>
       </div>
-
-      <article class="project-body reveal">
-        <section>
-          <h2>Context</h2>
-          <p>Public health teams need a structured way to monitor disease trends, detect abnormal increases, and prioritize municipalities for validation and preparedness review.</p>
-        </section>
-        <section>
-          <h2>Data</h2>
-          <p>Synthetic municipality-week dengue-like surveillance data connected with sociodemographic vulnerability, facility access, and environmental proxy datasets.</p>
-        </section>
-        <section>
-          <h2>Method</h2>
-          <p>I generated synthetic surveillance data, engineered incidence and lag features, forecasted next-four-week case burden, detected anomalies against local baselines, and built an Early Warning Risk Index.</p>
-        </section>
-        <section>
-          <h2>Output</h2>
-          <p>Dashboard-ready fact and dimension tables, forecast outputs, anomaly results, risk classifications, Excel data dictionary, methodology notes, technical report, and dashboard build plan.</p>
-        </section>
-        <section>
-          <h2>Findings</h2>
-          <p>The prototype produced 3,024 municipality-week records and classified the latest week into 1 High Risk, 1 Alert, 14 Watch, and 8 Normal municipalities. Jolo ranked highest with a 0.80 risk index after a sharp rise above its baseline, and the forecasting model&rsquo;s MAE was 36.76 cases.</p>
-        </section>
-        <section>
-          <h2>Repository</h2>
-          <p><a class="text-link" href="https://github.com/liancataytayjk-coder/epiwatch-mindanao" target="_blank" rel="noopener noreferrer">View GitHub repository</a></p>
-        </section>
-        <section>
-          <h2>Reflection</h2>
-          <p>This project is a planning-support analytics prototype, not an official surveillance system. Its value is in the transparent workflow: trend detection, risk drivers, and responsible decision-support reporting.</p>
-        </section>
+      <a class="nameplate" href="../index.html">Lian Cataytay</a>
+      <nav class="section-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../projects.html" aria-current="page">Projects</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </header>
+    <main id="main" class="page">
+      <article class="story">
+        <header class="story-head">
+          <p class="kicker"><a href="../projects.html">Projects</a> &middot; Public health analytics &middot; Forecasting &middot; Risk scoring</p>
+          <h1 class="story-headline">EpiWatch Mindanao Public Health Risk Forecasting</h1>
+          <p class="story-deck">A simulated public health early warning system with case forecasting, anomaly detection, risk scoring, and dashboard-ready outputs.</p>
+          <p class="byline">By <a href="../about.html">Lian Cataytay</a> &middot; Python, Pandas, NumPy, Excel, Power BI-ready CSV</p>
+        </header>
+      <figure class="lead-figure">
+        <img src="../assets/projects/epiwatch-mindanao/weekly-case-trend.png" alt="Weekly reported cases across 24 Mindanao municipalities">
+        <figcaption><span class="fig-label">Figure 1.</span> Weekly reported cases across 24 Mindanao municipalities.</figcaption>
+      </figure>
+        <div class="story-grid">
+          <div class="story-body">
+          <section>
+            <h2>Context</h2>
+            <p class="dropcap">Public health teams need a structured way to monitor disease trends, detect abnormal increases, and prioritize municipalities for validation and preparedness review.</p>
+          </section>
+          <section>
+            <h2>Data</h2>
+            <p>Synthetic municipality-week dengue-like surveillance data connected with sociodemographic vulnerability, facility access, and environmental proxy datasets.</p>
+          </section>
+          <section>
+            <h2>Method</h2>
+            <p>I generated synthetic surveillance data, engineered incidence and lag features, forecasted next-four-week case burden, detected anomalies against local baselines, and built an Early Warning Risk Index.</p>
+          </section>
+          <section>
+            <h2>Output</h2>
+            <p>Dashboard-ready fact and dimension tables, forecast outputs, anomaly results, risk classifications, Excel data dictionary, methodology notes, technical report, and dashboard build plan.</p>
+          </section>
+          <section>
+            <h2>Findings</h2>
+            <p>The prototype produced 3,024 municipality-week records and classified the latest week into 1 High Risk, 1 Alert, 14 Watch, and 8 Normal municipalities. Jolo ranked highest with a 0.80 risk index after a sharp rise above its baseline, and the forecasting model&rsquo;s MAE was 36.76 cases.</p>
+          </section>
+          <section>
+            <h2>Reflection</h2>
+            <p>This project is a planning-support analytics prototype, not an official surveillance system. Its value is in the transparent workflow: trend detection, risk drivers, and responsible decision-support reporting.</p>
+          </section>
+          </div>
+          <aside class="story-rail" aria-label="Project facts">
+            <section class="rail-box">
+              <h2 class="rail-title">At a glance</h2>
+              <dl class="facts">
+                <div><dt>Field</dt><dd>Public health analytics &middot; Forecasting &middot; Risk scoring</dd></div>
+                <div><dt>Tools</dt><dd>Python, Pandas, NumPy, Excel, Power BI-ready CSV</dd></div>
+                <div><dt>Key figure</dt><dd>1 High Risk, 1 Alert, and 14 Watch municipalities in the latest week.</dd></div>
+                <div><dt>Code</dt><dd><a class="text-link" href="https://github.com/liancataytayjk-coder/epiwatch-mindanao" target="_blank" rel="noopener noreferrer">View GitHub repository</a></dd></div>
+              </dl>
+            </section>
+          </aside>
+        </div>
+      <section class="figure-gallery" aria-labelledby="figures-title">
+        <h2 class="rule-title" id="figures-title">Figures</h2>
+        <div class="gallery-grid">
+          <figure>
+            <img src="../assets/projects/epiwatch-mindanao/forecast-vs-actual.png" alt="Forecast versus actual next-four-week case burden" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 2.</span> Forecast versus actual next-four-week case burden.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/projects/epiwatch-mindanao/municipality-risk-ranking.png" alt="Early Warning Risk Index ranking for all 24 municipalities" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 3.</span> Early Warning Risk Index ranking for all 24 municipalities.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/projects/epiwatch-mindanao/anomaly-detection.png" alt="Anomaly detection for Jolo against its historical baseline" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 4.</span> Anomaly detection for Jolo against its historical baseline.</figcaption>
+          </figure>
+        </div>
+      </section>
       </article>
 
-      <nav class="project-pager reveal" aria-label="More projects">
-        <a href="employee-attrition-risk-and-workforce-intelligence-analysis.html" rel="prev"><span>&larr; Previous</span><strong>Employee Attrition Risk and Workforce Intelligence Analysis</strong></a>
-        <a href="customer-sentiment-intelligence-dashboard.html" rel="next"><span>Next &rarr;</span><strong>Customer Sentiment Intelligence Dashboard</strong></a>
+      <nav class="project-pager" aria-label="More projects">
+        <a href="employee-attrition-risk-and-workforce-intelligence-analysis.html" rel="prev"><span class="kicker">&larr; Previous</span><strong>Employee Attrition Risk and Workforce Intelligence Analysis</strong></a>
+        <a href="customer-sentiment-intelligence-dashboard.html" rel="next"><span class="kicker">Next &rarr;</span><strong>Customer Sentiment Intelligence Dashboard</strong></a>
       </nav>
     </main>
 
-    <nav class="dock" aria-label="Primary navigation"></nav>
+    <footer class="site-footer">
+      <a class="footer-nameplate" href="../index.html">Lian Cataytay</a>
+      <nav class="footer-nav" aria-label="Footer"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../projects.html">Projects</a><a href="../contact.html">Contact</a></nav>
+      <p class="footer-links"><a href="mailto:liancataytayjk@gmail.com">liancataytayjk@gmail.com</a><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="../assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a><a href="../assets/portfolio.pdf" target="_blank" rel="noopener noreferrer">Portfolio PDF</a></p>
+      <p class="footer-fine">&copy; 2026 Lian Cataytay &middot; Data Analyst &amp; Economist &middot; Davao City, Philippines</p>
+    </footer>
   </body>
 </html>

@@ -15,98 +15,92 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#fbf9f4">
     <link rel="icon" href="../assets/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-    <script>
-      (function () {
-        var theme = new URLSearchParams(window.location.search).get("theme");
-        try {
-          theme = theme || localStorage.getItem("lian-portfolio-theme");
-        } catch (error) {}
-        if (theme !== "dark" && theme !== "light") {
-          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
     <link rel="stylesheet" href="../assets/styles.css">
     <script src="../assets/script.js" defer></script>
   </head>
-  <body data-page="project" data-depth="project">
-    <main class="page-shell">
-      <a class="back-link reveal" href="../projects.html">&larr; Back to projects</a>
-
-      <header class="project-header reveal">
-        <p class="eyebrow">Marketplace ads &middot; ACoS/TACoS &middot; Budget allocation</p>
-        <h1 class="project-page-title">eCommerce Marketplace Ads Performance Dashboard</h1>
-        <ul class="tool-list" aria-label="Tools used">
-          <li>Excel</li>
-          <li>SQL</li>
-          <li>Python</li>
-          <li>Streamlit</li>
-        </ul>
-      </header>
-
-      <div class="visual-marquee reveal" aria-label="Marketplace ads performance result panels">
-        <div class="visual-track" data-marquee-track>
-          <div class="visual-slide result-panel">
-            <span class="result-panel-kicker">Consolidated ad model</span>
-            <strong>42,360</strong>
-            <span>ad rows cleaned across Amazon, Google, TikTok, and eBay.</span>
-            <i class="result-panel-bar" style="--bar: 88%"></i>
-          </div>
-          <div class="visual-slide result-panel">
-            <span class="result-panel-kicker">Attributed revenue</span>
-            <strong>$86.7M</strong>
-            <span>generated in synthetic marketplace ad revenue.</span>
-            <i class="result-panel-bar" style="--bar: 76%"></i>
-          </div>
-          <div class="visual-slide result-panel">
-            <span class="result-panel-kicker">Budget action queue</span>
-            <strong>4,903</strong>
-            <span>campaign/SKU rows flagged for reduction or pause.</span>
-            <i class="result-panel-bar" style="--bar: 52%"></i>
-          </div>
-        </div>
+  <body data-page="project">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead masthead-compact">
+      <div class="masthead-bar">
+        <span class="masthead-date" data-today></span>
+        <span class="masthead-place">Davao City, Philippines</span>
+        <span class="masthead-links"><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="../assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a></span>
       </div>
-
-      <article class="project-body reveal">
-        <section>
-          <h2>Context</h2>
-          <p>Marketplace advertising teams often manage separate exports from Amazon Ads, Google Ads, TikTok Ads, and eBay Ads, making it harder to compare spend, revenue, profit, and inventory impact.</p>
-        </section>
-        <section>
-          <h2>Data</h2>
-          <p>Synthetic ad platform exports, marketplace sales, product catalog, and inventory datasets covering 12 months of consumer electronics activity.</p>
-        </section>
-        <section>
-          <h2>Method</h2>
-          <p>I consolidated platform schemas, cleaned SKU and campaign fields, joined product and inventory data, calculated ACoS/TACoS-style KPIs, and built validation checks for reporting quality.</p>
-        </section>
-        <section>
-          <h2>Output</h2>
-          <p>A dashboard-ready ads dataset, Excel performance model, SQL queries, Streamlit dashboard, Power BI build guide, slow-moving product analysis, and budget allocation recommendations.</p>
-        </section>
-        <section>
-          <h2>Findings</h2>
-          <p>The workflow processed 42,360 ad rows and 6,500 sales rows, generated $86.7M in attributed ad revenue, produced a 6.80 average ROAS, and flagged 4,903 campaign/SKU rows for reduction or pause.</p>
-        </section>
-        <section>
-          <h2>Repository</h2>
-          <p><a class="text-link" href="https://github.com/liancataytayjk-coder/ecommerce-marketplace-ads-performance-dashboard" target="_blank" rel="noopener noreferrer">View GitHub repository</a></p>
-        </section>
-        <section>
-          <h2>Reflection</h2>
-          <p>The strongest part of this project is the operating layer: it does not just show performance, it turns messy marketplace exports into budget actions, data quality fixes, and product-level decisions.</p>
-        </section>
+      <a class="nameplate" href="../index.html">Lian Cataytay</a>
+      <nav class="section-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../projects.html" aria-current="page">Projects</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </header>
+    <main id="main" class="page">
+      <article class="story">
+        <header class="story-head">
+          <p class="kicker"><a href="../projects.html">Projects</a> &middot; Marketplace ads &middot; ACoS/TACoS &middot; Budget allocation</p>
+          <h1 class="story-headline">eCommerce Marketplace Ads Performance Dashboard</h1>
+          <p class="story-deck">Marketplace ads reporting with ACoS/TACoS KPIs, slow-moving SKU analysis, data quality checks, and budget recommendations.</p>
+          <p class="byline">By <a href="../about.html">Lian Cataytay</a> &middot; Excel, SQL, Python, Streamlit</p>
+        </header>
+        <div class="story-grid">
+          <div class="story-body">
+          <section>
+            <h2>Context</h2>
+            <p class="dropcap">Marketplace advertising teams often manage separate exports from Amazon Ads, Google Ads, TikTok Ads, and eBay Ads, making it harder to compare spend, revenue, profit, and inventory impact.</p>
+          </section>
+          <section>
+            <h2>Data</h2>
+            <p>Synthetic ad platform exports, marketplace sales, product catalog, and inventory datasets covering 12 months of consumer electronics activity.</p>
+          </section>
+          <section>
+            <h2>Method</h2>
+            <p>I consolidated platform schemas, cleaned SKU and campaign fields, joined product and inventory data, calculated ACoS/TACoS-style KPIs, and built validation checks for reporting quality.</p>
+          </section>
+          <section>
+            <h2>Output</h2>
+            <p>A dashboard-ready ads dataset, Excel performance model, SQL queries, Streamlit dashboard, Power BI build guide, slow-moving product analysis, and budget allocation recommendations.</p>
+          </section>
+          <section>
+            <h2>Findings</h2>
+            <p>The workflow processed 42,360 ad rows and 6,500 sales rows, generated $86.7M in attributed ad revenue, produced a 6.80 average ROAS, and flagged 4,903 campaign/SKU rows for reduction or pause.</p>
+          </section>
+          <section>
+            <h2>Reflection</h2>
+            <p>The strongest part of this project is the operating layer: it does not just show performance, it turns messy marketplace exports into budget actions, data quality fixes, and product-level decisions.</p>
+          </section>
+          </div>
+          <aside class="story-rail" aria-label="Project facts">
+            <section class="rail-box">
+              <h2 class="rail-title">At a glance</h2>
+              <dl class="facts">
+                <div><dt>Field</dt><dd>Marketplace ads &middot; ACoS/TACoS &middot; Budget allocation</dd></div>
+                <div><dt>Tools</dt><dd>Excel, SQL, Python, Streamlit</dd></div>
+                <div><dt>Key figure</dt><dd>A 6.80 average ROAS on $86.7M in ad revenue.</dd></div>
+                <div><dt>Code</dt><dd><a class="text-link" href="https://github.com/liancataytayjk-coder/ecommerce-marketplace-ads-performance-dashboard" target="_blank" rel="noopener noreferrer">View GitHub repository</a></dd></div>
+              </dl>
+            </section>
+          <section class="rail-box">
+            <h2 class="rail-title">By the numbers</h2>
+            <dl class="numbers"><div><dt>42,360</dt><dd><strong>Consolidated ad model</strong> &mdash; ad rows cleaned across Amazon, Google, TikTok, and eBay.</dd></div><div><dt>$86.7M</dt><dd><strong>Attributed revenue</strong> &mdash; generated in synthetic marketplace ad revenue.</dd></div><div><dt>4,903</dt><dd><strong>Budget action queue</strong> &mdash; campaign/SKU rows flagged for reduction or pause.</dd></div></dl>
+          </section>
+          </aside>
+        </div>
       </article>
 
-      <nav class="project-pager reveal" aria-label="More projects">
-        <a href="ecommerce-customer-retention-analytics.html" rel="prev"><span>&larr; Previous</span><strong>E-commerce Customer Retention Analytics</strong></a>
-        <a href="fpa-revenue-cost-expense-forecasting-dashboard.html" rel="next"><span>Next &rarr;</span><strong>FP&amp;A Revenue, Cost &amp; Expense Forecasting Dashboard</strong></a>
+      <nav class="project-pager" aria-label="More projects">
+        <a href="ecommerce-customer-retention-analytics.html" rel="prev"><span class="kicker">&larr; Previous</span><strong>E-commerce Customer Retention Analytics</strong></a>
+        <a href="fpa-revenue-cost-expense-forecasting-dashboard.html" rel="next"><span class="kicker">Next &rarr;</span><strong>FP&amp;A Revenue, Cost &amp; Expense Forecasting Dashboard</strong></a>
       </nav>
     </main>
 
-    <nav class="dock" aria-label="Primary navigation"></nav>
+    <footer class="site-footer">
+      <a class="footer-nameplate" href="../index.html">Lian Cataytay</a>
+      <nav class="footer-nav" aria-label="Footer"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../projects.html">Projects</a><a href="../contact.html">Contact</a></nav>
+      <p class="footer-links"><a href="mailto:liancataytayjk@gmail.com">liancataytayjk@gmail.com</a><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="../assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a><a href="../assets/portfolio.pdf" target="_blank" rel="noopener noreferrer">Portfolio PDF</a></p>
+      <p class="footer-fine">&copy; 2026 Lian Cataytay &middot; Data Analyst &amp; Economist &middot; Davao City, Philippines</p>
+    </footer>
   </body>
 </html>

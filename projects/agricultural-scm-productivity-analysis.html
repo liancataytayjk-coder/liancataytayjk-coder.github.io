@@ -15,84 +15,109 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#fbf9f4">
     <link rel="icon" href="../assets/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-    <script>
-      (function () {
-        var theme = new URLSearchParams(window.location.search).get("theme");
-        try {
-          theme = theme || localStorage.getItem("lian-portfolio-theme");
-        } catch (error) {}
-        if (theme !== "dark" && theme !== "light") {
-          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
     <link rel="stylesheet" href="../assets/styles.css">
     <script src="../assets/script.js" defer></script>
   </head>
-  <body data-page="project" data-depth="project">
-    <main class="page-shell">
-      <a class="back-link reveal" href="../projects.html">&larr; Back to projects</a>
-
-      <header class="project-header reveal">
-        <p class="eyebrow">Agricultural economics &middot; Synthetic control method &middot; Impact evaluation</p>
-        <h1 class="project-page-title">CARP and Agricultural Productivity: A Synthetic Control Study</h1>
-        <ul class="tool-list" aria-label="Tools used">
-          <li>R</li>
-          <li>R Markdown</li>
-          <li>Synthetic control</li>
-          <li>TFP analysis</li>
-        </ul>
-      </header>
-
-      <div class="visual-marquee reveal" aria-label="CARP synthetic control charts">
-        <div class="visual-track" data-marquee-track>
-          <div class="visual-slide"><img src="../assets/projects/project-4/1.png" alt="Philippines vs synthetic control productivity chart 1"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-4/2.png" alt="Philippines vs synthetic control productivity chart 2"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-4/3.png" alt="Philippines vs synthetic control productivity chart 3"></div>
-          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-4/4.png" alt="Philippines vs synthetic control productivity chart 4"></div>
-        </div>
+  <body data-page="project">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead masthead-compact">
+      <div class="masthead-bar">
+        <span class="masthead-date" data-today></span>
+        <span class="masthead-place">Davao City, Philippines</span>
+        <span class="masthead-links"><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="../assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a></span>
       </div>
-
-      <article class="project-body reveal">
-        <section>
-          <h2>Context</h2>
-          <p>The Comprehensive Agrarian Reform Program (CARP), launched in 1988, is central to Philippine debates on equity and rural development, but its effect on national agricultural productivity is rarely tested against a credible counterfactual.</p>
-        </section>
-        <section>
-          <h2>Data</h2>
-          <p>National agricultural productivity series from 1970 to 2008 for the Philippines and a donor pool of countries that did not implement similar land reforms.</p>
-        </section>
-        <section>
-          <h2>Method</h2>
-          <p>I used the synthetic control method (SCM) to build a &ldquo;synthetic Philippines&rdquo; that matches pre-1988 productivity trends, then compared post-reform labor productivity, land productivity, and TFP. A GDP per capita placebo checked whether the gaps were specific to agriculture.</p>
-        </section>
-        <section>
-          <h2>Output</h2>
-          <p>A co-authored research paper, reproducible R Markdown modules for each outcome, and counterfactual gap charts.</p>
-        </section>
-        <section>
-          <h2>Findings</h2>
-          <p>From 1989 to 2008, Philippine agriculture ran below its synthetic control: labor productivity was about 18.2% lower, land productivity 16.1% lower, and TFP about 9% lower. GDP per capita showed only a 2.5% gap, so the shortfall is specific to agriculture and driven mainly by slower TFP growth.</p>
-        </section>
-        <section>
-          <h2>Repository</h2>
-          <p><a class="text-link" href="https://github.com/liancataytayjk-coder/agricultural-scm-productivity-analysis" target="_blank" rel="noopener noreferrer">View GitHub repository</a></p>
-        </section>
-        <section>
-          <h2>Reflection</h2>
-          <p>The study covers CARP up to 2008, so it excludes CARPER and later reforms and cannot separate the effects of individual program components. Extending the window and splitting those components is the natural next step.</p>
-        </section>
+      <a class="nameplate" href="../index.html">Lian Cataytay</a>
+      <nav class="section-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../projects.html" aria-current="page">Projects</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </header>
+    <main id="main" class="page">
+      <article class="story">
+        <header class="story-head">
+          <p class="kicker"><a href="../projects.html">Projects</a> &middot; Agricultural economics &middot; Synthetic control method &middot; Impact evaluation</p>
+          <h1 class="story-headline">CARP and Agricultural Productivity: A Synthetic Control Study</h1>
+          <p class="story-deck">A synthetic control evaluation of how the 1988 agrarian reform program affected Philippine labor productivity, land productivity, and TFP.</p>
+          <p class="byline">By <a href="../about.html">Lian Cataytay</a> &middot; R, R Markdown, Synthetic control, TFP analysis</p>
+        </header>
+      <figure class="lead-figure">
+        <img src="../assets/projects/project-4/1.png" alt="Philippines vs synthetic control productivity chart 1">
+        <figcaption><span class="fig-label">Figure 1.</span> Philippines vs synthetic control productivity chart 1.</figcaption>
+      </figure>
+        <div class="story-grid">
+          <div class="story-body">
+          <section>
+            <h2>Context</h2>
+            <p class="dropcap">The Comprehensive Agrarian Reform Program (CARP), launched in 1988, is central to Philippine debates on equity and rural development, but its effect on national agricultural productivity is rarely tested against a credible counterfactual.</p>
+          </section>
+          <section>
+            <h2>Data</h2>
+            <p>National agricultural productivity series from 1970 to 2008 for the Philippines and a donor pool of countries that did not implement similar land reforms.</p>
+          </section>
+          <section>
+            <h2>Method</h2>
+            <p>I used the synthetic control method (SCM) to build a &ldquo;synthetic Philippines&rdquo; that matches pre-1988 productivity trends, then compared post-reform labor productivity, land productivity, and TFP. A GDP per capita placebo checked whether the gaps were specific to agriculture.</p>
+          </section>
+          <section>
+            <h2>Output</h2>
+            <p>A co-authored research paper, reproducible R Markdown modules for each outcome, and counterfactual gap charts.</p>
+          </section>
+          <section>
+            <h2>Findings</h2>
+            <p>From 1989 to 2008, Philippine agriculture ran below its synthetic control: labor productivity was about 18.2% lower, land productivity 16.1% lower, and TFP about 9% lower. GDP per capita showed only a 2.5% gap, so the shortfall is specific to agriculture and driven mainly by slower TFP growth.</p>
+          </section>
+          <section>
+            <h2>Reflection</h2>
+            <p>The study covers CARP up to 2008, so it excludes CARPER and later reforms and cannot separate the effects of individual program components. Extending the window and splitting those components is the natural next step.</p>
+          </section>
+          </div>
+          <aside class="story-rail" aria-label="Project facts">
+            <section class="rail-box">
+              <h2 class="rail-title">At a glance</h2>
+              <dl class="facts">
+                <div><dt>Field</dt><dd>Agricultural economics &middot; Synthetic control method &middot; Impact evaluation</dd></div>
+                <div><dt>Tools</dt><dd>R, R Markdown, Synthetic control, TFP analysis</dd></div>
+                <div><dt>Key figure</dt><dd>Labor productivity about 18.2% below its synthetic control.</dd></div>
+                <div><dt>Code</dt><dd><a class="text-link" href="https://github.com/liancataytayjk-coder/agricultural-scm-productivity-analysis" target="_blank" rel="noopener noreferrer">View GitHub repository</a></dd></div>
+              </dl>
+            </section>
+          </aside>
+        </div>
+      <section class="figure-gallery" aria-labelledby="figures-title">
+        <h2 class="rule-title" id="figures-title">Figures</h2>
+        <div class="gallery-grid">
+          <figure>
+            <img src="../assets/projects/project-4/2.png" alt="Philippines vs synthetic control productivity chart 2" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 2.</span> Philippines vs synthetic control productivity chart 2.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/projects/project-4/3.png" alt="Philippines vs synthetic control productivity chart 3" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 3.</span> Philippines vs synthetic control productivity chart 3.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/projects/project-4/4.png" alt="Philippines vs synthetic control productivity chart 4" loading="lazy" decoding="async">
+            <figcaption><span class="fig-label">Figure 4.</span> Philippines vs synthetic control productivity chart 4.</figcaption>
+          </figure>
+        </div>
+      </section>
       </article>
 
-      <nav class="project-pager reveal" aria-label="More projects">
-        <a href="crm-event-marketing-data-hygiene-system.html" rel="prev"><span>&larr; Previous</span><strong>CRM &amp; Event Marketing Data Hygiene System</strong></a>
-        <a href="philippines-labor-market-trend-analysis.html" rel="next"><span>Next &rarr;</span><strong>Philippines Labor Market Trend Analysis</strong></a>
+      <nav class="project-pager" aria-label="More projects">
+        <a href="crm-event-marketing-data-hygiene-system.html" rel="prev"><span class="kicker">&larr; Previous</span><strong>CRM &amp; Event Marketing Data Hygiene System</strong></a>
+        <a href="philippines-labor-market-trend-analysis.html" rel="next"><span class="kicker">Next &rarr;</span><strong>Philippines Labor Market Trend Analysis</strong></a>
       </nav>
     </main>
 
-    <nav class="dock" aria-label="Primary navigation"></nav>
+    <footer class="site-footer">
+      <a class="footer-nameplate" href="../index.html">Lian Cataytay</a>
+      <nav class="footer-nav" aria-label="Footer"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../projects.html">Projects</a><a href="../contact.html">Contact</a></nav>
+      <p class="footer-links"><a href="mailto:liancataytayjk@gmail.com">liancataytayjk@gmail.com</a><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="../assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a><a href="../assets/portfolio.pdf" target="_blank" rel="noopener noreferrer">Portfolio PDF</a></p>
+      <p class="footer-fine">&copy; 2026 Lian Cataytay &middot; Data Analyst &amp; Economist &middot; Davao City, Philippines</p>
+    </footer>
   </body>
 </html>
