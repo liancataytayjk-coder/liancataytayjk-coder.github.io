@@ -48,6 +48,18 @@ projects/
   epiwatch-mindanao-public-health-risk-forecasting.html
 ```
 
+## Figures
+
+Every chart in `assets/figures/` is drawn from the project repositories' own data in black and
+white (Times New Roman, line styles and grey fills, no colour). `assets/figures/figures.json` holds
+each figure's caption and source note. To redraw them, clone the project repositories into one
+folder and run:
+
+```text
+pip install matplotlib pandas openpyxl
+python3 tools/figures.py <folder-with-project-repos> .
+```
+
 ## Updating the portfolio PDF
 
 `assets/portfolio.pdf` is printed from `portfolio.html`. After editing it, serve the folder locally

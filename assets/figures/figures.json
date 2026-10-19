@@ -1,0 +1,198 @@
+{
+ "epiwatch-mindanao-public-health-risk-forecasting": [
+  {
+   "src": "assets/figures/epiwatch-mindanao-public-health-risk-forecasting-1.png",
+   "title": "Weekly reported cases across 24 Mindanao municipalities, January 2024 to May 2026",
+   "note": "Synthetic dengue-like surveillance data. Source: EpiWatch Mindanao repository."
+  },
+  {
+   "src": "assets/figures/epiwatch-mindanao-public-health-risk-forecasting-2.png",
+   "title": "Forecast versus actual next-four-week case burden, all municipalities",
+   "note": "Lag-weighted seasonal regression; model MAE 36.76 cases on the test window. Synthetic data."
+  },
+  {
+   "src": "assets/figures/epiwatch-mindanao-public-health-risk-forecasting-3.png",
+   "title": "Early Warning Risk Index by municipality, latest reporting week",
+   "note": "Bars are shaded by assigned warning level. Synthetic data. Source: EpiWatch Mindanao repository."
+  },
+  {
+   "src": "assets/figures/epiwatch-mindanao-public-health-risk-forecasting-4.png",
+   "title": "Anomaly detection for Jolo, Sulu, against its rolling historical baseline",
+   "note": "Synthetic data. Source: EpiWatch Mindanao repository."
+  }
+ ],
+ "customer-sentiment-intelligence-dashboard": [
+  {
+   "src": "assets/figures/customer-sentiment-intelligence-dashboard-1.png",
+   "title": "Sentiment of 500 multilingual customer reviews",
+   "note": "Net Promoter Score of 30. Source: Customer Sentiment Intelligence Dashboard repository."
+  },
+  {
+   "src": "assets/figures/customer-sentiment-intelligence-dashboard-2.png",
+   "title": "Most frequently mentioned themes in customer reviews",
+   "note": "A review can mention several themes. Source: Customer Sentiment Intelligence Dashboard repository."
+  },
+  {
+   "src": "assets/figures/customer-sentiment-intelligence-dashboard-3.png",
+   "title": "Negative sentiment by review language",
+   "note": "Source: Customer Sentiment Intelligence Dashboard repository."
+  }
+ ],
+ "ecommerce-customer-retention-analytics": [
+  {
+   "src": "assets/figures/ecommerce-customer-retention-analytics-1.png",
+   "title": "Monthly marketplace revenue, 2017 to 2018",
+   "note": "Months with fewer than 100 orders are omitted. Olist Brazilian e-commerce data. Source: E-commerce Customer Retention Analytics repository."
+  },
+  {
+   "src": "assets/figures/ecommerce-customer-retention-analytics-2.png",
+   "title": "Customer and revenue share by RFM segment",
+   "note": "Source: E-commerce Customer Retention Analytics repository."
+  },
+  {
+   "src": "assets/figures/ecommerce-customer-retention-analytics-3.png",
+   "title": "Repeat purchasing by months since first purchase, all monthly cohorts",
+   "note": "Very few customers return after their first order, which drives the 59.1% churn rate. Source: E-commerce Customer Retention Analytics repository."
+  }
+ ],
+ "ecommerce-marketplace-ads-performance-dashboard": [
+  {
+   "src": "assets/figures/ecommerce-marketplace-ads-performance-dashboard-1.png",
+   "title": "Return on ad spend by marketplace platform",
+   "note": "Simulated ad exports across four platforms. Source: eCommerce Marketplace Ads Performance Dashboard repository."
+  },
+  {
+   "src": "assets/figures/ecommerce-marketplace-ads-performance-dashboard-2.png",
+   "title": "Recommended budget action for each campaign and SKU",
+   "note": "Rows with unreliable KPIs are routed to data fixes before any budget change. Source: eCommerce Marketplace Ads Performance Dashboard repository."
+  }
+ ],
+ "fpa-revenue-cost-expense-forecasting-dashboard": [
+  {
+   "src": "assets/figures/fpa-revenue-cost-expense-forecasting-dashboard-1.png",
+   "title": "Monthly revenue, 2023 to 2025, with 2026 forecast scenarios",
+   "note": "Synthetic financials. Source: FP&A Revenue, Cost & Expense Forecasting Dashboard repository."
+  },
+  {
+   "src": "assets/figures/fpa-revenue-cost-expense-forecasting-dashboard-2.png",
+   "title": "Gross margin by business unit",
+   "note": "Overall gross margin 50.8%. Source: FP&A Revenue, Cost & Expense Forecasting Dashboard repository."
+  }
+ ],
+ "crm-event-marketing-data-hygiene-system": [
+  {
+   "src": "assets/figures/crm-event-marketing-data-hygiene-system-1.png",
+   "title": "From raw export to contactable leads",
+   "note": "469 invalid emails and 283 invalid phone numbers were also flagged. Source: CRM & Event Marketing Data Hygiene System repository."
+  },
+  {
+   "src": "assets/figures/crm-event-marketing-data-hygiene-system-2.png",
+   "title": "Referrals by follow-up status",
+   "note": "310 referrals prepared for sales and marketing follow-up. Source: CRM & Event Marketing Data Hygiene System repository."
+  }
+ ],
+ "ai-customer-churn-intelligence-system": [
+  {
+   "src": "assets/figures/ai-customer-churn-intelligence-system-1.png",
+   "title": "Observed churn by model risk segment",
+   "note": "1,409 customers scored by the model. Source: AI Customer Churn Intelligence System repository."
+  },
+  {
+   "src": "assets/figures/ai-customer-churn-intelligence-system-2.png",
+   "title": "Churn rate by contract type",
+   "note": "Telco customer churn data, 7,043 customers. Source: AI Customer Churn Intelligence System repository."
+  },
+  {
+   "src": "assets/figures/ai-customer-churn-intelligence-system-3.png",
+   "title": "Churn rate by customer tenure",
+   "note": "Source: AI Customer Churn Intelligence System repository."
+  }
+ ],
+ "banking-risk-and-financial-performance-analysis": [
+  {
+   "src": "assets/figures/banking-risk-and-financial-performance-analysis-1.png",
+   "title": "Observed default rate by model risk band",
+   "note": "Synthetic 2,000-loan portfolio; overall default rate 20.8%. Source: Banking Risk and Financial Performance Analysis repository."
+  },
+  {
+   "src": "assets/figures/banking-risk-and-financial-performance-analysis-2.png",
+   "title": "Leading drivers of default risk",
+   "note": "Model ROC AUC 0.72. Source: Banking Risk and Financial Performance Analysis repository."
+  },
+  {
+   "src": "assets/figures/banking-risk-and-financial-performance-analysis-3.png",
+   "title": "Expected-loss exposure by risk band",
+   "note": "Source: Banking Risk and Financial Performance Analysis repository."
+  }
+ ],
+ "employee-attrition-risk-and-workforce-intelligence-analysis": [
+  {
+   "src": "assets/figures/employee-attrition-risk-and-workforce-intelligence-analysis-1.png",
+   "title": "Key figures from the workforce attrition analysis",
+   "note": "Summary figures as reported in the project; the underlying HR data are not public."
+  }
+ ],
+ "agricultural-scm-productivity-analysis": [
+  {
+   "src": "assets/figures/agricultural-scm-productivity-analysis-1.png",
+   "title": "Labor productivity: the Philippines and its synthetic control, 1970 to 2008",
+   "note": "After 1988 the Philippines averages about 18.2% lower than its synthetic control (1989 to 2008). Source: Cataytay, Deluna and Evangelio, synthetic control analysis."
+  },
+  {
+   "src": "assets/figures/agricultural-scm-productivity-analysis-2.png",
+   "title": "Land productivity: the Philippines and its synthetic control, 1970 to 2008",
+   "note": "After 1988 the Philippines averages about 16.1% lower than its synthetic control (1989 to 2008). Source: Cataytay, Deluna and Evangelio, synthetic control analysis."
+  },
+  {
+   "src": "assets/figures/agricultural-scm-productivity-analysis-3.png",
+   "title": "Total factor productivity: the Philippines and its synthetic control, 1970 to 2008",
+   "note": "After 1988 the Philippines averages about 9% lower than its synthetic control (1989 to 2008). Source: Cataytay, Deluna and Evangelio, synthetic control analysis."
+  },
+  {
+   "src": "assets/figures/agricultural-scm-productivity-analysis-4.png",
+   "title": "GDP per capita (placebo check): the Philippines and its synthetic control, 1970 to 2008",
+   "note": "After 1988 the Philippines averages only 2.5% lower than its synthetic control (1989 to 2008). Source: Cataytay, Deluna and Evangelio, synthetic control analysis."
+  }
+ ],
+ "philippines-labor-market-trend-analysis": [
+  {
+   "src": "assets/figures/philippines-labor-market-trend-analysis-1.png",
+   "title": "Unemployment and underemployment rates, 2005 to 2025",
+   "note": "Annual figures from Labor Force Survey indicators. Source: project repository."
+  },
+  {
+   "src": "assets/figures/philippines-labor-market-trend-analysis-2.png",
+   "title": "Labor force participation rate, 2005 to 2025",
+   "note": "Vertical axis starts at 55%. Source: project repository."
+  },
+  {
+   "src": "assets/figures/philippines-labor-market-trend-analysis-3.png",
+   "title": "Labor force participation by sex",
+   "note": "Source: project repository."
+  }
+ ],
+ "media-audience-engagement-analysis": [
+  {
+   "src": "assets/figures/media-audience-engagement-analysis-1.png",
+   "title": "Philippine headline inflation, December 2025 to April 2026",
+   "note": "Source: Philippine Statistics Authority figures compiled in the media insight report."
+  },
+  {
+   "src": "assets/figures/media-audience-engagement-analysis-2.png",
+   "title": "Inflation for all households and for the bottom 30%",
+   "note": "Source: Philippine Statistics Authority figures compiled in the media insight report."
+  }
+ ],
+ "philippine-emigration-ardl-macroeconomic-analysis": [
+  {
+   "src": "assets/figures/philippine-emigration-ardl-macroeconomic-analysis-1.png",
+   "title": "Permanent Philippine emigrants, 1981 to 2023",
+   "note": "Permanent emigrant counts. Source: project repository."
+  },
+  {
+   "src": "assets/figures/philippine-emigration-ardl-macroeconomic-analysis-2.png",
+   "title": "Emigration and Philippine GDP per capita, 1981 to 2023",
+   "note": "In the baseline ARDL model, a 1% rise in GDP per capita is linked to a 0.46% fall in long-run emigration. Source: project repository."
+  }
+ ]
+}

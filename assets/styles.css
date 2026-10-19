@@ -290,13 +290,12 @@ figcaption {
   display: block;
 }
 
+/* Figures are drawn on the paper colour, so they sit on the page unframed. */
 .card-figure img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: top;
-  background: #ffffff;
-  border: 1px solid var(--rule);
+  object-fit: contain;
+  border-top: 1px solid var(--rule);
 }
 
 .front-lead .card-figure img {
@@ -504,6 +503,22 @@ figcaption {
   grid-column: 1 / -1;
 }
 
+/* A lone last card spans both columns: chart left, story right. */
+.front-list .card:last-child:nth-child(odd):has(.card-figure) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+  align-content: start;
+}
+
+.front-list .card:last-child:nth-child(odd) > .card-figure {
+  grid-row: 1 / span 4;
+}
+
+.front-list .card:last-child:nth-child(odd) > :not(.card-figure) {
+  grid-column: 2;
+}
+
 /* Section front (projects) -------------------------------------------- */
 
 .section-head {
@@ -613,11 +628,8 @@ figcaption {
 
 .index-item img {
   width: 280px;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: top;
-  background: #ffffff;
-  border: 1px solid var(--rule);
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
 }
 
 /* Articles ------------------------------------------------------------ */
@@ -666,11 +678,23 @@ figcaption {
 }
 
 .lead-figure img,
-.gallery-grid img,
+.gallery-grid img {
+  width: 100%;
+}
+
+.lead-figure,
+.gallery-grid figure {
+  padding-top: 10px;
+  border-top: 1px solid var(--ink);
+}
+
 .inline-figure img {
   width: 100%;
-  background: #ffffff;
-  border: 1px solid var(--rule);
+  filter: grayscale(1) contrast(1.08);
+}
+
+.fig-note {
+  font-style: italic;
 }
 
 .story-grid {
@@ -750,6 +774,10 @@ figcaption {
 .inline-figure img {
   aspect-ratio: 4 / 5;
   object-fit: cover;
+}
+
+.lead-figure {
+  max-width: 860px;
 }
 
 .figure-gallery {
@@ -1087,6 +1115,10 @@ figcaption {
   .front-list .card:nth-child(even) {
     padding-left: 0;
     border-left: 0;
+  }
+
+  .front-list .card:last-child:nth-child(odd):has(.card-figure) {
+    display: block;
   }
 
   .section-rule {
