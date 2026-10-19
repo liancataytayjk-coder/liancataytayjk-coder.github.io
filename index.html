@@ -5,7 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Lian Cataytay is a Data Analyst and Economist building decision-ready analytics, dashboards, and research workflows.">
     <title>Lian Cataytay | Data Analyst &amp; Economist</title>
-    <link rel="icon" href="assets/lian-cataytay-lc-tech-logo.png" type="image/png">
+    <link rel="canonical" href="https://liancataytayjk-coder.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lian Cataytay">
+    <meta property="og:title" content="Lian Cataytay | Data Analyst &amp; Economist">
+    <meta property="og:description" content="Lian Cataytay is a Data Analyst and Economist building decision-ready analytics, dashboards, and research workflows.">
+    <meta property="og:url" content="https://liancataytayjk-coder.github.io/">
+    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/favicon-64.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <script>
+      (function () {
+        var theme = new URLSearchParams(window.location.search).get("theme");
+        try {
+          theme = theme || localStorage.getItem("lian-portfolio-theme");
+        } catch (error) {}
+        if (theme !== "dark" && theme !== "light") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Lian Cataytay",
+      "jobTitle": "Data Analyst & Economist",
+      "url": "https://liancataytayjk-coder.github.io/",
+      "email": "mailto:liancataytayjk@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Davao City",
+        "addressCountry": "PH"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Southeastern Philippines"
+      },
+      "knowsAbout": [
+        "Data analysis",
+        "Econometrics",
+        "Business intelligence",
+        "Machine learning",
+        "Python",
+        "SQL",
+        "R",
+        "Stata",
+        "Power BI",
+        "Tableau"
+      ],
+      "sameAs": [
+        "https://github.com/liancataytayjk-coder",
+        "https://www.linkedin.com/in/liancataytay/"
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
   </head>
@@ -20,6 +78,11 @@
           <p class="identity-role">Data Analyst &amp; Economist</p>
         </div>
         <div class="header-actions">
+          <a class="icon-link" href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M7.5 10.5v6M7.5 7.5v.01M11 16.5v-6m0 2.6c0-1.6 1-2.6 2.4-2.6 1.4 0 2.1.9 2.1 2.6v3.4M5.5 3.5h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
           <a class="icon-link" href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
               <path d="M9 19c-4.3 1.4-4.3-2.2-6-2.7m12 5.1v-3.7c0-1 .1-1.4-.5-2 2.7-.3 5.5-1.3 5.5-6A4.6 4.6 0 0 0 18.7 6c.1-.3.6-1.7-.2-3.6 0 0-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.6 0C5.8 2.1 4.7 2.4 4.7 2.4A4.8 4.8 0 0 0 4.5 6 4.6 4.6 0 0 0 3.2 9.7c0 4.7 2.8 5.7 5.5 6-.6.6-.7 1.2-.7 2v3.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -32,33 +95,61 @@
         <h2 class="section-title" id="home-title">Welcome to my portfolio</h2>
         <p>Hello, hola, bonjour, ol&aacute; &amp; kumusta!</p>
         <p>I'm a data analyst who thinks like an economist. I care about how numbers work just as much as what decisions they support.</p>
+        <div class="home-cta">
+          <a class="text-link" href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">View resume &rarr;</a>
+          <a class="text-link" href="contact.html">Get in touch &rarr;</a>
+        </div>
+      </section>
+
+      <section class="page-section reveal" aria-labelledby="glance-title">
+        <h2 class="visually-hidden" id="glance-title">At a glance</h2>
+        <dl class="stat-row">
+          <div><dt>Experience</dt><dd>3+ yrs</dd><span>analytics &amp; research</span></div>
+          <div><dt>Projects</dt><dd>13</dd><span>with public code</span></div>
+          <div><dt>Education</dt><dd>BS Econ</dd><span>USeP, Davao City</span></div>
+        </dl>
+        <ul class="tool-list toolkit" aria-label="Toolkit">
+          <li>Python</li>
+          <li>SQL</li>
+          <li>R</li>
+          <li>Stata</li>
+          <li>Excel</li>
+          <li>Power BI</li>
+          <li>Tableau</li>
+          <li>Pandas</li>
+          <li>Scikit-learn</li>
+          <li>SHAP</li>
+        </ul>
       </section>
 
       <section class="page-section reveal" aria-labelledby="featured-title">
-        <h2 class="section-title" id="featured-title">Key projects</h2>
+        <div class="section-head-row">
+          <h2 class="section-title" id="featured-title">Key projects</h2>
+          <a class="text-link" href="projects.html">All 13 &rarr;</a>
+        </div>
         <div class="home-projects">
-          <a class="home-project-card" href="projects/epiwatch-mindanao-public-health-risk-forecasting.html" data-kicker="Health">
-            <strong>EpiWatch Mindanao Public Health Risk Forecasting</strong>
+          <a class="home-project-card" href="projects/epiwatch-mindanao-public-health-risk-forecasting.html">
+            <strong data-kicker="Health">EpiWatch Mindanao Public Health Risk Forecasting</strong>
             <span>Epidemiological forecasting, anomaly detection, early warning risk scoring, and dashboard-ready public health outputs.</span>
           </a>
-          <a class="home-project-card" href="projects/ecommerce-marketplace-ads-performance-dashboard.html" data-kicker="Ads">
-            <strong>eCommerce Marketplace Ads Performance Dashboard</strong>
+          <a class="home-project-card" href="projects/ecommerce-marketplace-ads-performance-dashboard.html">
+            <strong data-kicker="Ads">eCommerce Marketplace Ads Performance Dashboard</strong>
             <span>Marketplace ad performance, ACoS/TACoS KPIs, slow-moving SKUs, and budget allocation recommendations.</span>
           </a>
-          <a class="home-project-card" href="projects/fpa-revenue-cost-expense-forecasting-dashboard.html" data-kicker="FP&amp;A">
-            <strong>FP&amp;A Revenue, Cost &amp; Expense Forecasting Dashboard</strong>
+          <a class="home-project-card" href="projects/fpa-revenue-cost-expense-forecasting-dashboard.html">
+            <strong data-kicker="FP&amp;A">FP&amp;A Revenue, Cost &amp; Expense Forecasting Dashboard</strong>
             <span>Monthly finance reporting, variance analysis, forecast scenarios, KPI trends, and anomaly review.</span>
           </a>
-          <a class="home-project-card" href="projects/crm-event-marketing-data-hygiene-system.html" data-kicker="CRM">
-            <strong>CRM &amp; Event Marketing Data Hygiene System</strong>
+          <a class="home-project-card" href="projects/crm-event-marketing-data-hygiene-system.html">
+            <strong data-kicker="CRM">CRM &amp; Event Marketing Data Hygiene System</strong>
             <span>CRM cleanup, duplicate resolution, contact validation, event follow-up, and marketing-ready outputs.</span>
           </a>
-          <a class="home-project-card" href="projects/ai-customer-churn-intelligence-system.html" data-kicker="ML">
-            <strong>AI Customer Churn Intelligence System</strong>
+          <a class="home-project-card" href="projects/ai-customer-churn-intelligence-system.html">
+            <strong data-kicker="ML">AI Customer Churn Intelligence System</strong>
             <span>Explainable churn prediction using machine learning, SHAP, and retention-focused reporting.</span>
           </a>
-          <a class="home-project-card" href="projects/customer-sentiment-intelligence-dashboard.html" data-kicker="NLP">
-            <strong>Customer Sentiment Intelligence Dashboard</strong>
+          <a class="home-project-card" href="projects/customer-sentiment-intelligence-dashboard.html">
+            <strong data-kicker="NLP">Customer Sentiment Intelligence Dashboard</strong>
             <span>Sentiment analysis of customer reviews and business-facing pain point metrics.</span>
           </a>
         </div>

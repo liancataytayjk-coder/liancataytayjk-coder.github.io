@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Philippines Labor Market Trend Analysis by Lian Cataytay.">
     <title>Philippines Labor Market Trend Analysis | Lian Cataytay</title>
-    <link rel="icon" href="../assets/lian-cataytay-lc-tech-logo.png" type="image/png">
+    <link rel="canonical" href="https://liancataytayjk-coder.github.io/projects/philippines-labor-market-trend-analysis.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lian Cataytay">
+    <meta property="og:title" content="Philippines Labor Market Trend Analysis | Lian Cataytay">
+    <meta property="og:description" content="Philippines Labor Market Trend Analysis by Lian Cataytay.">
+    <meta property="og:url" content="https://liancataytayjk-coder.github.io/projects/philippines-labor-market-trend-analysis.html">
+    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../assets/favicon-64.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <script>
+      (function () {
+        var theme = new URLSearchParams(window.location.search).get("theme");
+        try {
+          theme = theme || localStorage.getItem("lian-portfolio-theme");
+        } catch (error) {}
+        if (theme !== "dark" && theme !== "light") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="../assets/styles.css">
     <script src="../assets/script.js" defer></script>
   </head>
@@ -27,9 +50,9 @@
       <div class="visual-marquee reveal" aria-label="Philippines Labor Market Trend Analysis screenshots">
         <div class="visual-track" data-marquee-track>
           <div class="visual-slide"><img src="../assets/projects/project-5/1.png" alt="Philippines labor market trend analysis screenshot 1"></div>
-          <div class="visual-slide"><img src="../assets/projects/project-5/2.png" alt="Philippines labor market trend analysis screenshot 2"></div>
-          <div class="visual-slide"><img src="../assets/projects/project-5/3.png" alt="Philippines labor market trend analysis screenshot 3"></div>
-          <div class="visual-slide"><img src="../assets/projects/project-5/4.png" alt="Philippines labor market trend analysis screenshot 4"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-5/2.png" alt="Philippines labor market trend analysis screenshot 2"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-5/3.png" alt="Philippines labor market trend analysis screenshot 3"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-5/4.png" alt="Philippines labor market trend analysis screenshot 4"></div>
         </div>
       </div>
 
@@ -40,7 +63,7 @@
         </section>
         <section>
           <h2>Data</h2>
-          <p>Philippine labor-force and employment datasets.</p>
+          <p>Official Philippine labor force survey indicators and employment-by-sector series, including sex-disaggregated figures.</p>
         </section>
         <section>
           <h2>Method</h2>
@@ -52,13 +75,22 @@
         </section>
         <section>
           <h2>Findings</h2>
-          <p>The project highlighted shifts in employment quality, workforce composition, and underemployment patterns.</p>
+          <p>In 2025, labor force participation stood at 64.1%, unemployment at 4.2%, and underemployment at 11.4%. Underemployment remained almost three times the unemployment rate, pointing to job quality rather than job availability as the bigger gap.</p>
+        </section>
+        <section>
+          <h2>Repository</h2>
+          <p><a class="text-link" href="https://github.com/liancataytayjk-coder/philippines-labor-market-trend-analysis" target="_blank" rel="noopener noreferrer">View GitHub repository</a></p>
         </section>
         <section>
           <h2>Reflection</h2>
           <p>Next, I&rsquo;d add forecasting models and regional-level comparisons.</p>
         </section>
       </article>
+
+      <nav class="project-pager reveal" aria-label="More projects">
+        <a href="agricultural-scm-productivity-analysis.html" rel="prev"><span>&larr; Previous</span><strong>CARP and Agricultural Productivity: A Synthetic Control Study</strong></a>
+        <a href="media-audience-engagement-analysis.html" rel="next"><span>Next &rarr;</span><strong>Media Insight Report: Philippine Inflation and Policy Debate</strong></a>
+      </nav>
     </main>
 
     <nav class="dock" aria-label="Primary navigation"></nav>

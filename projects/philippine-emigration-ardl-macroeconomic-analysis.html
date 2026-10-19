@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Philippine Emigration ARDL Macroeconomic Analysis by Lian Cataytay.">
     <title>Philippine Emigration ARDL Macroeconomic Analysis | Lian Cataytay</title>
-    <link rel="icon" href="../assets/lian-cataytay-lc-tech-logo.png" type="image/png">
+    <link rel="canonical" href="https://liancataytayjk-coder.github.io/projects/philippine-emigration-ardl-macroeconomic-analysis.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lian Cataytay">
+    <meta property="og:title" content="Philippine Emigration ARDL Macroeconomic Analysis | Lian Cataytay">
+    <meta property="og:description" content="Philippine Emigration ARDL Macroeconomic Analysis by Lian Cataytay.">
+    <meta property="og:url" content="https://liancataytayjk-coder.github.io/projects/philippine-emigration-ardl-macroeconomic-analysis.html">
+    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../assets/favicon-64.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <script>
+      (function () {
+        var theme = new URLSearchParams(window.location.search).get("theme");
+        try {
+          theme = theme || localStorage.getItem("lian-portfolio-theme");
+        } catch (error) {}
+        if (theme !== "dark" && theme !== "light") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="../assets/styles.css">
     <script src="../assets/script.js" defer></script>
   </head>
@@ -27,9 +50,9 @@
       <div class="visual-marquee reveal" aria-label="Philippine Emigration ARDL Macroeconomic Analysis screenshots">
         <div class="visual-track" data-marquee-track>
           <div class="visual-slide"><img src="../assets/projects/project-7/1.png" alt="Philippine emigration ARDL macroeconomic analysis screenshot 1"></div>
-          <div class="visual-slide"><img src="../assets/projects/project-7/2.png" alt="Philippine emigration ARDL macroeconomic analysis screenshot 2"></div>
-          <div class="visual-slide"><img src="../assets/projects/project-7/3.png" alt="Philippine emigration ARDL macroeconomic analysis screenshot 3"></div>
-          <div class="visual-slide"><img src="../assets/projects/project-7/4.png" alt="Philippine emigration ARDL macroeconomic analysis screenshot 4"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-7/2.png" alt="Philippine emigration ARDL macroeconomic analysis screenshot 2"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-7/3.png" alt="Philippine emigration ARDL macroeconomic analysis screenshot 3"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-7/4.png" alt="Philippine emigration ARDL macroeconomic analysis screenshot 4"></div>
         </div>
       </div>
 
@@ -40,7 +63,7 @@
         </section>
         <section>
           <h2>Data</h2>
-          <p>Migration, labor-market, and macroeconomic time-series datasets.</p>
+          <p>Annual Philippine emigration, GDP per capita, government consumption, labor share, and PHP&ndash;USD exchange-rate series from 1981 to 2023, with matching US indicators.</p>
         </section>
         <section>
           <h2>Method</h2>
@@ -52,13 +75,22 @@
         </section>
         <section>
           <h2>Findings</h2>
-          <p>The analysis identified both short-run and long-run relationships between macroeconomic variables and emigration.</p>
+          <p>Five of seven ARDL specifications showed a long-run relationship. In the baseline model, a 1% rise in Philippine GDP per capita is linked to a 0.46% fall in long-run emigration, and error-correction terms of &minus;0.56 to &minus;1.00 mean most deviations close within a year. COVID-19 produced a large negative level shift.</p>
+        </section>
+        <section>
+          <h2>Repository</h2>
+          <p><a class="text-link" href="https://github.com/liancataytayjk-coder/philippine-emigration-ardl-macroeconomic-analysis" target="_blank" rel="noopener noreferrer">View GitHub repository</a></p>
         </section>
         <section>
           <h2>Reflection</h2>
           <p>I&rsquo;d like to expand this with structural-break analysis and cross-country comparisons.</p>
         </section>
       </article>
+
+      <nav class="project-pager reveal" aria-label="More projects">
+        <a href="media-audience-engagement-analysis.html" rel="prev"><span>&larr; Previous</span><strong>Media Insight Report: Philippine Inflation and Policy Debate</strong></a>
+        <a href="banking-risk-and-financial-performance-analysis.html" rel="next"><span>Next &rarr;</span><strong>Banking Risk and Financial Performance Analysis</strong></a>
+      </nav>
     </main>
 
     <nav class="dock" aria-label="Primary navigation"></nav>

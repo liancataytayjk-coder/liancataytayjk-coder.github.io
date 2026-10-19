@@ -3,9 +3,32 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Media Audience Engagement Analysis by Lian Cataytay.">
-    <title>Media Audience Engagement Analysis | Lian Cataytay</title>
-    <link rel="icon" href="../assets/lian-cataytay-lc-tech-logo.png" type="image/png">
+    <meta name="description" content="A media insight report on how Philippine coverage of the 2026 inflation spike creates risks and opportunities for a retail client, by Lian Cataytay.">
+    <title>Media Insight Report: Philippine Inflation and Policy Debate | Lian Cataytay</title>
+    <link rel="canonical" href="https://liancataytayjk-coder.github.io/projects/media-audience-engagement-analysis.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lian Cataytay">
+    <meta property="og:title" content="Media Insight Report: Philippine Inflation and Policy Debate | Lian Cataytay">
+    <meta property="og:description" content="A media insight report on how Philippine coverage of the 2026 inflation spike creates risks and opportunities for a retail client, by Lian Cataytay.">
+    <meta property="og:url" content="https://liancataytayjk-coder.github.io/projects/media-audience-engagement-analysis.html">
+    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../assets/favicon-64.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <script>
+      (function () {
+        var theme = new URLSearchParams(window.location.search).get("theme");
+        try {
+          theme = theme || localStorage.getItem("lian-portfolio-theme");
+        } catch (error) {}
+        if (theme !== "dark" && theme !== "light") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="../assets/styles.css">
     <script src="../assets/script.js" defer></script>
   </head>
@@ -14,50 +37,60 @@
       <a class="back-link reveal" href="../projects.html">&larr; Back to projects</a>
 
       <header class="project-header reveal">
-        <p class="eyebrow">Media analytics &middot; Engagement &middot; Descriptive reporting</p>
-        <h1 class="project-page-title">Media Audience Engagement Analysis</h1>
+        <p class="eyebrow">Media insights &middot; Thematic analysis &middot; Policy risk</p>
+        <h1 class="project-page-title">Media Insight Report: Philippine Inflation and Policy Debate</h1>
         <ul class="tool-list" aria-label="Tools used">
           <li>Excel</li>
+          <li>Media monitoring</li>
+          <li>Thematic coding</li>
           <li>Data visualization</li>
-          <li>Descriptive analysis</li>
         </ul>
       </header>
 
-      <div class="visual-marquee reveal" aria-label="Media Audience Engagement Analysis screenshots">
+      <div class="visual-marquee reveal" aria-label="Media insight report pages">
         <div class="visual-track" data-marquee-track>
-          <div class="visual-slide"><img src="../assets/projects/project-6/1.png" alt="Media audience engagement analysis screenshot 1"></div>
-          <div class="visual-slide"><img src="../assets/projects/project-6/2.png" alt="Media audience engagement analysis screenshot 2"></div>
-          <div class="visual-slide"><img src="../assets/projects/project-6/3.png" alt="Media audience engagement analysis screenshot 3"></div>
-          <div class="visual-slide"><img src="../assets/projects/project-6/4.png" alt="Media audience engagement analysis screenshot 4"></div>
+          <div class="visual-slide"><img src="../assets/projects/project-6/1.png" alt="Media insight report page 1"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-6/2.png" alt="Media insight report page 2"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-6/3.png" alt="Media insight report page 3"></div>
+          <div class="visual-slide"><img loading="lazy" decoding="async" src="../assets/projects/project-6/4.png" alt="Media insight report page 4"></div>
         </div>
       </div>
 
       <article class="project-body reveal">
         <section>
           <h2>Context</h2>
-          <p>I wanted to examine how audience engagement patterns could inform media and content decisions.</p>
+          <p>Philippine headline inflation rose from 2.0% in January to a three-year-high 7.2% in April 2026. I wanted to show how media coverage of that spike translates into concrete risks and opportunities for a business client.</p>
         </section>
         <section>
           <h2>Data</h2>
-          <p>Audience engagement and media-performance datasets.</p>
+          <p>15 public media and official sources published between February and May 2026, including national dailies, business media, PSA, DOF, DBM, and BSP releases, and international outlets.</p>
         </section>
         <section>
           <h2>Method</h2>
-          <p>I used Excel-based analytics, visualization reporting, and descriptive analysis.</p>
+          <p>I coded coverage into themes (cost-of-living hardship, wage justice versus business costs, and social protection as a shock absorber), read tone qualitatively, and mapped stakeholders for a retail and FMCG client persona.</p>
         </section>
         <section>
           <h2>Output</h2>
-          <p>Audience-analysis reports and engagement visualizations.</p>
+          <p>A consultant-style media insight report with an inflation timeline, stakeholder map, Excel visualizations, and recommended actions.</p>
         </section>
         <section>
           <h2>Findings</h2>
-          <p>The analysis showed noticeable engagement differences across content and reporting patterns.</p>
+          <p>Coverage centered on two policy levers: wage hikes of up to P200 a day and expanded social protection, including P43.18B released for cash aid and related programs. For the client, that meant short-term cost and wage pressure, reputational risk around pricing, and medium-term opportunities to align with social protection priorities.</p>
+        </section>
+        <section>
+          <h2>Repository</h2>
+          <p><a class="text-link" href="https://github.com/liancataytayjk-coder/media-audience-engagement-analysis" target="_blank" rel="noopener noreferrer">View GitHub repository</a></p>
         </section>
         <section>
           <h2>Reflection</h2>
           <p>I&rsquo;d improve this by integrating social-media analytics and interactive dashboards.</p>
         </section>
       </article>
+
+      <nav class="project-pager reveal" aria-label="More projects">
+        <a href="philippines-labor-market-trend-analysis.html" rel="prev"><span>&larr; Previous</span><strong>Philippines Labor Market Trend Analysis</strong></a>
+        <a href="philippine-emigration-ardl-macroeconomic-analysis.html" rel="next"><span>Next &rarr;</span><strong>Philippine Emigration ARDL Macroeconomic Analysis</strong></a>
+      </nav>
     </main>
 
     <nav class="dock" aria-label="Primary navigation"></nav>

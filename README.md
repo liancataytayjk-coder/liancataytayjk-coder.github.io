@@ -14,12 +14,19 @@ about.html
 projects.html
 contact.html
 portfolio.html
+404.html
+sitemap.xml
+robots.txt
 assets/
   styles.css
   portfolio.css
   script.js
   lian-cataytay-lc-tech-logo.svg
   lian-cataytay-lc-tech-logo.png
+  favicon-64.png
+  apple-touch-icon.png
+  og-image.jpg            # 1200x630 link-preview image
+  projects/epiwatch-mindanao/  # charts generated from the EpiWatch repo data
   about-night-sky.jpg
   portfolio.pdf
   lian-cataytay-resume.pdf
@@ -33,7 +40,16 @@ projects/
   philippine-emigration-ardl-macroeconomic-analysis.html
   banking-risk-and-financial-performance-analysis.html
   employee-attrition-risk-and-workforce-intelligence-analysis.html
+  ecommerce-marketplace-ads-performance-dashboard.html
+  fpa-revenue-cost-expense-forecasting-dashboard.html
+  crm-event-marketing-data-hygiene-system.html
+  epiwatch-mindanao-public-health-risk-forecasting.html
 ```
+
+## Updating the portfolio PDF
+
+`assets/portfolio.pdf` is printed from `portfolio.html`. After editing it, serve the folder locally
+and print the page to A4 PDF with background graphics enabled (Chrome: Print > Save as PDF, margins None).
 
 ## How to Run Locally
 

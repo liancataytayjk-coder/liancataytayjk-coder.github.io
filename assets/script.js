@@ -178,6 +178,32 @@
     });
   });
 
+  document.querySelectorAll("[data-project-filters]").forEach(function (bar) {
+    var items = Array.prototype.slice.call(document.querySelectorAll(".project-list li[data-category]"));
+    var status = document.querySelector("[data-filter-status]");
+    var buttons = Array.prototype.slice.call(bar.querySelectorAll("button[data-filter]"));
+
+    function applyFilter(filter) {
+      var shown = 0;
+      items.forEach(function (item) {
+        var match = filter === "all" || item.dataset.category.split(" ").indexOf(filter) !== -1;
+        item.hidden = !match;
+        if (match) shown += 1;
+      });
+      buttons.forEach(function (button) {
+        button.setAttribute("aria-pressed", button.dataset.filter === filter ? "true" : "false");
+      });
+      if (status) status.textContent = shown + (shown === 1 ? " project" : " projects");
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        applyFilter(button.dataset.filter);
+      });
+    });
+    applyFilter("all");
+  });
+
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
     var observer = new IntersectionObserver(
       function (entries) {

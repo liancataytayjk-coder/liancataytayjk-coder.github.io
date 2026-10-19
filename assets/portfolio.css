@@ -348,12 +348,16 @@ h1 {
   grid-template-columns: 1fr 72mm;
   gap: 10mm;
   align-items: stretch;
-  margin-bottom: 10mm;
-  padding: 14px;
+  margin-bottom: 5mm;
+  padding: 11px 14px;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid var(--line);
   border-radius: 16px;
   break-inside: avoid;
+}
+
+.project-feature:last-child {
+  margin-bottom: 0;
 }
 
 .project-feature.flip {
@@ -388,8 +392,8 @@ h1 {
 
 dl {
   display: grid;
-  gap: 8px;
-  margin: 12px 0 0;
+  gap: 6px;
+  margin: 9px 0 0;
 }
 
 dl div {

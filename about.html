@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="About Lian Cataytay, Data Analyst and Economist.">
     <title>About | Lian Cataytay</title>
-    <link rel="icon" href="assets/lian-cataytay-lc-tech-logo.png" type="image/png">
+    <link rel="canonical" href="https://liancataytayjk-coder.github.io/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lian Cataytay">
+    <meta property="og:title" content="About | Lian Cataytay">
+    <meta property="og:description" content="About Lian Cataytay, Data Analyst and Economist.">
+    <meta property="og:url" content="https://liancataytayjk-coder.github.io/about.html">
+    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/favicon-64.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <script>
+      (function () {
+        var theme = new URLSearchParams(window.location.search).get("theme");
+        try {
+          theme = theme || localStorage.getItem("lian-portfolio-theme");
+        } catch (error) {}
+        if (theme !== "dark" && theme !== "light") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
   </head>
@@ -20,6 +43,11 @@
           <p class="identity-role">Data Analyst &amp; Economist</p>
         </div>
         <div class="header-actions">
+          <a class="icon-link" href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M7.5 10.5v6M7.5 7.5v.01M11 16.5v-6m0 2.6c0-1.6 1-2.6 2.4-2.6 1.4 0 2.1.9 2.1 2.6v3.4M5.5 3.5h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
           <a class="icon-link" href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
               <path d="M9 19c-4.3 1.4-4.3-2.2-6-2.7m12 5.1v-3.7c0-1 .1-1.4-.5-2 2.7-.3 5.5-1.3 5.5-6A4.6 4.6 0 0 0 18.7 6c.1-.3.6-1.7-.2-3.6 0 0-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.6 0C5.8 2.1 4.7 2.4 4.7 2.4A4.8 4.8 0 0 0 4.5 6 4.6 4.6 0 0 0 3.2 9.7c0 4.7 2.8 5.7 5.5 6-.6.6-.7 1.2-.7 2v3.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -38,6 +66,66 @@
         <p>Lian works with tools such as Python, Power BI, Tableau, Stata, R, and lots of Excel to turn raw datasets into dashboards and models, and further down the line, outputs that are practical, explainable, and decision-ready.</p>
         <p>Right now, he is especially interested in research and AI.</p>
         <p>Outside work, Lian loves to jog in the morning. He also likes to sing like no one is listening. Sometimes both on the same morning.</p>
+      </section>
+
+      <section class="page-section reveal" aria-labelledby="experience-title">
+        <h2 class="section-title" id="experience-title">Experience</h2>
+        <ol class="timeline">
+          <li>
+            <span class="timeline-date">Aug 2025 &ndash; Oct 2025</span>
+            <h3>Data Analyst Intern</h3>
+            <p class="timeline-org">Socio-Economic Research and Data Analytics Center</p>
+            <p>Standardized multi-source demographic data in RStudio and Excel, built charts and Excel dashboards, and turned statistical outputs into briefs for policymakers and program staff.</p>
+          </li>
+          <li>
+            <span class="timeline-date">Oct 2024 &ndash; Present</span>
+            <h3>Freelance Data Analyst</h3>
+            <p class="timeline-org">Self-employed</p>
+            <p>Builds revenue and expense trackers with budget-vs-actual checks, KPI dashboards covering 8+ marketing and finance metrics, and regression-based scenario and A/B lift models.</p>
+          </li>
+          <li>
+            <span class="timeline-date">Aug 2024 &ndash; Jan 2026</span>
+            <h3>Econometrics and Applied Economics Research Analyst</h3>
+            <p class="timeline-org">University of Southeastern Philippines</p>
+            <p>Built Prais-Winsten, time-series, Logit, and Probit models for macroeconomic, inflation, and loan-delinquency research, and synthesized the findings for policy audiences.</p>
+          </li>
+          <li>
+            <span class="timeline-date">Aug 2022 &ndash; Aug 2024</span>
+            <h3>Lead Feature Editor</h3>
+            <p class="timeline-org">The Collegiate Headlight, USeP</p>
+            <p>Wrote, edited, and quality-checked 100+ published pieces and mentored junior writers on evidence use and narrative structure.</p>
+          </li>
+          <li>
+            <span class="timeline-date">Aug 2020 &ndash; Apr 2022</span>
+            <h3>Administrative Assistant</h3>
+            <p class="timeline-org">Saint John Marie Vianney Academy of Sulop, Inc.</p>
+            <p>Managed accounting logs, records, and reporting, and produced 50+ educational and promotional materials.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="page-section reveal" aria-labelledby="education-title">
+        <h2 class="section-title" id="education-title">Education</h2>
+        <div class="edu-card">
+          <h3>BS Economics, major in Development Economics</h3>
+          <p class="timeline-org">University of Southeastern Philippines, Davao City &middot; CGPA 1.30</p>
+          <p>Coursework in econometrics, time-series analysis, financial economics, development economics, statistics, and project evaluation.</p>
+        </div>
+        <ul class="tool-list toolkit" aria-label="Toolkit">
+          <li>Python</li>
+          <li>SQL</li>
+          <li>R</li>
+          <li>Stata</li>
+          <li>Excel</li>
+          <li>Power BI</li>
+          <li>Tableau</li>
+          <li>Pandas</li>
+          <li>Scikit-learn</li>
+          <li>SHAP</li>
+        </ul>
+        <div class="home-cta">
+          <a class="text-link" href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">Download full resume &rarr;</a>
+        </div>
       </section>
     </main>
 

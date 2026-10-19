@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="eCommerce Marketplace Ads Performance Dashboard by Lian Cataytay.">
     <title>eCommerce Marketplace Ads Performance Dashboard | Lian Cataytay</title>
-    <link rel="icon" href="../assets/lian-cataytay-lc-tech-logo.png" type="image/png">
+    <link rel="canonical" href="https://liancataytayjk-coder.github.io/projects/ecommerce-marketplace-ads-performance-dashboard.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lian Cataytay">
+    <meta property="og:title" content="eCommerce Marketplace Ads Performance Dashboard | Lian Cataytay">
+    <meta property="og:description" content="eCommerce Marketplace Ads Performance Dashboard by Lian Cataytay.">
+    <meta property="og:url" content="https://liancataytayjk-coder.github.io/projects/ecommerce-marketplace-ads-performance-dashboard.html">
+    <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../assets/favicon-64.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <script>
+      (function () {
+        var theme = new URLSearchParams(window.location.search).get("theme");
+        try {
+          theme = theme || localStorage.getItem("lian-portfolio-theme");
+        } catch (error) {}
+        if (theme !== "dark" && theme !== "light") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="../assets/styles.css">
     <script src="../assets/script.js" defer></script>
   </head>
@@ -77,6 +100,11 @@
           <p>The strongest part of this project is the operating layer: it does not just show performance, it turns messy marketplace exports into budget actions, data quality fixes, and product-level decisions.</p>
         </section>
       </article>
+
+      <nav class="project-pager reveal" aria-label="More projects">
+        <a href="ecommerce-customer-retention-analytics.html" rel="prev"><span>&larr; Previous</span><strong>E-commerce Customer Retention Analytics</strong></a>
+        <a href="fpa-revenue-cost-expense-forecasting-dashboard.html" rel="next"><span>Next &rarr;</span><strong>FP&amp;A Revenue, Cost &amp; Expense Forecasting Dashboard</strong></a>
+      </nav>
     </main>
 
     <nav class="dock" aria-label="Primary navigation"></nav>
