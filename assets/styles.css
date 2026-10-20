@@ -987,6 +987,13 @@ figcaption {
   border-top: 3px double var(--ink);
 }
 
+.footer-seal {
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 10px;
+}
+
 .footer-nameplate {
   font-size: 1.9rem;
   font-weight: 700;

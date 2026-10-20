@@ -23,8 +23,8 @@ assets/
   styles.css
   portfolio.css
   script.js
-  lian-cataytay-lc-tech-logo.svg
-  lian-cataytay-lc-tech-logo.png
+  logo.svg                # LC monogram seal (logo-512.png is a raster copy)
+  favicon.svg             # simplified seal for browser tabs
   favicon-64.png
   apple-touch-icon.png
   og-image.jpg            # 1200x630 link-preview image
