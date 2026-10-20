@@ -1,6 +1,8 @@
 # Lian Cataytay Portfolio
 
-A minimalist personal portfolio website for Lian Cataytay, Data Analyst & Economist.
+A personal portfolio website for Lian Cataytay, Data Analyst & Economist, designed as a classic
+broadsheet: Times New Roman throughout, a newspaper masthead, a multi-column front page, and
+article-style project pages.
 
 ## Live Site
 
@@ -44,6 +46,18 @@ projects/
   fpa-revenue-cost-expense-forecasting-dashboard.html
   crm-event-marketing-data-hygiene-system.html
   epiwatch-mindanao-public-health-risk-forecasting.html
+```
+
+## Figures
+
+Every chart in `assets/figures/` is drawn from the project repositories' own data in black and
+white (Times New Roman, line styles and grey fills, no colour). `assets/figures/figures.json` holds
+each figure's caption and source note. To redraw them, clone the project repositories into one
+folder and run:
+
+```text
+pip install matplotlib pandas openpyxl
+python3 tools/figures.py <folder-with-project-repos> .
 ```
 
 ## Updating the portfolio PDF

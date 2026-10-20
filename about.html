@@ -15,120 +15,132 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#fbf9f4">
     <link rel="icon" href="assets/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <script>
-      (function () {
-        var theme = new URLSearchParams(window.location.search).get("theme");
-        try {
-          theme = theme || localStorage.getItem("lian-portfolio-theme");
-        } catch (error) {}
-        if (theme !== "dark" && theme !== "light") {
-          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
   </head>
   <body data-page="about">
-    <main class="page-shell">
-      <header class="site-header reveal">
-        <a class="avatar" href="index.html" aria-label="Lian Cataytay home">
-          <img src="assets/lian-cataytay-lc-tech-logo.png" alt="LC Tech logo">
-        </a>
-        <div class="identity">
-          <h1 class="identity-name">Lian Cataytay</h1>
-          <p class="identity-role">Data Analyst &amp; Economist</p>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead">
+      <div class="masthead-bar">
+        <span class="masthead-date" data-today></span>
+        <span class="masthead-place">Davao City, Philippines</span>
+        <span class="masthead-links"><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a></span>
+      </div>
+      <a class="nameplate" href="index.html">Lian Cataytay</a>
+      <p class="motto">Data Analyst &amp; Economist &middot; Analytics, dashboards, and econometric research</p>
+      <nav class="section-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+    <main id="main" class="page">
+      <article class="story">
+        <header class="story-head">
+          <p class="kicker">Profile</p>
+          <h1 class="story-headline">The analyst who thinks like an economist</h1>
+          <p class="story-deck">A data analyst and economist from Davao City, working where business intelligence, machine learning, and econometric research meet.</p>
+          <p class="byline">Lian Cataytay &middot; Data Analyst &amp; Economist</p>
+        </header>
+        <div class="story-grid">
+          <div class="story-body">
+            <figure class="inline-figure">
+              <img src="assets/about-night-sky.jpg" alt="Night sky over a quiet trail">
+              <figcaption>Night sky over a quiet trail.</figcaption>
+            </figure>
+          <p class="dropcap">Lian is a data analyst and economist from the Philippines. His work spans econometrics, business intelligence, and machine learning. He has built projects involving retention analytics, AI-powered churn prediction, banking risk analysis, and workforce intelligence.</p>
+          <p>Data is only valuable when it leads to better decisions. Many organizations already have the numbers; what they lack is a clear way to interpret them. That is the gap he focuses on closing.</p>
+          <p>Lian works with tools such as Python, Power BI, Tableau, Stata, R, and lots of Excel to turn raw datasets into dashboards and models, and further down the line, outputs that are practical, explainable, and decision-ready.</p>
+          <p>Right now, he is especially interested in research and AI.</p>
+          <p>Outside work, Lian loves to jog in the morning. He also likes to sing like no one is listening. Sometimes both on the same morning.</p>
+          </div>
+          <aside class="story-rail" aria-label="Quick facts">
+            <section class="rail-box">
+              <h2 class="rail-title">Quick facts</h2>
+              <dl class="facts">
+                <div><dt>Based in</dt><dd>Davao City, Philippines</dd></div>
+                <div><dt>Education</dt><dd>BS Economics, major in Development Economics, University of Southeastern Philippines (CGPA 1.30)</dd></div>
+                <div><dt>Focus</dt><dd>Business intelligence, machine learning, econometrics</dd></div>
+                <div><dt>Now</dt><dd>Especially interested in research and AI</dd></div>
+              </dl>
+            </section>
+            <section class="rail-box">
+              <h2 class="rail-title">Toolkit</h2>
+              <ul class="inline-list"><li>Python</li><li>SQL</li><li>R</li><li>Stata</li><li>Excel</li><li>Power BI</li><li>Tableau</li><li>Pandas</li><li>Scikit-learn</li><li>SHAP</li></ul>
+            </section>
+          </aside>
         </div>
-        <div class="header-actions">
-          <a class="icon-link" href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-              <path d="M7.5 10.5v6M7.5 7.5v.01M11 16.5v-6m0 2.6c0-1.6 1-2.6 2.4-2.6 1.4 0 2.1.9 2.1 2.6v3.4M5.5 3.5h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a class="icon-link" href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-              <path d="M9 19c-4.3 1.4-4.3-2.2-6-2.7m12 5.1v-3.7c0-1 .1-1.4-.5-2 2.7-.3 5.5-1.3 5.5-6A4.6 4.6 0 0 0 18.7 6c.1-.3.6-1.7-.2-3.6 0 0-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.6 0C5.8 2.1 4.7 2.4 4.7 2.4A4.8 4.8 0 0 0 4.5 6 4.6 4.6 0 0 0 3.2 9.7c0 4.7 2.8 5.7 5.5 6-.6.6-.7 1.2-.7 2v3.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </header>
 
-      <section class="page-section reveal" aria-labelledby="about-title">
-        <h2 class="section-title" id="about-title">About</h2>
-        <figure class="about-photo">
-          <img src="assets/about-night-sky.jpg" alt="Night sky over a quiet trail">
-        </figure>
-        <p>Lian is a data analyst and economist from the Philippines. His work spans econometrics, business intelligence, and machine learning. He has built projects involving retention analytics, AI-powered churn prediction, banking risk analysis, and workforce intelligence.</p>
-        <p>Data is only valuable when it leads to better decisions. Many organizations already have the numbers; what they lack is a clear way to interpret them. That is the gap he focuses on closing.</p>
-        <p>Lian works with tools such as Python, Power BI, Tableau, Stata, R, and lots of Excel to turn raw datasets into dashboards and models, and further down the line, outputs that are practical, explainable, and decision-ready.</p>
-        <p>Right now, he is especially interested in research and AI.</p>
-        <p>Outside work, Lian loves to jog in the morning. He also likes to sing like no one is listening. Sometimes both on the same morning.</p>
-      </section>
-
-      <section class="page-section reveal" aria-labelledby="experience-title">
-        <h2 class="section-title" id="experience-title">Experience</h2>
-        <ol class="timeline">
-          <li>
-            <span class="timeline-date">Aug 2025 &ndash; Oct 2025</span>
-            <h3>Data Analyst Intern</h3>
-            <p class="timeline-org">Socio-Economic Research and Data Analytics Center</p>
-            <p>Standardized multi-source demographic data in RStudio and Excel, built charts and Excel dashboards, and turned statistical outputs into briefs for policymakers and program staff.</p>
+        <section class="cv" id="cv" aria-labelledby="cv-title">
+          <h2 class="rule-title" id="cv-title">Curriculum Vitae</h2>
+          <h3 class="cv-heading">Experience</h3>
+          <ol class="cv-list">
+          <li class="cv-entry">
+            <p class="cv-date">Aug 2025 &ndash; Oct 2025</p>
+            <div>
+              <h3>Data Analyst Intern</h3>
+              <p class="cv-org">Socio-Economic Research and Data Analytics Center</p>
+              <p>Standardized multi-source demographic data in RStudio and Excel, built charts and Excel dashboards, and turned statistical outputs into briefs for policymakers and program staff.</p>
+            </div>
           </li>
-          <li>
-            <span class="timeline-date">Oct 2024 &ndash; Present</span>
-            <h3>Freelance Data Analyst</h3>
-            <p class="timeline-org">Self-employed</p>
-            <p>Builds revenue and expense trackers with budget-vs-actual checks, KPI dashboards covering 8+ marketing and finance metrics, and regression-based scenario and A/B lift models.</p>
+          <li class="cv-entry">
+            <p class="cv-date">Oct 2024 &ndash; Present</p>
+            <div>
+              <h3>Freelance Data Analyst</h3>
+              <p class="cv-org">Self-employed</p>
+              <p>Builds revenue and expense trackers with budget-vs-actual checks, KPI dashboards covering 8+ marketing and finance metrics, and regression-based scenario and A/B lift models.</p>
+            </div>
           </li>
-          <li>
-            <span class="timeline-date">Aug 2024 &ndash; Jan 2026</span>
-            <h3>Econometrics and Applied Economics Research Analyst</h3>
-            <p class="timeline-org">University of Southeastern Philippines</p>
-            <p>Built Prais-Winsten, time-series, Logit, and Probit models for macroeconomic, inflation, and loan-delinquency research, and synthesized the findings for policy audiences.</p>
+          <li class="cv-entry">
+            <p class="cv-date">Aug 2024 &ndash; Jan 2026</p>
+            <div>
+              <h3>Econometrics and Applied Economics Research Analyst</h3>
+              <p class="cv-org">University of Southeastern Philippines</p>
+              <p>Built Prais-Winsten, time-series, Logit, and Probit models for macroeconomic, inflation, and loan-delinquency research, and synthesized the findings for policy audiences.</p>
+            </div>
           </li>
-          <li>
-            <span class="timeline-date">Aug 2022 &ndash; Aug 2024</span>
-            <h3>Lead Feature Editor</h3>
-            <p class="timeline-org">The Collegiate Headlight, USeP</p>
-            <p>Wrote, edited, and quality-checked 100+ published pieces and mentored junior writers on evidence use and narrative structure.</p>
+          <li class="cv-entry">
+            <p class="cv-date">Aug 2022 &ndash; Aug 2024</p>
+            <div>
+              <h3>Lead Feature Editor</h3>
+              <p class="cv-org">The Collegiate Headlight, USeP</p>
+              <p>Wrote, edited, and quality-checked 100+ published pieces and mentored junior writers on evidence use and narrative structure.</p>
+            </div>
           </li>
-          <li>
-            <span class="timeline-date">Aug 2020 &ndash; Apr 2022</span>
-            <h3>Administrative Assistant</h3>
-            <p class="timeline-org">Saint John Marie Vianney Academy of Sulop, Inc.</p>
-            <p>Managed accounting logs, records, and reporting, and produced 50+ educational and promotional materials.</p>
+          <li class="cv-entry">
+            <p class="cv-date">Aug 2020 &ndash; Apr 2022</p>
+            <div>
+              <h3>Administrative Assistant</h3>
+              <p class="cv-org">Saint John Marie Vianney Academy of Sulop, Inc.</p>
+              <p>Managed accounting logs, records, and reporting, and produced 50+ educational and promotional materials.</p>
+            </div>
           </li>
-        </ol>
-      </section>
-
-      <section class="page-section reveal" aria-labelledby="education-title">
-        <h2 class="section-title" id="education-title">Education</h2>
-        <div class="edu-card">
-          <h3>BS Economics, major in Development Economics</h3>
-          <p class="timeline-org">University of Southeastern Philippines, Davao City &middot; CGPA 1.30</p>
-          <p>Coursework in econometrics, time-series analysis, financial economics, development economics, statistics, and project evaluation.</p>
-        </div>
-        <ul class="tool-list toolkit" aria-label="Toolkit">
-          <li>Python</li>
-          <li>SQL</li>
-          <li>R</li>
-          <li>Stata</li>
-          <li>Excel</li>
-          <li>Power BI</li>
-          <li>Tableau</li>
-          <li>Pandas</li>
-          <li>Scikit-learn</li>
-          <li>SHAP</li>
-        </ul>
-        <div class="home-cta">
-          <a class="text-link" href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">Download full resume &rarr;</a>
-        </div>
-      </section>
+          </ol>
+          <h3 class="cv-heading">Education</h3>
+          <ol class="cv-list">
+            <li class="cv-entry">
+              <p class="cv-date">University of Southeastern Philippines</p>
+              <div>
+                <h3>BS Economics, major in Development Economics</h3>
+                <p class="cv-org">Davao City &middot; CGPA 1.30</p>
+                <p>Coursework in econometrics, time-series analysis, financial economics, development economics, statistics, and project evaluation.</p>
+              </div>
+            </li>
+          </ol>
+          <p class="more-links"><a href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">Download the full r&eacute;sum&eacute; &rarr;</a><a href="contact.html">Get in touch &rarr;</a></p>
+        </section>
+      </article>
     </main>
 
-    <nav class="dock" aria-label="Primary navigation"></nav>
+    <footer class="site-footer">
+      <a class="footer-nameplate" href="index.html">Lian Cataytay</a>
+      <nav class="footer-nav" aria-label="Footer"><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></nav>
+      <p class="footer-links"><a href="mailto:liancataytayjk@gmail.com">liancataytayjk@gmail.com</a><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a><a href="assets/portfolio.pdf" target="_blank" rel="noopener noreferrer">Portfolio PDF</a></p>
+      <p class="footer-fine">&copy; 2026 Lian Cataytay &middot; Data Analyst &amp; Economist &middot; Davao City, Philippines</p>
+    </footer>
   </body>
 </html>

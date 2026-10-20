@@ -15,75 +15,194 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#fbf9f4">
     <link rel="icon" href="assets/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <script>
-      (function () {
-        var theme = new URLSearchParams(window.location.search).get("theme");
-        try {
-          theme = theme || localStorage.getItem("lian-portfolio-theme");
-        } catch (error) {}
-        if (theme !== "dark" && theme !== "light") {
-          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
   </head>
   <body data-page="projects">
-    <main class="page-shell">
-      <header class="site-header reveal">
-        <a class="avatar" href="index.html" aria-label="Lian Cataytay home">
-          <img src="assets/lian-cataytay-lc-tech-logo.png" alt="LC Tech logo">
-        </a>
-        <div class="identity">
-          <h1 class="identity-name">Lian Cataytay</h1>
-          <p class="identity-role">Data Analyst &amp; Economist</p>
-        </div>
-        <div class="header-actions">
-          <a class="icon-link" href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-              <path d="M7.5 10.5v6M7.5 7.5v.01M11 16.5v-6m0 2.6c0-1.6 1-2.6 2.4-2.6 1.4 0 2.1.9 2.1 2.6v3.4M5.5 3.5h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a class="icon-link" href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-              <path d="M9 19c-4.3 1.4-4.3-2.2-6-2.7m12 5.1v-3.7c0-1 .1-1.4-.5-2 2.7-.3 5.5-1.3 5.5-6A4.6 4.6 0 0 0 18.7 6c.1-.3.6-1.7-.2-3.6 0 0-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.6 0C5.8 2.1 4.7 2.4 4.7 2.4A4.8 4.8 0 0 0 4.5 6 4.6 4.6 0 0 0 3.2 9.7c0 4.7 2.8 5.7 5.5 6-.6.6-.7 1.2-.7 2v3.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead">
+      <div class="masthead-bar">
+        <span class="masthead-date" data-today></span>
+        <span class="masthead-place">Davao City, Philippines</span>
+        <span class="masthead-links"><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a></span>
+      </div>
+      <a class="nameplate" href="index.html">Lian Cataytay</a>
+      <p class="motto">Data Analyst &amp; Economist &middot; Analytics, dashboards, and econometric research</p>
+      <nav class="section-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+    <main id="main" class="page">
+      <header class="section-head">
+        <p class="kicker">Section</p>
+        <h1 class="page-headline">Projects</h1>
+        <p class="page-deck">Thirteen end-to-end projects across business intelligence, machine learning, and economic research. Each one links to its code.</p>
       </header>
-
-      <section class="page-section reveal" aria-labelledby="projects-title">
-        <h2 class="section-title" id="projects-title">Projects</h2>
-        <p class="projects-intro">Thirteen end-to-end projects across business intelligence, machine learning, and economic research. Each one links to its code.</p>
-        <div class="filter-bar" role="group" aria-label="Filter projects by category" data-project-filters>
-          <button type="button" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" data-filter="bi" aria-pressed="false">Business &amp; BI</button>
-          <button type="button" data-filter="ml" aria-pressed="false">Machine learning</button>
-          <button type="button" data-filter="research" aria-pressed="false">Economics &amp; research</button>
-        </div>
-        <p class="filter-status" aria-live="polite" data-filter-status></p>
-        <ol class="project-list">
-          <li data-category="ml research"><a class="project-link" href="projects/epiwatch-mindanao-public-health-risk-forecasting.html"><span><span class="project-kicker">Public health &middot; Forecasting</span><span class="project-name">EpiWatch Mindanao Public Health Risk Forecasting</span><span class="project-description">A simulated public health early warning system with case forecasting, anomaly detection, risk scoring, and dashboard-ready outputs.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="bi ml"><a class="project-link" href="projects/customer-sentiment-intelligence-dashboard.html"><span><span class="project-kicker">NLP &middot; Power BI</span><span class="project-name">Customer Sentiment Intelligence Dashboard</span><span class="project-description">Sentiment analysis of customer reviews and business-facing metrics for interpreting customer pain points and satisfaction trends.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="bi"><a class="project-link" href="projects/ecommerce-customer-retention-analytics.html"><span><span class="project-kicker">Customer analytics &middot; Tableau</span><span class="project-name">E-commerce Customer Retention Analytics</span><span class="project-description">Customer behavior analysis focused on retention, segmentation, cohort patterns, and churn-risk insights.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="bi"><a class="project-link" href="projects/ecommerce-marketplace-ads-performance-dashboard.html"><span><span class="project-kicker">Marketing analytics</span><span class="project-name">eCommerce Marketplace Ads Performance Dashboard</span><span class="project-description">Marketplace ads reporting with ACoS/TACoS KPIs, slow-moving SKU analysis, data quality checks, and budget recommendations.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="bi"><a class="project-link" href="projects/fpa-revenue-cost-expense-forecasting-dashboard.html"><span><span class="project-kicker">FP&amp;A &middot; Forecasting</span><span class="project-name">FP&amp;A Revenue, Cost &amp; Expense Forecasting Dashboard</span><span class="project-description">Monthly FP&amp;A reporting with budget variance, forecast accuracy, KPI trends, scenario analysis, and anomaly review.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="ml"><a class="project-link" href="projects/ai-customer-churn-intelligence-system.html"><span><span class="project-kicker">Machine learning &middot; SHAP</span><span class="project-name">AI Customer Churn Intelligence System</span><span class="project-description">An explainable churn-prediction workflow using machine learning, SHAP, and retention-focused reporting.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="bi"><a class="project-link" href="projects/crm-event-marketing-data-hygiene-system.html"><span><span class="project-kicker">CRM &middot; Data quality</span><span class="project-name">CRM &amp; Event Marketing Data Hygiene System</span><span class="project-description">CRM cleaning, duplicate resolution, contact validation, event follow-up, and marketing-ready outputs.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="research"><a class="project-link" href="projects/agricultural-scm-productivity-analysis.html"><span><span class="project-kicker">Impact evaluation &middot; R</span><span class="project-name">CARP and Agricultural Productivity: A Synthetic Control Study</span><span class="project-description">A synthetic control evaluation of how the 1988 agrarian reform program affected Philippine labor productivity, land productivity, and TFP.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="research"><a class="project-link" href="projects/philippines-labor-market-trend-analysis.html"><span><span class="project-kicker">Labor economics</span><span class="project-name">Philippines Labor Market Trend Analysis</span><span class="project-description">A labor-market analysis of employment quality, workforce composition, and underemployment patterns in the Philippines.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="research"><a class="project-link" href="projects/media-audience-engagement-analysis.html"><span><span class="project-kicker">Media insights</span><span class="project-name">Media Insight Report: Philippine Inflation and Policy Debate</span><span class="project-description">A media insight report turning coverage of the 2026 inflation spike into risks and opportunities for a retail client.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="research"><a class="project-link" href="projects/philippine-emigration-ardl-macroeconomic-analysis.html"><span><span class="project-kicker">Time-series econometrics &middot; Stata</span><span class="project-name">Philippine Emigration ARDL Macroeconomic Analysis</span><span class="project-description">An econometric analysis of how macroeconomic conditions relate to Philippine emigration trends.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="ml"><a class="project-link" href="projects/banking-risk-and-financial-performance-analysis.html"><span><span class="project-kicker">Credit risk &middot; Classification</span><span class="project-name">Banking Risk and Financial Performance Analysis</span><span class="project-description">A financial-risk project identifying borrower and loan characteristics associated with default exposure.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li data-category="bi"><a class="project-link" href="projects/employee-attrition-risk-and-workforce-intelligence-analysis.html"><span><span class="project-kicker">HR analytics</span><span class="project-name">Employee Attrition Risk and Workforce Intelligence Analysis</span><span class="project-description">A workforce intelligence project identifying employee groups and teams with stronger attrition-risk patterns.</span></span><span class="project-arrow" aria-hidden="true">&rarr;</span></a></li>
-        </ol>
-      </section>
+      <div class="filter-bar" role="group" aria-label="Filter projects by category" data-project-filters>
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="bi" aria-pressed="false">Business &amp; Intelligence</button>
+        <button type="button" data-filter="ml" aria-pressed="false">Machine Learning</button>
+        <button type="button" data-filter="research" aria-pressed="false">Economics &amp; Research</button>
+        <span class="filter-status" aria-live="polite" data-filter-status></span>
+      </div>
+      <ol class="project-list">
+          <li data-category="ml research">
+            <a class="index-item" href="projects/epiwatch-mindanao-public-health-risk-forecasting.html">
+              <span class="index-text">
+                <span class="kicker">Public health &middot; Forecasting</span>
+                <span class="index-headline">EpiWatch Mindanao Public Health Risk Forecasting</span>
+                <span class="index-deck">A simulated public health early warning system with case forecasting, anomaly detection, risk scoring, and dashboard-ready outputs.</span>
+                <span class="card-figure-line">1 High Risk, 1 Alert, and 14 Watch municipalities in the latest week.</span>
+              </span>
+              <img src="assets/figures/epiwatch-mindanao-public-health-risk-forecasting-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="bi ml">
+            <a class="index-item" href="projects/customer-sentiment-intelligence-dashboard.html">
+              <span class="index-text">
+                <span class="kicker">NLP &middot; Power BI</span>
+                <span class="index-headline">Customer Sentiment Intelligence Dashboard</span>
+                <span class="index-deck">Sentiment analysis of customer reviews and business-facing metrics for interpreting customer pain points and satisfaction trends.</span>
+                <span class="card-figure-line">An NPS of 30 across 500 multilingual reviews.</span>
+              </span>
+              <img src="assets/figures/customer-sentiment-intelligence-dashboard-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="bi">
+            <a class="index-item" href="projects/ecommerce-customer-retention-analytics.html">
+              <span class="index-text">
+                <span class="kicker">Customer analytics &middot; Tableau</span>
+                <span class="index-headline">E-commerce Customer Retention Analytics</span>
+                <span class="index-deck">Customer behavior analysis focused on retention, segmentation, cohort patterns, and churn-risk insights.</span>
+                <span class="card-figure-line">59.1% churn across 93,358 customers.</span>
+              </span>
+              <img src="assets/figures/ecommerce-customer-retention-analytics-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="bi">
+            <a class="index-item" href="projects/ecommerce-marketplace-ads-performance-dashboard.html">
+              <span class="index-text">
+                <span class="kicker">Marketing analytics</span>
+                <span class="index-headline">eCommerce Marketplace Ads Performance Dashboard</span>
+                <span class="index-deck">Marketplace ads reporting with ACoS/TACoS KPIs, slow-moving SKU analysis, data quality checks, and budget recommendations.</span>
+                <span class="card-figure-line">A 6.80 average ROAS on $86.7M in ad revenue.</span>
+              </span>
+              <img src="assets/figures/ecommerce-marketplace-ads-performance-dashboard-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="bi">
+            <a class="index-item" href="projects/fpa-revenue-cost-expense-forecasting-dashboard.html">
+              <span class="index-text">
+                <span class="kicker">FP&amp;A &middot; Forecasting</span>
+                <span class="index-headline">FP&amp;A Revenue, Cost &amp; Expense Forecasting Dashboard</span>
+                <span class="index-deck">Monthly FP&amp;A reporting with budget variance, forecast accuracy, KPI trends, scenario analysis, and anomaly review.</span>
+                <span class="card-figure-line">98.2% forecast accuracy on $281.6M in revenue.</span>
+              </span>
+              <img src="assets/figures/fpa-revenue-cost-expense-forecasting-dashboard-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="ml">
+            <a class="index-item" href="projects/ai-customer-churn-intelligence-system.html">
+              <span class="index-text">
+                <span class="kicker">Machine learning &middot; SHAP</span>
+                <span class="index-headline">AI Customer Churn Intelligence System</span>
+                <span class="index-deck">An explainable churn-prediction workflow using machine learning, SHAP, and retention-focused reporting.</span>
+                <span class="card-figure-line">78.8% churn in the High Risk segment, against 12.9% in Low Risk.</span>
+              </span>
+              <img src="assets/figures/ai-customer-churn-intelligence-system-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="bi">
+            <a class="index-item" href="projects/crm-event-marketing-data-hygiene-system.html">
+              <span class="index-text">
+                <span class="kicker">CRM &middot; Data quality</span>
+                <span class="index-headline">CRM &amp; Event Marketing Data Hygiene System</span>
+                <span class="index-deck">CRM cleaning, duplicate resolution, contact validation, event follow-up, and marketing-ready outputs.</span>
+                <span class="card-figure-line">313 duplicates removed, leaving 1,187 clean contacts.</span>
+              </span>
+              <img src="assets/figures/crm-event-marketing-data-hygiene-system-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="research">
+            <a class="index-item" href="projects/agricultural-scm-productivity-analysis.html">
+              <span class="index-text">
+                <span class="kicker">Impact evaluation &middot; R</span>
+                <span class="index-headline">CARP and Agricultural Productivity: A Synthetic Control Study</span>
+                <span class="index-deck">A synthetic control evaluation of how the 1988 agrarian reform program affected Philippine labor productivity, land productivity, and TFP.</span>
+                <span class="card-figure-line">Labor productivity about 18.2% below its synthetic control.</span>
+              </span>
+              <img src="assets/figures/agricultural-scm-productivity-analysis-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="research">
+            <a class="index-item" href="projects/philippines-labor-market-trend-analysis.html">
+              <span class="index-text">
+                <span class="kicker">Labor economics</span>
+                <span class="index-headline">Philippines Labor Market Trend Analysis</span>
+                <span class="index-deck">A labor-market analysis of employment quality, workforce composition, and underemployment patterns in the Philippines.</span>
+                <span class="card-figure-line">Underemployment at 11.4%, almost three times unemployment.</span>
+              </span>
+              <img src="assets/figures/philippines-labor-market-trend-analysis-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="research">
+            <a class="index-item" href="projects/media-audience-engagement-analysis.html">
+              <span class="index-text">
+                <span class="kicker">Media insights</span>
+                <span class="index-headline">Media Insight Report: Philippine Inflation and Policy Debate</span>
+                <span class="index-deck">A media insight report turning coverage of the 2026 inflation spike into risks and opportunities for a retail client.</span>
+                <span class="card-figure-line">15 sources on inflation&rsquo;s climb to a three-year-high 7.2%.</span>
+              </span>
+              <img src="assets/figures/media-audience-engagement-analysis-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="research">
+            <a class="index-item" href="projects/philippine-emigration-ardl-macroeconomic-analysis.html">
+              <span class="index-text">
+                <span class="kicker">Time-series econometrics &middot; Stata</span>
+                <span class="index-headline">Philippine Emigration ARDL Macroeconomic Analysis</span>
+                <span class="index-deck">An econometric analysis of how macroeconomic conditions relate to Philippine emigration trends.</span>
+                <span class="card-figure-line">A 1% rise in GDP per capita, a 0.46% fall in long-run emigration.</span>
+              </span>
+              <img src="assets/figures/philippine-emigration-ardl-macroeconomic-analysis-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="ml">
+            <a class="index-item" href="projects/banking-risk-and-financial-performance-analysis.html">
+              <span class="index-text">
+                <span class="kicker">Credit risk &middot; Classification</span>
+                <span class="index-headline">Banking Risk and Financial Performance Analysis</span>
+                <span class="index-deck">A financial-risk project identifying borrower and loan characteristics associated with default exposure.</span>
+                <span class="card-figure-line">0.72 ROC AUC; 53% vs 2% default by risk band.</span>
+              </span>
+              <img src="assets/figures/banking-risk-and-financial-performance-analysis-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li data-category="bi">
+            <a class="index-item" href="projects/employee-attrition-risk-and-workforce-intelligence-analysis.html">
+              <span class="index-text">
+                <span class="kicker">HR analytics</span>
+                <span class="index-headline">Employee Attrition Risk and Workforce Intelligence Analysis</span>
+                <span class="index-deck">A workforce intelligence project identifying employee groups and teams with stronger attrition-risk patterns.</span>
+                <span class="card-figure-line">21.6% estimated attrition risk across employee groups.</span>
+              </span>
+              <img src="assets/figures/employee-attrition-risk-and-workforce-intelligence-analysis-1.png" alt="" loading="lazy" decoding="async">
+            </a>
+          </li>
+      </ol>
     </main>
 
-    <nav class="dock" aria-label="Primary navigation"></nav>
+    <footer class="site-footer">
+      <a class="footer-nameplate" href="index.html">Lian Cataytay</a>
+      <nav class="footer-nav" aria-label="Footer"><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></nav>
+      <p class="footer-links"><a href="mailto:liancataytayjk@gmail.com">liancataytayjk@gmail.com</a><a href="https://www.linkedin.com/in/liancataytay/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/liancataytayjk-coder" target="_blank" rel="noopener noreferrer">GitHub</a><a href="assets/lian-cataytay-resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute;</a><a href="assets/portfolio.pdf" target="_blank" rel="noopener noreferrer">Portfolio PDF</a></p>
+      <p class="footer-fine">&copy; 2026 Lian Cataytay &middot; Data Analyst &amp; Economist &middot; Davao City, Philippines</p>
+    </footer>
   </body>
 </html>
