@@ -1,9 +1,9 @@
 :root {
-  --paper: #f8f9fb;
-  --ink: #111318;
-  --ink-2: #2b2e34;
-  --meta: #5b6069;
-  --rule: #d5d9df;
+  --paper: #ffffff;
+  --ink: #111111;
+  --ink-2: #2e2e2e;
+  --meta: #5e5e5e;
+  --rule: #d9d9d9;
   --accent: #7b1d1d;
   --serif: "Times New Roman", Times, "Liberation Serif", Tinos, Georgia, serif;
   --width: 1180px;
@@ -420,17 +420,6 @@ figcaption {
   font-style: italic;
 }
 
-.pull-quote {
-  max-width: 900px;
-  margin: 48px auto 8px;
-  padding: 22px 16px;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-style: italic;
-  line-height: 1.25;
-  text-align: center;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-}
 
 .section-rule {
   display: flex;
@@ -688,10 +677,6 @@ figcaption {
   border-top: 1px solid var(--ink);
 }
 
-.inline-figure img {
-  width: 100%;
-  filter: grayscale(1) contrast(1.08);
-}
 
 .fig-note {
   font-style: italic;
@@ -765,16 +750,7 @@ figcaption {
   font-size: 1.7rem;
 }
 
-.inline-figure {
-  float: right;
-  width: 44%;
-  margin: 6px 0 16px 24px;
-}
 
-.inline-figure img {
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-}
 
 .lead-figure {
   max-width: 860px;
@@ -826,33 +802,9 @@ figcaption {
   text-decoration-thickness: 1px;
 }
 
-/* About: curriculum vitae --------------------------------------------- */
 
-.cv {
-  max-width: 1000px;
-  margin: 56px auto 0;
-  clear: both;
-}
 
-.cv-heading {
-  margin: 22px 0 4px;
-  font-size: 1.35rem;
-  font-style: italic;
-}
 
-.cv-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.cv-entry {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 28px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--rule);
-}
 
 .cv-date {
   color: var(--meta);
@@ -860,10 +812,6 @@ figcaption {
   font-style: italic;
 }
 
-.cv-entry h3 {
-  font-size: 1.18rem;
-  line-height: 1.25;
-}
 
 .cv-org {
   margin: 2px 0 6px;
@@ -871,112 +819,18 @@ figcaption {
   font-style: italic;
 }
 
-/* Contact -------------------------------------------------------------- */
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 56px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
 
-.contact-email {
-  display: inline-block;
-  margin: 4px 0 22px;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 700;
-  overflow-wrap: anywhere;
-  text-decoration-color: var(--accent);
-}
 
-.contact-links {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
-.contact-links li {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 4px 16px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--rule);
-}
 
-.contact-links a {
-  font-weight: 700;
-}
 
-.contact-links span {
-  color: var(--meta);
-  font-size: 0.92rem;
-  font-style: italic;
-}
 
-.letter label {
-  display: grid;
-  gap: 6px;
-  margin-bottom: 20px;
-  color: var(--meta);
-  font-size: 0.74rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
 
-.letter input,
-.letter textarea {
-  width: 100%;
-  padding: 8px 2px;
-  color: var(--ink);
-  font-family: var(--serif);
-  font-size: 1.08rem;
-  letter-spacing: 0;
-  text-transform: none;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--ink);
-  border-radius: 0;
-}
 
-.letter textarea {
-  padding: 10px 12px;
-  line-height: 1.5;
-  background: #ffffff;
-  border: 1px solid var(--rule);
-  resize: vertical;
-}
 
-.letter input::placeholder,
-.letter textarea::placeholder {
-  color: #969ba3;
-  font-style: italic;
-}
 
-.letter button {
-  padding: 12px 24px;
-  color: var(--paper);
-  font-family: var(--serif);
-  font-size: 0.9rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: var(--ink);
-  border: 0;
-  border-radius: 0;
-  cursor: pointer;
-}
 
-.letter button:hover {
-  background: var(--accent);
-}
-
-.letter-note {
-  margin-top: 10px;
-  color: var(--meta);
-  font-size: 0.86rem;
-  font-style: italic;
-}
 
 /* Footer --------------------------------------------------------------- */
 
@@ -1156,15 +1010,7 @@ figcaption {
     font-size: 1.06rem;
   }
 
-  .inline-figure {
-    float: none;
-    width: 100%;
-    margin: 0 0 18px;
-  }
 
-  .inline-figure img {
-    aspect-ratio: 4 / 3;
-  }
 
   .gallery-grid,
   .project-pager {
@@ -1175,10 +1021,205 @@ figcaption {
     text-align: left;
   }
 
-  .cv-entry {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
+}
+
+/* About and contact: one narrow column, small type, quiet rows ------------ */
+.sheet {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vh, 3.5rem) 0 clamp(2.5rem, 8vh, 4.5rem);
+}
+
+.sheet-head .kicker { margin: 0 0 6px; }
+
+.sheet-title {
+  font-size: clamp(1.9rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.sheet-lede {
+  margin-top: 8px;
+  color: var(--ink-2);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.sheet-body {
+  margin-top: 1.75rem;
+  font-size: 1.04rem;
+  line-height: 1.65;
+}
+
+.sheet-body p + p { margin-top: 0.9em; }
+
+.sheet-rows {
+  margin: 2rem 0 0;
+  border-top: 1px solid var(--ink);
+}
+
+.sheet-rows > div {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sheet-rows dt {
+  color: var(--meta);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  line-height: 1.9;
+  text-transform: uppercase;
+}
+
+.sheet-rows dd {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.sheet-section { margin-top: 2.5rem; }
+
+.sheet-label {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.entries {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entry {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.entry-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2px 1rem;
+  align-items: baseline;
+}
+
+.entry h3 {
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+.entry-date {
+  color: var(--meta);
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.entry-org {
+  color: var(--meta);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+.entry p:last-child {
+  margin-top: 4px;
+  color: var(--ink-2);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.sheet-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.98rem;
+}
+
+/* The contact note: two fields on a line, then the message and a small button. */
+.note-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.note-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.note-form label {
+  display: grid;
+  gap: 4px;
+  color: var(--meta);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.note-form input,
+.note-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+}
+
+.note-form textarea { resize: vertical; line-height: 1.5; }
+
+.note-form input:focus,
+.note-form textarea:focus {
+  border-color: var(--ink);
+  outline: 2px solid var(--ink);
+  outline-offset: -1px;
+}
+
+.note-send {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+}
+
+.note-form button {
+  padding: 8px 22px;
+  color: var(--paper);
+  font: inherit;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.note-form button:hover { background: var(--ink-2); }
+
+.note-hint {
+  color: var(--meta);
+  font-size: 0.86rem;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .sheet-rows > div { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .note-pair { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Front-page plate (scroll hero) ---------------------------------------- */

@@ -329,8 +329,6 @@ dd {
   display: block;
   width: 100%;
   border-top: 0.75pt solid var(--ink);
-  /* Figures are drawn on the site's #f8f9fb paper; lift that tone to white for print. */
-  filter: brightness(1.045);
 }
 
 .entry figcaption {

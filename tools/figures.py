@@ -22,7 +22,7 @@ REPOS, SITE = Path(sys.argv[1]), Path(sys.argv[2])
 OUT = SITE / "assets" / "figures"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PAPER, INK, DARK, MID, LIGHT, FAINT = "#f8f9fb", "#111318", "#474b52", "#8a8f97", "#bfc3c9", "#e3e6ea"
+PAPER, INK, DARK, MID, LIGHT, FAINT = "#ffffff", "#111111", "#474747", "#8a8a8a", "#c0c0c0", "#e4e4e4"
 plt.rcParams.update({
     "font.family": "serif",
     "font.serif": ["Times New Roman", "Liberation Serif", "Tinos", "DejaVu Serif"],
@@ -40,14 +40,50 @@ thousands = FuncFormatter(lambda v, _: f"{v:,.0f}")
 millions = FuncFormatter(lambda v, _: f"${v / 1e6:,.0f}M")
 
 
-def new(w=8, h=4.5):
-    fig, ax = plt.subplots(figsize=(w, h), dpi=200)
+# Every figure is the same size, so they line up in galleries and the PDF.
+W, H = 8, 4.5
+
+
+def new():
+    fig, ax = plt.subplots(figsize=(W, H), dpi=200)
     fig.subplots_adjust(left=0.1, right=0.96, top=0.95, bottom=0.13)
     return fig, ax
 
 
+def fit(fig, pad=0.012):
+    """Shift the axes inward so no label or tick text falls outside the figure.
+    Labels keep their size while the axes shrink, so repeat until it settles."""
+    for _ in range(6):
+        if not _fit_once(fig, pad):
+            return
+
+
+def _fit_once(fig, pad):
+    r = fig.canvas.get_renderer()
+    boxes = [ax.get_tightbbox(r) for ax in fig.axes]
+    boxes += [t.get_window_extent(r) for t in fig.texts]
+    W, H = fig.bbox.width, fig.bbox.height
+    x0 = min(b.x0 for b in boxes) / W
+    x1 = max(b.x1 for b in boxes) / W
+    y0 = min(b.y0 for b in boxes) / H
+    y1 = max(b.y1 for b in boxes) / H
+    over_l, over_r = max(0, pad - x0), max(0, x1 - (1 - pad))
+    over_b, over_t = max(0, pad - y0), max(0, y1 - (1 - pad))
+    if not any([over_l, over_r, over_b, over_t]):
+        return False
+    # Map the current extent [x0, x1] onto [max(x0, pad), min(x1, 1 - pad)].
+    nx0, nx1 = max(x0, pad), min(x1, 1 - pad)
+    ny0, ny1 = max(y0, pad), min(y1, 1 - pad)
+    sx, sy = (nx1 - nx0) / (x1 - x0), (ny1 - ny0) / (y1 - y0)
+    for ax in fig.axes:
+        p = ax.get_position()
+        ax.set_position([nx0 + (p.x0 - x0) * sx, ny0 + (p.y0 - y0) * sy, p.width * sx, p.height * sy])
+    return True
+
+
 def save(fig, slug, n, title, note):
     name = f"{slug}-{n}.png"
+    fit(fig)
     fig.savefig(OUT / name)
     plt.close(fig)
     MANIFEST.setdefault(slug, []).append({"src": f"assets/figures/{name}", "title": title, "note": note})
@@ -85,7 +121,7 @@ def year_axis(ax, step=None):
 slug = "customer-sentiment-intelligence-dashboard"
 sd = pd.read_csv(REPOS / "customer-sentiment-intelligence-dashboard/data/processed/powerbi_ready_dataset.csv")
 share = sd.sentiment.value_counts(normalize=True).reindex(["Positive", "Neutral", "Negative"]) * 100
-fig, ax = new(8, 3.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.14, bottom=0.18)
 hbar(ax, share.index.tolist(), share.values.tolist(), lambda v: f"{v:.1f}%", colors=[INK, LIGHT, PAPER],
      hatches=["", "", "////"], xmax=60)
@@ -95,7 +131,7 @@ save(fig, slug, 1, "Sentiment of 500 multilingual customer reviews",
      "Net Promoter Score of 30. Source: Customer Sentiment Intelligence Dashboard repository.")
 
 themes = sd.Themes.dropna().str.split(", ").explode().value_counts().head(8)
-fig, ax = new(8, 4.2)
+fig, ax = new()
 fig.subplots_adjust(left=0.2)
 hbar(ax, themes.index.tolist(), themes.values.tolist(), lambda v: f"{v:,.0f}", colors=DARK)
 ax.set_xlabel("Reviews mentioning the theme")
@@ -104,7 +140,7 @@ save(fig, slug, 2, "Most frequently mentioned themes in customer reviews",
 
 lang = sd.groupby("language").sentiment.apply(lambda s: (s == "Negative").mean() * 100).sort_values(ascending=False)
 n_lang = sd.language.value_counts()
-fig, ax = new(8, 3.2)
+fig, ax = new()
 fig.subplots_adjust(left=0.2, bottom=0.2)
 hbar(ax, [f"{l} (n={n_lang[l]})" for l in lang.index], lang.values.tolist(), lambda v: f"{v:.1f}%", colors=MID, xmax=max(lang.max() * 1.2, 30))
 ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
@@ -157,7 +193,7 @@ save(fig, slug, 3, "Repeat purchasing by months since first purchase, all monthl
 slug = "ecommerce-marketplace-ads-performance-dashboard"
 AD = REPOS / "ecommerce-marketplace-ads-performance-dashboard/data_processed"
 pp = pd.read_csv(AD / "platform_performance_summary.csv").sort_values("ROAS", ascending=False)
-fig, ax = new(8, 3.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.16, bottom=0.18)
 hbar(ax, pp.platform.tolist(), pp.ROAS.tolist(), lambda v: f"{v:.2f}", colors=DARK, xmax=8.2)
 ax.set_xlabel("Return on ad spend (ad revenue per dollar of spend)")
@@ -165,7 +201,7 @@ save(fig, slug, 1, "Return on ad spend by marketplace platform",
      "Simulated ad exports across four platforms. Source: eCommerce Marketplace Ads Performance Dashboard repository.")
 
 ba = pd.read_csv(AD / "budget_allocation_summary.csv").recommended_budget_action.value_counts()
-fig, ax = new(8, 3.6)
+fig, ax = new()
 fig.subplots_adjust(left=0.2, bottom=0.17)
 hbar(ax, ba.index.tolist(), ba.values.tolist(), lambda v: f"{v:,.0f}",
      colors=[LIGHT if i == "Fix Data First" else DARK for i in ba.index],
@@ -198,7 +234,7 @@ save(fig, slug, 1, "Monthly revenue, 2023 to 2025, with 2026 forecast scenarios"
 
 gm = pd.read_csv(FD / "revenue_cost_margin_summary.csv").groupby("business_unit")[["revenue", "gross_margin"]].sum()
 gm = (gm.gross_margin / gm.revenue * 100).sort_values(ascending=False)
-fig, ax = new(8, 3.8)
+fig, ax = new()
 fig.subplots_adjust(left=0.3, bottom=0.16)
 hbar(ax, gm.index.tolist(), gm.values.tolist(), lambda v: f"{v:.1f}%", colors=DARK, xmax=70)
 ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
@@ -210,7 +246,7 @@ save(fig, slug, 2, "Gross margin by business unit",
 slug = "crm-event-marketing-data-hygiene-system"
 CD = REPOS / "crm-event-marketing-data-hygiene-system/data_processed"
 steps = [("Raw CRM records", 1500), ("Duplicates removed", 313), ("Unique contacts", 1187), ("Contactable leads", 1124)]
-fig, ax = new(8, 3.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.22, bottom=0.18)
 hbar(ax, [s for s, _ in steps], [v for _, v in steps], lambda v: f"{v:,.0f}",
      colors=[LIGHT, PAPER, DARK, INK], hatches=["", "////", "", ""], xmax=1800)
@@ -219,7 +255,7 @@ save(fig, slug, 1, "From raw export to contactable leads",
      "469 invalid emails and 283 invalid phone numbers were also flagged. Source: CRM & Event Marketing Data Hygiene System repository.")
 
 ref = pd.read_csv(CD / "summary_referrals_by_status.csv").sort_values("referrals", ascending=False)
-fig, ax = new(8, 3.6)
+fig, ax = new()
 fig.subplots_adjust(left=0.22, bottom=0.17)
 hbar(ax, ref.referral_status.tolist(), ref.referrals.tolist(), lambda v: f"{v:,.0f}", colors=DARK)
 ax.set_xlabel("Referrals")
@@ -234,7 +270,7 @@ tel["churn"] = tel.Churn.eq("Yes")
 scored = pd.read_csv(CH / "processed/churn_dashboard_data.csv")
 seg = scored.groupby("RiskSegment").ActualChurn.mean().reindex(["High Risk", "Medium Risk", "Low Risk"]) * 100
 nseg = scored.RiskSegment.value_counts()
-fig, ax = new(8, 3.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.2, bottom=0.18)
 hbar(ax, [f"{s} (n={nseg[s]})" for s in seg.index], seg.values.tolist(), lambda v: f"{v:.1f}%",
      colors=[INK, MID, PAPER], hatches=["", "", "////"], xmax=100)
@@ -244,7 +280,7 @@ save(fig, slug, 1, "Observed churn by model risk segment",
      "1,409 customers scored by the model. Source: AI Customer Churn Intelligence System repository.")
 
 ct = tel.groupby("Contract").churn.mean().sort_values(ascending=False) * 100
-fig, ax = new(8, 3.2)
+fig, ax = new()
 fig.subplots_adjust(left=0.2, bottom=0.2)
 hbar(ax, ct.index.tolist(), ct.values.tolist(), lambda v: f"{v:.1f}%", colors=DARK, xmax=55)
 ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
@@ -254,7 +290,7 @@ save(fig, slug, 2, "Churn rate by contract type",
 
 tel["band"] = pd.cut(tel.tenure, [-1, 12, 24, 48, 72], labels=["0 to 12", "13 to 24", "25 to 48", "49 to 72"])
 tb = tel.groupby("band").churn.mean() * 100
-fig, ax = new(8, 3.8)
+fig, ax = new()
 ax.plot(range(len(tb)), tb.values, color=INK, marker="o", markersize=6, markerfacecolor=PAPER, linewidth=1.3)
 for i, v in enumerate(tb.values):
     ax.text(i, v + 2, f"{v:.1f}%", ha="center", fontsize=11.5)
@@ -290,7 +326,7 @@ names = {"credit_score": "Credit score", "interest_rate": "Interest rate", "revo
          "loan_grade_F": "Loan grade F", "loan_grade_E": "Loan grade E", "installment_amount": "Installment amount",
          "debt_to_income_ratio": "Debt-to-income ratio", "oldest_credit_line_age": "Oldest credit line age"}
 labels = [names.get(f.split("__", 1)[1], f.split("__", 1)[1].replace("_", " ").capitalize()) for f in fi.feature]
-fig, ax = new(8, 4.2)
+fig, ax = new()
 fig.subplots_adjust(left=0.24)
 hbar(ax, labels, fi.importance.tolist(), lambda v: f"{v:.3f}", colors=DARK)
 ax.set_xlabel("Feature importance")
@@ -299,7 +335,7 @@ save(fig, slug, 2, "Leading drivers of default risk",
 
 el = loans.groupby("risk_band").expected_loss_proxy.sum().reindex(order)
 el = el / el.sum() * 100
-fig, ax = new(8, 3.6)
+fig, ax = new()
 fig.subplots_adjust(left=0.14, bottom=0.17)
 hbar(ax, order[::-1], el.values[::-1].tolist(), lambda v: f"{v:.1f}%", colors=[INK, DARK, MID, LIGHT, PAPER],
      hatches=["", "", "", "", "////"], xmax=65)
@@ -310,7 +346,7 @@ save(fig, slug, 3, "Expected-loss exposure by risk band",
 
 # ------------------------------------------------------------- Attrition (no public data: key figures only)
 slug = "employee-attrition-risk-and-workforce-intelligence-analysis"
-fig = plt.figure(figsize=(8, 3.2), dpi=200)
+fig = plt.figure(figsize=(W, H), dpi=200)
 stats = [("21.6%", "estimated attrition risk\nacross employee groups"), ("9", "teams flagged for\nmanager-level review"),
          ("14", "retention signals used\nto summarize risk")]
 for i, (big, small) in enumerate(stats):
@@ -322,7 +358,7 @@ for i, (big, small) in enumerate(stats):
 fig.add_artist(plt.Line2D([0.04, 0.96], [0.94, 0.94], color=INK, linewidth=0.8))
 fig.add_artist(plt.Line2D([0.04, 0.96], [0.06, 0.06], color=INK, linewidth=0.8))
 save(fig, slug, 1, "Key figures from the workforce attrition analysis",
-     "Summary figures as reported in the project; the underlying HR data are not public.")
+     "Summary figures as reported in the project, which has no public repository.")
 
 # ------------------------------------------------------------- CARP synthetic control
 slug = "agricultural-scm-productivity-analysis"
@@ -402,7 +438,7 @@ infl = mv.iloc[1:6, :2].copy()
 infl.columns = ["month", "rate"]
 infl["month"] = pd.to_datetime(infl.month)
 infl["rate"] = infl.rate.astype(float) * 100
-fig, ax = new(8, 4)
+fig, ax = new()
 ax.plot(infl.month.dt.strftime("%b %Y"), infl.rate, color=INK, linewidth=1.5, marker="o", markersize=6, markerfacecolor=PAPER)
 for i, v in enumerate(infl.rate):
     ax.text(i, v + 0.35, f"{v:.1f}%", ha="center", fontsize=11.5)
@@ -417,7 +453,7 @@ seg_rows.columns = ["month", "segment", "rate"]
 seg_rows["month"] = pd.to_datetime(seg_rows.month).dt.strftime("%B %Y")
 seg_rows["rate"] = seg_rows.rate.astype(float) * 100
 pv = seg_rows.pivot(index="month", columns="segment", values="rate").reindex(["March 2026", "April 2026"])
-fig, ax = new(8, 4)
+fig, ax = new()
 x = np.arange(len(pv))
 cols = list(pv.columns)
 ax.bar(x - 0.19, pv[cols[0]], 0.36, color=LIGHT, edgecolor=INK, linewidth=0.6, label=cols[0])
@@ -474,7 +510,7 @@ def step_hist(ax, a, b, bins, labels):
 # ------------------------------------------------------------- Sentiment (more)
 slug = "customer-sentiment-intelligence-dashboard"
 rating = sd.rating.value_counts().sort_index()
-fig, ax = new(8, 3.8)
+fig, ax = new()
 ax.bar(rating.index.astype(str), rating.values, color=[INK if r <= 2 else (MID if r == 3 else LIGHT) for r in rating.index],
        edgecolor=INK, linewidth=0.6, width=0.62)
 for i, v in enumerate(rating.values):
@@ -503,7 +539,7 @@ save(fig, slug, 5, "Negative sentiment by month",
 # ------------------------------------------------------------- Retention (more)
 slug = "ecommerce-customer-retention-analytics"
 st = pd.read_csv(RD / "dash_state_performance.csv").sort_values("total_revenue", ascending=False).head(10)
-fig, ax = new(8, 4.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.12)
 hbar(ax, st.customer_state.tolist(), (st.total_revenue / 1e6).tolist(),
      lambda v: f"${v:.1f}M", colors=DARK, xmax=st.total_revenue.max() / 1e6 * 1.5)
@@ -519,7 +555,7 @@ tr = pd.read_csv(RAW / "product_category_name_translation.csv")
 cat = cat.merge(tr, on="product_category_name", how="left")
 cat["name"] = cat.product_category_name_english.fillna(cat.product_category_name).str.replace("_", " ").str.capitalize()
 cat = cat.sort_values("total_revenue", ascending=False).head(10)
-fig, ax = new(8, 4.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.24)
 hbar(ax, cat.name.tolist(), cat.revenue_share_pct.tolist(), lambda v: f"{v:.1f}%", colors=MID, xmax=12)
 ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
@@ -533,7 +569,7 @@ prod = pd.read_csv(AD / "product_performance_summary.csv")
 pc = prod.groupby("product_category")[["ad_spend", "ad_revenue"]].sum()
 pc["roas"] = pc.ad_revenue / pc.ad_spend
 pc = pc.sort_values("ad_revenue", ascending=False).head(8)
-fig, ax = new(8, 4.2)
+fig, ax = new()
 fig.subplots_adjust(left=0.22)
 hbar(ax, pc.index.tolist(), (pc.ad_revenue / 1e6).tolist(), lambda v: f"${v:.1f}M", colors=DARK,
      xmax=pc.ad_revenue.max() / 1e6 * 1.45)
@@ -545,7 +581,7 @@ save(fig, slug, 3, "Ad revenue and return on ad spend for the eight largest prod
 
 slow = pd.read_csv(AD / "slow_moving_product_analysis.csv")
 inv = slow.inventory_status.value_counts()
-fig, ax = new(8, 3.8)
+fig, ax = new()
 fig.subplots_adjust(left=0.18, bottom=0.16)
 hbar(ax, inv.index.tolist(), inv.values.tolist(), lambda v: f"{v:,}",
      colors=[LIGHT if i == "Unknown" else DARK for i in inv.index], hatches=["////" if i == "Unknown" else "" for i in inv.index])
@@ -560,7 +596,7 @@ opx = pd.read_csv(FD / "operating_expense_summary.csv").groupby("operating_expen
 opx["var"] = (opx.actual_expense / opx.expense_budget - 1) * 100
 opx = opx.sort_values("var", ascending=False)
 cap = 25
-fig, ax = new(8, 4.6)
+fig, ax = new()
 fig.subplots_adjust(left=0.3)
 vals = [min(v, cap) for v in opx["var"]]
 hbar(ax, opx.index.tolist(), vals, lambda v: f"+{v:.1f}%", colors=DARK, xmax=cap * 1.35)
@@ -577,16 +613,19 @@ save(fig, slug, 3, "Operating expenses above budget, by category",
 ano = pd.read_csv(FD / "anomaly_detection_output.csv")
 tab = ano.groupby(["anomaly_type", "severity"]).size().unstack(fill_value=0).reindex(columns=["Critical", "High", "Medium"], fill_value=0)
 tab = tab.loc[tab.sum(axis=1).sort_values(ascending=False).index]
-fig, ax = new(8, 3.8)
+fig, ax = new()
 fig.subplots_adjust(left=0.36, bottom=0.17)
 left = np.zeros(len(tab))
 for sev, col, h in [("Critical", INK, ""), ("High", MID, ""), ("Medium", PAPER, "////")]:
     ax.barh(range(len(tab)), tab[sev], left=left, color=col, edgecolor=INK, linewidth=0.6, height=0.62, hatch=h, label=sev)
     left += tab[sev].values
-ax.set_yticks(range(len(tab)), tab.index)
+ax.set_yticks(range(len(tab)), [t[0] + t[1:].lower().replace("mom", "MoM") for t in tab.index])
 ax.invert_yaxis()
 ax.tick_params(axis="y", length=0)
 ax.spines["left"].set_visible(False)
+ax.set_xlim(0, left.max() * 1.12)
+for yi, total in enumerate(left):
+    ax.text(total + left.max() * 0.012, yi, f"{total:,.0f}", va="center", fontsize=11.5)
 ax.legend(loc="lower right", title="Severity", title_fontsize=11)
 ax.set_xlabel("Flagged business-unit months")
 save(fig, slug, 4, "369 flagged anomalies by type and severity",
@@ -597,7 +636,7 @@ slug = "crm-event-marketing-data-hygiene-system"
 iss = pd.read_csv(CD / "summary_invalid_contact_issues.csv")
 em = iss[iss.email_issue_type != "Valid"].groupby("email_issue_type").records.sum().sort_values(ascending=False)
 ph = iss[iss.phone_issue_type != "Valid"].groupby("phone_issue_type").records.sum().sort_values(ascending=False)
-fig, axes = plt.subplots(1, 2, figsize=(8, 3.8), dpi=200)
+fig, axes = plt.subplots(1, 2, figsize=(W, H), dpi=200)
 fig.subplots_adjust(left=0.2, right=0.97, wspace=0.95, bottom=0.17, top=0.88)
 for ax_, ser, title in [(axes[0], em, "Email problems"), (axes[1], ph, "Phone problems")]:
     hbar(ax_, ser.index.tolist(), ser.values.tolist(), lambda v: f"{v:,}", colors=DARK)
@@ -610,7 +649,7 @@ save(fig, slug, 3, "Why contacts failed validation",
 reg = pd.read_csv(CD / "summary_contacts_by_region.csv").dropna(subset=["region"])
 reg["region"] = reg.region.replace({"Ncr": "NCR", "Car": "CAR"})
 reg = reg.groupby("region", as_index=False).contacts.sum().sort_values("contacts", ascending=False)
-fig, ax = new(8, 4.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.24)
 hbar(ax, reg.region.tolist(), reg.contacts.tolist(), lambda v: f"{v:,}", colors=MID)
 ax.set_xlabel("Clean contacts")
@@ -622,7 +661,7 @@ ev = ev.pivot_table(index="city", columns="attended_flag", values="registrations
 ev["total"] = ev.sum(axis=1)
 ev["rate"] = ev.get("Yes", 0) / ev.total * 100
 ev = ev.sort_values("total", ascending=False).head(10).sort_values("rate", ascending=False)
-fig, ax = new(8, 4.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.26)
 hbar(ax, [f"{c} (n={int(t)})" for c, t in zip(ev.index, ev.total)], ev.rate.tolist(), lambda v: f"{v:.0f}%", colors=DARK, xmax=60)
 ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
@@ -635,7 +674,7 @@ slug = "ai-customer-churn-intelligence-system"
 for n, (col, title) in enumerate([("InternetService", "Churn rate by internet service"),
                                   ("PaymentMethod", "Churn rate by payment method")], start=4):
     g = tel.groupby(col).churn.mean().sort_values(ascending=False) * 100
-    fig, ax = new(8, 3.4)
+    fig, ax = new()
     fig.subplots_adjust(left=0.3, bottom=0.18)
     hbar(ax, g.index.str.replace(" (automatic)", ", automatic", regex=False).tolist(), g.values.tolist(),
          lambda v: f"{v:.1f}%", colors=DARK, xmax=55)
@@ -694,7 +733,7 @@ for sheet, label in [("Labor_Placebo", "Labor productivity"), ("Land_Placebo", "
     t = pd.read_excel(AX, sheet_name=sheet).iloc[:, :7]
     t = t[t.unit_name.notna()]
     pl.append((label, t))
-fig, axes = plt.subplots(1, 3, figsize=(8, 3.9), dpi=200, sharey=False)
+fig, axes = plt.subplots(1, 3, figsize=(W, H), dpi=200, sharey=False)
 fig.subplots_adjust(left=0.08, right=0.98, wspace=0.35, bottom=0.16, top=0.86)
 for ax_, (label, t) in zip(axes, pl):
     r = t.sort_values("mspe_ratio", ascending=False).reset_index(drop=True)
@@ -712,7 +751,7 @@ save(fig, slug, 6, "Placebo tests: the Philippines against every donor country",
 wt = pd.read_excel(AX, sheet_name="Country Weights (W)").iloc[:10, :4]
 wt.columns = ["country", "Labor productivity", "Land productivity", "TFP"]
 wt = wt.set_index("country").apply(pd.to_numeric, errors="coerce").fillna(0)
-fig, ax = new(8, 4.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.24)
 x = np.arange(len(wt))
 for k, (colname, col, h) in enumerate([("Labor productivity", INK, ""), ("Land productivity", MID, ""), ("TFP", PAPER, "////")]):
@@ -752,16 +791,16 @@ sub = sub.iloc[: sub.year.isna().idxmax()]  # first block holds levels (thousand
 sub = sub[pd.to_numeric(sub.year, errors="coerce").notna()]
 last = sub[sub.year.astype(int) == 2025].iloc[0]
 parts = last.drop(["year", "services"]).astype(float).sort_values(ascending=False).head(8)
-fig, ax = new(8, 4.4)
+fig, ax = new()
 fig.subplots_adjust(left=0.34)
-hbar(ax, [p.capitalize().replace("Pubad", "Public administration") for p in parts.index], (parts / 1000).tolist(), lambda v: f"{v:.1f}M", colors=DARK)
+hbar(ax, [p.capitalize().replace("Pubad", "Public administration").replace("Accomodation", "Accommodation") for p in parts.index], (parts / 1000).tolist(), lambda v: f"{v:.1f}M", colors=DARK)
 ax.set_xlabel("Employed persons (millions)")
 save(fig, slug, 5, f"Largest service subsectors by employment, {int(last.year)}",
      "Source: project repository.")
 
 # ------------------------------------------------------------- Emigration (more)
 slug = "philippine-emigration-ardl-macroeconomic-analysis"
-fig, axes = plt.subplots(2, 2, figsize=(8, 5.2), dpi=200, sharex=True)
+fig, axes = plt.subplots(2, 2, figsize=(W, H), dpi=200, sharex=True)
 fig.subplots_adjust(left=0.1, right=0.97, hspace=0.42, wspace=0.28, top=0.93, bottom=0.08)
 for ax_, (col, title, fmt) in zip(axes.flat, [("ph_gdp", "Philippine GDP per capita (US dollars)", thousands),
                                             ("ph_csg", "Government consumption share of GDP", PercentFormatter(1.0, decimals=0)),
