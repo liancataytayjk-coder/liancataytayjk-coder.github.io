@@ -22,7 +22,7 @@ REPOS, SITE = Path(sys.argv[1]), Path(sys.argv[2])
 OUT = SITE / "assets" / "figures"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PAPER, INK, DARK, MID, LIGHT, FAINT = "#fbf9f4", "#121212", "#4a4a4a", "#8c8c8c", "#bdbdbd", "#e2e0da"
+PAPER, INK, DARK, MID, LIGHT, FAINT = "#f8f9fb", "#111318", "#474b52", "#8a8f97", "#bfc3c9", "#e3e6ea"
 plt.rcParams.update({
     "font.family": "serif",
     "font.serif": ["Times New Roman", "Liberation Serif", "Tinos", "DejaVu Serif"],
@@ -80,66 +80,6 @@ def year_axis(ax, step=None):
     if step:
         ax.xaxis.set_major_locator(matplotlib.ticker.MultipleLocator(step))
 
-
-# ------------------------------------------------------------- EpiWatch
-slug = "epiwatch-mindanao-public-health-risk-forecasting"
-EPI = REPOS / "epiwatch-mindanao"
-cases = pd.read_csv(EPI / "dashboard/fact_municipality_week_cases.csv", parse_dates=["week_start_date"])
-weekly = cases.groupby("week_start_date").reported_cases.sum()
-fig, ax = new()
-ax.fill_between(weekly.index, weekly.values, color=FAINT, linewidth=0)
-ax.plot(weekly.index, weekly.values, color=INK, linewidth=1.4)
-ax.annotate(f"{weekly.iloc[-1]:,.0f} cases,\nlatest week", (weekly.index[-1], weekly.iloc[-1]), xytext=(-10, -4),
-            textcoords="offset points", ha="right", va="top", fontsize=11.5)
-ax.set_ylim(0, weekly.max() * 1.1)
-ax.yaxis.set_major_formatter(thousands)
-ax.set_ylabel("Reported cases per week")
-date_axis(ax)
-save(fig, slug, 1, "Weekly reported cases across 24 Mindanao municipalities, January 2024 to May 2026",
-     "Synthetic dengue-like surveillance data. Source: EpiWatch Mindanao repository.")
-
-fc = pd.read_csv(EPI / "data/processed/forecast_results.csv", parse_dates=["week_start_date"])
-agg = fc.groupby("week_start_date")[["reported_cases_next_4weeks", "forecasted_cases_next_4weeks"]].sum()
-fig, ax = new()
-ax.plot(agg.index, agg.reported_cases_next_4weeks, color=INK, linewidth=1.4, label="Actual")
-ax.plot(agg.index, agg.forecasted_cases_next_4weeks, color=DARK, linewidth=1.2, linestyle=(0, (4, 2)), label="Forecast")
-ax.legend(loc="upper left")
-ax.set_ylim(0, None)
-ax.yaxis.set_major_formatter(thousands)
-ax.set_ylabel("Cases over the next four weeks")
-date_axis(ax)
-save(fig, slug, 2, "Forecast versus actual next-four-week case burden, all municipalities",
-     "Lag-weighted seasonal regression; model MAE 36.76 cases on the test window. Synthetic data.")
-
-ew = pd.read_csv(EPI / "data/processed/early_warning_classification.csv").sort_values("early_warning_risk_index", ascending=False)
-shade = {"High Risk": INK, "Alert": DARK, "Watch": LIGHT, "Normal": PAPER}
-hatch = {"High Risk": "", "Alert": "", "Watch": "", "Normal": "////"}
-fig, ax = new(8, 6.2)
-fig.subplots_adjust(left=0.24, bottom=0.09, top=0.97)
-hbar(ax, ew.municipality.tolist(), ew.early_warning_risk_index.tolist(), lambda v: f"{v:.2f}",
-     colors=[shade[l] for l in ew.early_warning_level], hatches=[hatch[l] for l in ew.early_warning_level], xmax=1)
-ax.tick_params(axis="y", labelsize=10.5)
-ax.set_xlabel("Early Warning Risk Index (0 to 1)")
-handles = [plt.Rectangle((0, 0), 1, 1, facecolor=shade[k], edgecolor=INK, hatch=hatch[k], linewidth=0.6) for k in shade]
-counts = ew.early_warning_level.value_counts()
-ax.legend(handles, [f"{k} ({counts.get(k, 0)})" for k in shade], loc="lower right")
-save(fig, slug, 3, "Early Warning Risk Index by municipality, latest reporting week",
-     "Bars are shaded by assigned warning level. Synthetic data. Source: EpiWatch Mindanao repository.")
-
-an = pd.read_csv(EPI / "data/processed/anomaly_detection_results.csv", parse_dates=["week_start_date"])
-j = an[an.municipality == "Jolo"].set_index("week_start_date")
-flag = j[j.outbreak_flag == 1]
-fig, ax = new()
-ax.plot(j.index, j.historical_baseline_cases, color=MID, linewidth=1.2, linestyle=(0, (4, 2)), label="Historical baseline")
-ax.plot(j.index, j.reported_cases, color=INK, linewidth=1.3, label="Reported cases")
-ax.scatter(flag.index, flag.reported_cases, s=34, facecolor=PAPER, edgecolor=INK, linewidth=1.1, zorder=3,
-           label=f"Flagged anomaly ({len(flag)} weeks)")
-ax.legend(loc="upper left")
-ax.set_ylim(0, None)
-ax.set_ylabel("Reported cases per week")
-date_axis(ax)
-save(fig, slug, 4, "Anomaly detection for Jolo, Sulu, against its rolling historical baseline",
-     "Synthetic data. Source: EpiWatch Mindanao repository.")
 
 # ------------------------------------------------------------- Sentiment
 slug = "customer-sentiment-intelligence-dashboard"
@@ -519,6 +459,349 @@ ax.set_ylabel("Log of emigrants")
 save(fig, slug, 2, "Emigration and Philippine GDP per capita, 1981 to 2023",
      "In the baseline ARDL model, a 1% rise in GDP per capita is linked to a 0.46% fall in long-run emigration. "
      "Source: project repository.")
+
+# ============================================================= Additional figures
+# Each project gets further figures that carry its argument on their own.
+
+
+def step_hist(ax, a, b, bins, labels):
+    ax.hist(a, bins=bins, histtype="step", color=INK, linewidth=1.4, density=True, label=labels[0])
+    ax.hist(b, bins=bins, histtype="step", color=DARK, linewidth=1.2, linestyle=(0, (4, 2)), density=True, label=labels[1])
+    ax.set_ylabel("Density")
+    ax.legend(loc="upper right")
+
+
+# ------------------------------------------------------------- Sentiment (more)
+slug = "customer-sentiment-intelligence-dashboard"
+rating = sd.rating.value_counts().sort_index()
+fig, ax = new(8, 3.8)
+ax.bar(rating.index.astype(str), rating.values, color=[INK if r <= 2 else (MID if r == 3 else LIGHT) for r in rating.index],
+       edgecolor=INK, linewidth=0.6, width=0.62)
+for i, v in enumerate(rating.values):
+    ax.text(i, v + rating.max() * 0.02, f"{v} ({v / rating.sum() * 100:.0f}%)", ha="center", fontsize=11.5)
+ax.set_xlabel("Star rating")
+ax.set_ylabel("Reviews")
+ax.set_ylim(0, rating.max() * 1.18)
+save(fig, slug, 4, "Distribution of star ratings across 500 reviews",
+     "One- and two-star reviews in black. Source: Customer Sentiment Intelligence Dashboard repository.")
+
+sd["ym"] = pd.to_datetime(sd.Year_Month)
+monthly = sd.groupby("ym").sentiment.apply(lambda s: (s == "Negative").mean() * 100)
+counts = sd.groupby("ym").size()
+monthly = monthly[counts >= 10]
+fig, ax = new()
+ax.plot(monthly.index, monthly.values, color=INK, linewidth=1.4, marker="o", markersize=4, markerfacecolor=PAPER)
+ax.axhline((sd.sentiment == "Negative").mean() * 100, color=MID, linewidth=0.8, linestyle=":")
+ax.text(monthly.index[0], (sd.sentiment == "Negative").mean() * 100 + 1, "Average, 25.4%", fontsize=11, color=DARK)
+ax.set_ylim(0, max(monthly.max() * 1.25, 40))
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+ax.set_ylabel("Share of reviews that are negative")
+date_axis(ax)
+save(fig, slug, 5, "Negative sentiment by month",
+     "Months with fewer than 10 reviews are omitted. Source: Customer Sentiment Intelligence Dashboard repository.")
+
+# ------------------------------------------------------------- Retention (more)
+slug = "ecommerce-customer-retention-analytics"
+st = pd.read_csv(RD / "dash_state_performance.csv").sort_values("total_revenue", ascending=False).head(10)
+fig, ax = new(8, 4.4)
+fig.subplots_adjust(left=0.12)
+hbar(ax, st.customer_state.tolist(), (st.total_revenue / 1e6).tolist(),
+     lambda v: f"${v:.1f}M", colors=DARK, xmax=st.total_revenue.max() / 1e6 * 1.5)
+for yi, c in enumerate(st.churn_rate_pct):
+    ax.text(ax.get_xlim()[1], yi, f"churn {c:.0f}%", va="center", ha="right", fontsize=10.5, color=DARK, style="italic")
+ax.set_xlabel("Revenue (US dollars, millions)")
+save(fig, slug, 4, "Revenue and churn rate for the ten largest Brazilian states",
+     "São Paulo (SP) alone accounts for 37.5% of revenue. Source: E-commerce Customer Retention Analytics repository.")
+
+RAW = RD.parent.parent / "raw"
+cat = pd.read_csv(RD / "dash_product_category.csv")
+tr = pd.read_csv(RAW / "product_category_name_translation.csv")
+cat = cat.merge(tr, on="product_category_name", how="left")
+cat["name"] = cat.product_category_name_english.fillna(cat.product_category_name).str.replace("_", " ").str.capitalize()
+cat = cat.sort_values("total_revenue", ascending=False).head(10)
+fig, ax = new(8, 4.4)
+fig.subplots_adjust(left=0.24)
+hbar(ax, cat.name.tolist(), cat.revenue_share_pct.tolist(), lambda v: f"{v:.1f}%", colors=MID, xmax=12)
+ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
+ax.set_xlabel("Share of total revenue")
+save(fig, slug, 5, "Revenue share of the ten largest product categories",
+     "Category names translated with the dataset's own translation table. Source: E-commerce Customer Retention Analytics repository.")
+
+# ------------------------------------------------------------- Ads (more)
+slug = "ecommerce-marketplace-ads-performance-dashboard"
+prod = pd.read_csv(AD / "product_performance_summary.csv")
+pc = prod.groupby("product_category")[["ad_spend", "ad_revenue"]].sum()
+pc["roas"] = pc.ad_revenue / pc.ad_spend
+pc = pc.sort_values("ad_revenue", ascending=False).head(8)
+fig, ax = new(8, 4.2)
+fig.subplots_adjust(left=0.22)
+hbar(ax, pc.index.tolist(), (pc.ad_revenue / 1e6).tolist(), lambda v: f"${v:.1f}M", colors=DARK,
+     xmax=pc.ad_revenue.max() / 1e6 * 1.45)
+for yi, r in enumerate(pc.roas):
+    ax.text(ax.get_xlim()[1], yi, f"ROAS {r:.1f}", va="center", ha="right", fontsize=10.5, color=DARK, style="italic")
+ax.set_xlabel("Ad revenue (US dollars, millions)")
+save(fig, slug, 3, "Ad revenue and return on ad spend for the eight largest product categories",
+     "Source: eCommerce Marketplace Ads Performance Dashboard repository.")
+
+slow = pd.read_csv(AD / "slow_moving_product_analysis.csv")
+inv = slow.inventory_status.value_counts()
+fig, ax = new(8, 3.8)
+fig.subplots_adjust(left=0.18, bottom=0.16)
+hbar(ax, inv.index.tolist(), inv.values.tolist(), lambda v: f"{v:,}",
+     colors=[LIGHT if i == "Unknown" else DARK for i in inv.index], hatches=["////" if i == "Unknown" else "" for i in inv.index])
+ax.set_xlabel("SKUs")
+save(fig, slug, 4, "Inventory status recorded for each SKU",
+     "Most SKUs have no reliable inventory status, which is why budget actions start with data fixes. "
+     "Source: eCommerce Marketplace Ads Performance Dashboard repository.")
+
+# ------------------------------------------------------------- FP&A (more)
+slug = "fpa-revenue-cost-expense-forecasting-dashboard"
+opx = pd.read_csv(FD / "operating_expense_summary.csv").groupby("operating_expense_category")[["actual_expense", "expense_budget"]].sum()
+opx["var"] = (opx.actual_expense / opx.expense_budget - 1) * 100
+opx = opx.sort_values("var", ascending=False)
+cap = 25
+fig, ax = new(8, 4.6)
+fig.subplots_adjust(left=0.3)
+vals = [min(v, cap) for v in opx["var"]]
+hbar(ax, opx.index.tolist(), vals, lambda v: f"+{v:.1f}%", colors=DARK, xmax=cap * 1.35)
+for yi, v in enumerate(opx["var"]):
+    if v > cap:
+        ax.texts[yi].set_text(f"+{v:,.0f}%")
+        ax.patches[yi].set_hatch("////")
+ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
+ax.set_xlabel("Actual spending above budget, 2023 to 2025")
+save(fig, slug, 3, "Operating expenses above budget, by category",
+     "Every category ran over budget. The hatched bar is cut at 25%: Learning & Development spent $0.96M against a $0.11M budget. "
+     "Source: FP&A Revenue, Cost & Expense Forecasting Dashboard repository.")
+
+ano = pd.read_csv(FD / "anomaly_detection_output.csv")
+tab = ano.groupby(["anomaly_type", "severity"]).size().unstack(fill_value=0).reindex(columns=["Critical", "High", "Medium"], fill_value=0)
+tab = tab.loc[tab.sum(axis=1).sort_values(ascending=False).index]
+fig, ax = new(8, 3.8)
+fig.subplots_adjust(left=0.36, bottom=0.17)
+left = np.zeros(len(tab))
+for sev, col, h in [("Critical", INK, ""), ("High", MID, ""), ("Medium", PAPER, "////")]:
+    ax.barh(range(len(tab)), tab[sev], left=left, color=col, edgecolor=INK, linewidth=0.6, height=0.62, hatch=h, label=sev)
+    left += tab[sev].values
+ax.set_yticks(range(len(tab)), tab.index)
+ax.invert_yaxis()
+ax.tick_params(axis="y", length=0)
+ax.spines["left"].set_visible(False)
+ax.legend(loc="lower right", title="Severity", title_fontsize=11)
+ax.set_xlabel("Flagged business-unit months")
+save(fig, slug, 4, "369 flagged anomalies by type and severity",
+     "Source: FP&A Revenue, Cost & Expense Forecasting Dashboard repository.")
+
+# ------------------------------------------------------------- CRM (more)
+slug = "crm-event-marketing-data-hygiene-system"
+iss = pd.read_csv(CD / "summary_invalid_contact_issues.csv")
+em = iss[iss.email_issue_type != "Valid"].groupby("email_issue_type").records.sum().sort_values(ascending=False)
+ph = iss[iss.phone_issue_type != "Valid"].groupby("phone_issue_type").records.sum().sort_values(ascending=False)
+fig, axes = plt.subplots(1, 2, figsize=(8, 3.8), dpi=200)
+fig.subplots_adjust(left=0.2, right=0.97, wspace=0.95, bottom=0.17, top=0.88)
+for ax_, ser, title in [(axes[0], em, "Email problems"), (axes[1], ph, "Phone problems")]:
+    hbar(ax_, ser.index.tolist(), ser.values.tolist(), lambda v: f"{v:,}", colors=DARK)
+    ax_.set_title(title, fontsize=12.5, loc="left", fontweight="bold")
+    ax_.tick_params(axis="y", labelsize=10.5)
+    ax_.set_xlabel("Records")
+save(fig, slug, 3, "Why contacts failed validation",
+     "Source: CRM & Event Marketing Data Hygiene System repository.")
+
+reg = pd.read_csv(CD / "summary_contacts_by_region.csv").dropna(subset=["region"])
+reg["region"] = reg.region.replace({"Ncr": "NCR", "Car": "CAR"})
+reg = reg.groupby("region", as_index=False).contacts.sum().sort_values("contacts", ascending=False)
+fig, ax = new(8, 4.4)
+fig.subplots_adjust(left=0.24)
+hbar(ax, reg.region.tolist(), reg.contacts.tolist(), lambda v: f"{v:,}", colors=MID)
+ax.set_xlabel("Clean contacts")
+save(fig, slug, 4, "Clean contacts by region",
+     "Region spellings merged (e.g. Ncr into NCR); 5 contacts with no region omitted. Source: CRM & Event Marketing Data Hygiene System repository.")
+
+ev = pd.read_csv(CD / "summary_event_attendance_by_city.csv").dropna(subset=["city"])
+ev = ev.pivot_table(index="city", columns="attended_flag", values="registrations", aggfunc="sum", fill_value=0)
+ev["total"] = ev.sum(axis=1)
+ev["rate"] = ev.get("Yes", 0) / ev.total * 100
+ev = ev.sort_values("total", ascending=False).head(10).sort_values("rate", ascending=False)
+fig, ax = new(8, 4.4)
+fig.subplots_adjust(left=0.26)
+hbar(ax, [f"{c} (n={int(t)})" for c, t in zip(ev.index, ev.total)], ev.rate.tolist(), lambda v: f"{v:.0f}%", colors=DARK, xmax=60)
+ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
+ax.set_xlabel("Registrants who attended")
+save(fig, slug, 5, "Event attendance rate in the ten cities with the most registrations",
+     "Source: CRM & Event Marketing Data Hygiene System repository.")
+
+# ------------------------------------------------------------- Churn (more)
+slug = "ai-customer-churn-intelligence-system"
+for n, (col, title) in enumerate([("InternetService", "Churn rate by internet service"),
+                                  ("PaymentMethod", "Churn rate by payment method")], start=4):
+    g = tel.groupby(col).churn.mean().sort_values(ascending=False) * 100
+    fig, ax = new(8, 3.4)
+    fig.subplots_adjust(left=0.3, bottom=0.18)
+    hbar(ax, g.index.str.replace(" (automatic)", ", automatic", regex=False).tolist(), g.values.tolist(),
+         lambda v: f"{v:.1f}%", colors=DARK, xmax=55)
+    ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
+    ax.set_xlabel("Churn rate")
+    save(fig, slug, n, title, "Telco customer churn data, 7,043 customers. Source: AI Customer Churn Intelligence System repository.")
+
+fig, ax = new()
+step_hist(ax, tel[tel.churn].MonthlyCharges, tel[~tel.churn].MonthlyCharges, np.arange(15, 125, 5), ["Churned", "Stayed"])
+ax.set_xlabel("Monthly charges (US dollars)")
+save(fig, slug, 6, "Monthly charges of customers who churned and customers who stayed",
+     "Churners cluster at higher monthly charges. Source: AI Customer Churn Intelligence System repository.")
+
+# ------------------------------------------------------------- Banking (more)
+slug = "banking-risk-and-financial-performance-analysis"
+gr = loans.groupby("loan_grade").default_flag.agg(["mean", "size"]).sort_index()
+fig, ax = new()
+ax.plot(gr.index, gr["mean"] * 100, color=INK, linewidth=1.4, marker="o", markersize=6, markerfacecolor=PAPER)
+for i, (g, r) in enumerate(gr.iterrows()):
+    ax.text(i, r["mean"] * 100 + 2.5, f"{r['mean'] * 100:.0f}%\n(n={int(r['size'])})", ha="center", fontsize=10.5)
+ax.set_ylim(0, gr["mean"].max() * 100 * 1.35)
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+ax.set_xlabel("Loan grade")
+ax.set_ylabel("Observed default rate")
+save(fig, slug, 4, "Observed default rate by loan grade",
+     "Source: Banking Risk and Financial Performance Analysis repository.")
+
+fig, ax = new()
+step_hist(ax, loans[loans.default_flag == 1].credit_score, loans[loans.default_flag == 0].credit_score,
+          np.arange(300, 860, 20), ["Defaulted", "Repaid"])
+ax.set_xlabel("Credit score")
+save(fig, slug, 5, "Credit scores of loans that defaulted and loans that were repaid",
+     "Credit score is the strongest single driver in the model. Source: Banking Risk and Financial Performance Analysis repository.")
+
+# ------------------------------------------------------------- CARP (rigor)
+slug = "agricultural-scm-productivity-analysis"
+d = pd.read_excel(AX, sheet_name="laborA").iloc[:, :5]
+d.columns = ["year", "ph", "synth", "gap", "gap_pct"]
+d = d[pd.to_numeric(d.year, errors="coerce").notna()].astype(float)
+d = d[d.year >= 1970]
+fig, ax = new()
+ax.bar(d.year, d.gap_pct * 100, color=[LIGHT if y <= 1988 else INK for y in d.year], edgecolor=INK, linewidth=0.4, width=0.8)
+ax.axhline(0, color=INK, linewidth=0.8)
+ax.axvline(1988.5, color=MID, linewidth=0.8, linestyle=":")
+ax.text(1989, 12, "After CARP", fontsize=11.5, color=DARK)
+ax.text(1987.5, 12, "Before", fontsize=11.5, color=DARK, ha="right")
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+ax.set_ylabel("Gap from synthetic control")
+ax.set_xlim(1969, 2009)
+save(fig, slug, 5, "Yearly labor productivity gap between the Philippines and its synthetic control",
+     "Grey bars are the pre-treatment fit; black bars are post-1988 gaps (average 18.2%). "
+     "Source: Cataytay, Deluna and Evangelio, synthetic control analysis.")
+
+pl = []
+for sheet, label in [("Labor_Placebo", "Labor productivity"), ("Land_Placebo", "Land productivity"), ("TFP_Placebo", "TFP")]:
+    t = pd.read_excel(AX, sheet_name=sheet).iloc[:, :7]
+    t = t[t.unit_name.notna()]
+    pl.append((label, t))
+fig, axes = plt.subplots(1, 3, figsize=(8, 3.9), dpi=200, sharey=False)
+fig.subplots_adjust(left=0.08, right=0.98, wspace=0.35, bottom=0.16, top=0.86)
+for ax_, (label, t) in zip(axes, pl):
+    r = t.sort_values("mspe_ratio", ascending=False).reset_index(drop=True)
+    is_ph = r.unit_name.astype(str).str.contains("Philippines")
+    ax_.bar(range(len(r)), r.mspe_ratio, color=[INK if p else LIGHT for p in is_ph], width=0.85, linewidth=0)
+    ph_row = r[is_ph].iloc[0]
+    ax_.set_title(f"{label}\nrank 1 of {len(r)}, p = {ph_row.fishers_exact_pvalue:.3f}", fontsize=11, loc="left")
+    ax_.set_xticks([])
+    ax_.set_xlabel("Countries, ranked")
+axes[0].set_ylabel("Post/pre-1988 MSPE ratio")
+save(fig, slug, 6, "Placebo tests: the Philippines against every donor country",
+     "Each bar reassigns the 1988 reform to one country; the Philippines (black) has the largest post-treatment divergence in all three outcomes. "
+     "p is Fisher's exact permutation p-value. Source: study workbook.")
+
+wt = pd.read_excel(AX, sheet_name="Country Weights (W)").iloc[:10, :4]
+wt.columns = ["country", "Labor productivity", "Land productivity", "TFP"]
+wt = wt.set_index("country").apply(pd.to_numeric, errors="coerce").fillna(0)
+fig, ax = new(8, 4.4)
+fig.subplots_adjust(left=0.24)
+x = np.arange(len(wt))
+for k, (colname, col, h) in enumerate([("Labor productivity", INK, ""), ("Land productivity", MID, ""), ("TFP", PAPER, "////")]):
+    ax.barh(x + (k - 1) * 0.26, wt[colname], height=0.26, color=col, edgecolor=INK, linewidth=0.5, hatch=h, label=colname)
+ax.set_yticks(x, wt.index)
+ax.invert_yaxis()
+ax.tick_params(axis="y", length=0)
+ax.spines["left"].set_visible(False)
+ax.set_xlabel("Weight in the synthetic Philippines")
+fig.subplots_adjust(top=0.88)
+ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=3)
+save(fig, slug, 7, "Donor countries and their weights in each synthetic control",
+     "Weights sum to one for each outcome; pre-1988 fit error is about 5 to 6% of the outcome level. Source: study workbook.")
+
+# ------------------------------------------------------------- Labor market (more)
+slug = "philippines-labor-market-trend-analysis"
+SX = REPOS / "philippines-labor-market-trend-analysis/data/raw/Number of Employed per Sector.xlsx"
+sec = pd.read_excel(SX, sheet_name="0_Annual per Sector")
+sec = sec[pd.to_numeric(sec.year, errors="coerce").notna()].copy()
+sec["year"] = sec.year.astype(int)
+sec = sec[sec.year <= 2025]
+fig, ax = new()
+for col, lab, c, ls, dy in [("Service Sector (%)", "Services", INK, "-", 0), ("Agricultural Sector (%)", "Agriculture", DARK, (0, (4, 2)), 2.2),
+                            ("Industry Sector (%)", "Industry", MID, (0, (1, 1.5)), -2.2)]:
+    ax.plot(sec.year, sec[col] * 100, color=c, linestyle=ls, linewidth=1.5)
+    ax.text(sec.year.iloc[-1] + 0.3, sec[col].iloc[-1] * 100 + dy, lab, va="center", fontsize=11.5)
+ax.set_xlim(sec.year.min(), sec.year.max() + 3)
+ax.set_ylim(0, 70)
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+ax.set_ylabel("Share of employed persons")
+year_axis(ax, 2)
+save(fig, slug, 4, f"Employment by sector, {sec.year.min()} to {sec.year.max()}",
+     "Source: project repository.")
+
+sub = pd.read_excel(SX, sheet_name="1_Service Sector Disaggregation")
+sub = sub.iloc[: sub.year.isna().idxmax()]  # first block holds levels (thousands); the block below holds shares
+sub = sub[pd.to_numeric(sub.year, errors="coerce").notna()]
+last = sub[sub.year.astype(int) == 2025].iloc[0]
+parts = last.drop(["year", "services"]).astype(float).sort_values(ascending=False).head(8)
+fig, ax = new(8, 4.4)
+fig.subplots_adjust(left=0.34)
+hbar(ax, [p.capitalize().replace("Pubad", "Public administration") for p in parts.index], (parts / 1000).tolist(), lambda v: f"{v:.1f}M", colors=DARK)
+ax.set_xlabel("Employed persons (millions)")
+save(fig, slug, 5, f"Largest service subsectors by employment, {int(last.year)}",
+     "Source: project repository.")
+
+# ------------------------------------------------------------- Emigration (more)
+slug = "philippine-emigration-ardl-macroeconomic-analysis"
+fig, axes = plt.subplots(2, 2, figsize=(8, 5.2), dpi=200, sharex=True)
+fig.subplots_adjust(left=0.1, right=0.97, hspace=0.42, wspace=0.28, top=0.93, bottom=0.08)
+for ax_, (col, title, fmt) in zip(axes.flat, [("ph_gdp", "Philippine GDP per capita (US dollars)", thousands),
+                                            ("ph_csg", "Government consumption share of GDP", PercentFormatter(1.0, decimals=0)),
+                                            ("ph_labsh", "Labor income share of GDP", PercentFormatter(1.0, decimals=0)),
+                                            ("exc", "Pesos per US dollar", thousands)]):
+    ax_.plot(mig.yr, mig[col], color=INK, linewidth=1.3)
+    ax_.set_title(title, fontsize=11.5, loc="left")
+    ax_.yaxis.set_major_formatter(fmt)
+    ax_.tick_params(labelsize=10.5)
+save(fig, slug, 3, "The determinants used in the ARDL models, 1981 to 2023",
+     "All series are integrated of order one by ADF, Phillips-Perron and KPSS tests. Source: project repository.")
+
+# ============================================================= Front-page hero figures
+# Three schematic panels for the hero on index.html: how an economist reads data,
+# in three steps. They are illustrations, not data, and the page labels them so.
+# Geometry is in unit coordinates (0..1, y up) and is drawn as SVG by the page.
+HERO = SITE / "assets" / "hero"
+HERO.mkdir(parents=True, exist_ok=True)
+rng = np.random.default_rng(7)
+
+xs = np.sort(rng.uniform(0.06, 0.94, 30))
+ys = np.clip(0.18 + 0.58 * xs + rng.normal(0, 0.075, xs.size), 0.06, 0.95)
+slope, intercept = np.polyfit(xs, ys, 1)
+
+t = np.linspace(0, 1, 25)
+base = 0.26 + 0.42 * t + 0.035 * np.sin(t * 9)
+actual = base - np.where(t > 0.5, 0.36 * (t - 0.5), 0)
+
+bands = np.linspace(0.12, 0.92, 7) ** 1.6
+threshold = 0.42
+
+story = {
+    "note": "Schematic illustrations, not data.",
+    "pattern": {"points": [[round(x, 3), round(y, 3)] for x, y in zip(xs, ys)],
+                "fit": [[0.04, round(intercept + slope * 0.04, 3)], [0.96, round(intercept + slope * 0.96, 3)]]},
+    "counterfactual": {"t": [round(v, 3) for v in t], "expected": [round(v, 3) for v in base],
+                       "actual": [round(v, 3) for v in actual], "break": 0.5},
+    "decision": {"bars": [round(v, 3) for v in bands], "threshold": threshold},
+}
+(HERO / "story.json").write_text(json.dumps(story, indent=1))
 
 (Path(sys.argv[2]) / "assets" / "figures" / "figures.json").write_text(json.dumps(MANIFEST, indent=1))
 print({k: len(v) for k, v in MANIFEST.items()}, sum(len(v) for v in MANIFEST.values()), "figures")
