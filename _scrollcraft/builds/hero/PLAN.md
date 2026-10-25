@@ -25,13 +25,14 @@ a hand-over into ordinary document flow rather than a close or a CTA.
 
 | Plane | Content | Motion |
 |---|---|---|
-| Atmosphere | Column hairlines of the page grid | `data-sc-parallax="-1.2"`, recedes |
-| Type | Kicker, `<h1>`, deck | `data-sc-parallax="0.3"`, greets with a cue |
-| Subject | Portrait cutout (alpha) in the right column | `data-sc-parallax="-0.5"` |
-| Foreground | "How I work, in three figures": one strip of three equal panels (pattern, counterfactual, decision), geometry from `assets/hero/story.json` | `data-sc-parallax="-1.0"`, rises into place; each panel draws with a clip-rect pen |
+| Atmosphere | Column hairlines of the page grid | `data-sc-parallax="0.3"`, a slow drift |
+| Type | Kicker, `<h1>`, deck | Still; greets with a cue |
+| Subject | Portrait cutout (alpha) in its own right-hand grid column, standing on the plate's double rule | Still; it is the anchor |
+| Foreground | "How I work, in three figures": one strip of three equal panels (pattern, counterfactual, decision), geometry from `assets/hero/story.json` | Set directly under the deck in the left column; each panel draws with a clip-rect pen |
 
-Phone: type on top, portrait centred, the strip full width below with titles
-only.
+Layout is a two-column grid (left: type, then the strip; right: portrait), so
+no layer can overlap another. Phone and tablet: one column, headline, then the
+portrait standing on the strip's top rule, then the strip with titles only.
 
 Reduced motion: no pin and no added scroll length; every plane in its final
 position, all three figures complete.
@@ -45,7 +46,7 @@ the act; there is no second act to alternate with.
 | Beat | Device | Why this one |
 |---|---|---|
 | Recognition | `pin` + greet cues | The plate holds still; the headline is on screen on landing |
-| Curiosity | `parallax`, figure 1 draws | The strip rises; a scatter finds its line |
+| Curiosity | figure 1 draws | A scatter finds its line |
 | Conviction (peak) | signature: figures 2 and 3 draw from `--sc-p` | The method tells its own story |
 | Settled | final cue holds; plate rests on a double rule | Resolves into the document instead of fading |
 

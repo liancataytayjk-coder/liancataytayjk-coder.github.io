@@ -95,3 +95,10 @@ greys, and one oxblood accent.
 
 Done: new headshot (final: a pre-cut photo with hands clasped, desk edge trimmed); the clippings and CARP chart replaced by three schematic
 method figures of equal size, labelled "Schematic illustrations, not data."
+
+Second revision (owner feedback): "the headshot overlaps the rightmost figure",
+"the headshot is too small and there's a lot of overhead space", "there's a
+huge negative space between the three figures and the headline, please pivot".
+Done: the plate became a two-column grid. The figures sit directly under the
+deck, the portrait fills its own column at full height, and parallax on those
+two layers was removed so they cannot drift into each other.
