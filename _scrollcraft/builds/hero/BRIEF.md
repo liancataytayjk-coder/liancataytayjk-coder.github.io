@@ -102,3 +102,13 @@ huge negative space between the three figures and the headline, please pivot".
 Done: the plate became a two-column grid. The figures sit directly under the
 deck, the portrait fills its own column at full height, and parallax on those
 two layers was removed so they cannot drift into each other.
+
+Third revision (owner feedback): "I really need the first three figures in
+the hero section to make sense, please make them larger and the lines to be
+one liner to make sure the figures are the same size, plus the effects more
+noticeable; shrink the headshot if necessary". Done: the figures moved to a
+full-width strip under the headline (the portrait is smaller and stands on
+the strip), each title and caption is one line, the charts carry plain labels
+(Trend, Effect, Without the policy, Actual, Act above this line), and each
+builds in stages: dots then trend; lines then the shaded effect; bars rising
+one by one, then the threshold. On phones the three take turns in one slot.

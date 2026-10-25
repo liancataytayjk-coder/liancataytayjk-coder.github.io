@@ -64,8 +64,8 @@ python3 tools/figures.py <folder-with-project-repos> .
 ## Front-page hero
 
 The top of `index.html` is a scroll-driven plate built with the scroll-craft skill. As
-the reader scrolls, three small figures draw themselves in turn: find the pattern, ask
-what would have happened, decide where to act. They are schematic illustrations of the
+the reader scrolls, three small figures draw themselves in turn: find the pattern, measure
+the effect, decide where to act. They are schematic illustrations of the
 method, not data; the project pages carry the real figures. Under reduced motion the
 plate is static and complete.
 

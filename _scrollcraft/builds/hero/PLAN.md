@@ -57,7 +57,7 @@ Span 2.6 viewport-heights; the three figures own 0.06 to 0.32, 0.34 to 0.60 and 
 **The method draws itself in three figures.** Each panel is inline SVG clipped by
 a rectangle (the pen) whose width follows `--sc-p`: first a scatter and its fit
 line ("Find the pattern"), then an actual path leaving the expected one after a
-policy line, the gap shaded ("Ask what would have happened"), then bars rising
+policy line, the gap shaded ("Measure the effect"), then bars rising
 past a threshold ("Decide where to act"). The figures are labelled as schematic;
 real data stays on the project pages.
 
