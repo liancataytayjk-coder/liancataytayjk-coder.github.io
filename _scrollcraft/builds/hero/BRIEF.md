@@ -93,5 +93,5 @@ greys, and one oxblood accent.
 > figures that makes sense narratively and visually (not necessarily
 > project-based, reserve the project-based for the actual projects)"
 
-Done: new headshot; the clippings and CARP chart replaced by three schematic
+Done: new headshot (final: a pre-cut photo with hands clasped, desk edge trimmed); the clippings and CARP chart replaced by three schematic
 method figures of equal size, labelled "Schematic illustrations, not data."

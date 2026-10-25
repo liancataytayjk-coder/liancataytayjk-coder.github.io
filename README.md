@@ -71,7 +71,7 @@ plate is static and complete.
 
 - Engine: `assets/scrollcraft/` (unmodified scroll-craft runtime); page code: `assets/hero.js`.
 - Layers: `assets/hero/`. `story.json` (the figures' geometry) comes from `tools/figures.py`;
-  the portrait cutout comes from `python3 tools/hero_portrait.py <headshot> assets/hero`.
+  the portrait cutout comes from `python3 tools/hero_portrait.py <headshot> assets/hero 22` (the last number trims a desk edge off the bottom).
 - Planning, brief and verification: `_scrollcraft/` (set in `.scrollcraft.json`). Jekyll
   skips underscore folders, so GitHub Pages does not publish it.
 
