@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Banking Risk and Financial Performance Analysis by Lian Cataytay.">
+    <meta name="description" content="Which borrowers default? A classification model and five risk bands on a 2,000-loan portfolio.">
     <title>Banking Risk and Financial Performance Analysis | Lian Cataytay</title>
     <link rel="canonical" href="https://liancataytayjk-coder.github.io/projects/banking-risk-and-financial-performance-analysis.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Lian Cataytay">
     <meta property="og:title" content="Banking Risk and Financial Performance Analysis | Lian Cataytay">
-    <meta property="og:description" content="Banking Risk and Financial Performance Analysis by Lian Cataytay.">
+    <meta property="og:description" content="Which borrowers default? A classification model and five risk bands on a 2,000-loan portfolio.">
     <meta property="og:url" content="https://liancataytayjk-coder.github.io/projects/banking-risk-and-financial-performance-analysis.html">
     <meta property="og:image" content="https://liancataytayjk-coder.github.io/assets/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#f8f9fb">
+    <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/favicon-64.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -43,7 +43,7 @@
         <header class="story-head">
           <p class="kicker"><a href="../projects.html">Projects</a> &middot; Banking analytics &middot; Credit risk &middot; Financial performance</p>
           <h1 class="story-headline">Banking Risk and Financial Performance Analysis</h1>
-          <p class="story-deck">A financial-risk project identifying borrower and loan characteristics associated with default exposure.</p>
+          <p class="story-deck">Which borrowers default? A classification model and five risk bands on a 2,000-loan portfolio.</p>
           <p class="byline">By <a href="../about.html">Lian Cataytay</a> &middot; Python, Pandas, Classification analytics, Feature importance</p>
         </header>
       <figure class="lead-figure">
@@ -54,27 +54,27 @@
           <div class="story-body">
           <section>
             <h2>Context</h2>
-            <p class="dropcap">I wanted to understand which borrower and loan characteristics are most associated with default risk.</p>
+            <p class="dropcap">I wanted to find which borrower and loan traits go with default.</p>
           </section>
           <section>
             <h2>Data</h2>
-            <p>A synthetic 2,000-loan portfolio with borrower, loan, credit-history, and repayment attributes and a 20.8% observed default rate.</p>
+            <p>A synthetic portfolio of 2,000 loans with borrower, loan, credit history and repayment fields. 20.8% of the loans defaulted.</p>
           </section>
           <section>
             <h2>Method</h2>
-            <p>I used Python, Pandas, a classification model, and feature-importance analysis, then grouped loans into five equal risk bands and estimated expected-loss exposure.</p>
+            <p>A classification model in Python and Pandas, with feature importance. I then split the loans into five equal risk bands and estimated the expected loss in each.</p>
           </section>
           <section>
             <h2>Output</h2>
-            <p>Risk-scored loan datasets and portfolio-risk summaries.</p>
+            <p>A risk-scored loan file and portfolio risk summaries.</p>
           </section>
           <section>
             <h2>Findings</h2>
-            <p>The model reached 0.72 ROC AUC. Loans in the Very High risk band defaulted at 53%, against 2% in the Very Low band, and that band carried 53% of expected-loss exposure. Credit score and interest rate were the strongest drivers.</p>
+            <p>The model reached a ROC AUC of 0.72. Loans in the Very High band defaulted at 53% and those in the Very Low band at 2%, and the Very High band held 53% of expected-loss exposure. Credit score and interest rate mattered most.</p>
           </section>
           <section>
             <h2>Reflection</h2>
-            <p>Next, I&rsquo;d explore stress-testing and more advanced risk-modeling approaches.</p>
+            <p>Next I&rsquo;d add stress tests and try stronger risk models.</p>
           </section>
           </div>
           <aside class="story-rail" aria-label="Project facts">
@@ -89,7 +89,7 @@
             </section>
           <section class="rail-box">
             <h2 class="rail-title">By the numbers</h2>
-            <dl class="numbers"><div><dt>0.72</dt><dd><strong>Model performance:</strong> ROC AUC for classifying borrower default exposure.</dd></div><div><dt>53% vs 2%</dt><dd><strong>Risk separation:</strong> default rate in the Very High risk band versus the Very Low band.</dd></div><div><dt>53%</dt><dd><strong>Expected-loss concentration:</strong> of expected-loss exposure sits in the top risk band (20% of loans).</dd></div></dl>
+            <dl class="numbers"><div><dt>0.72</dt><dd><strong>Model performance:</strong> ROC AUC for predicting borrower default.</dd></div><div><dt>53% vs 2%</dt><dd><strong>Risk separation:</strong> default rate in the Very High band against the Very Low band.</dd></div><div><dt>53%</dt><dd><strong>Expected-loss concentration:</strong> of expected-loss exposure sits in the top band, which holds 20% of loans.</dd></div></dl>
           </section>
           </aside>
         </div>
