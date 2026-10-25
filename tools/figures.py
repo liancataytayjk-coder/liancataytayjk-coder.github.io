@@ -774,35 +774,34 @@ for ax_, (col, title, fmt) in zip(axes.flat, [("ph_gdp", "Philippine GDP per cap
 save(fig, slug, 3, "The determinants used in the ARDL models, 1981 to 2023",
      "All series are integrated of order one by ADF, Phillips-Perron and KPSS tests. Source: project repository.")
 
-# ============================================================= Front-page hero layers
-# The hero (index.html) is built from these: three chart clippings for the
-# archive plane, and the real CARP labor-productivity series that the hero
-# draws as inline SVG.
-from PIL import Image  # noqa: E402
-
+# ============================================================= Front-page hero figures
+# Three schematic panels for the hero on index.html: how an economist reads data,
+# in three steps. They are illustrations, not data, and the page labels them so.
+# Geometry is in unit coordinates (0..1, y up) and is drawn as SVG by the page.
 HERO = SITE / "assets" / "hero"
 HERO.mkdir(parents=True, exist_ok=True)
-for name, src in [("clip-banking", "banking-risk-and-financial-performance-analysis-1"),
-                  ("clip-churn", "ai-customer-churn-intelligence-system-2"),
-                  ("clip-emigration", "philippine-emigration-ardl-macroeconomic-analysis-1")]:
-    im = Image.open(OUT / f"{src}.png").convert("RGB")
-    im.thumbnail((640, 640), Image.LANCZOS)
-    im.save(HERO / f"{name}.webp", "WEBP", quality=86, method=6)
+rng = np.random.default_rng(7)
 
-d = pd.read_excel(AX, sheet_name="laborA").iloc[:, :5]
-d.columns = ["year", "ph", "synth", "gap", "gap_pct"]
-d = d[pd.to_numeric(d.year, errors="coerce").notna()].astype(float)
-d = d[d.year >= 1970]
-post = d[(d.year >= 1989) & (d.year <= 2008)]
-(HERO / "carp-labor.json").write_text(json.dumps({
-    "source": "Cataytay, Deluna and Evangelio, synthetic control analysis (Analysis.xlsx, sheet laborA)",
-    "unit": "output per worker, thousand 2015 USD",
-    "treatment_year": 1988,
-    "average_gap_pct_1989_2008": round(float(post.gap_pct.mean() * 100), 2),
-    "years": [int(y) for y in d.year],
-    "philippines": [round(float(v), 1) for v in d.ph],
-    "synthetic": [round(float(v), 1) for v in d.synth],
-}, indent=1))
+xs = np.sort(rng.uniform(0.06, 0.94, 30))
+ys = np.clip(0.18 + 0.58 * xs + rng.normal(0, 0.075, xs.size), 0.06, 0.95)
+slope, intercept = np.polyfit(xs, ys, 1)
+
+t = np.linspace(0, 1, 25)
+base = 0.26 + 0.42 * t + 0.035 * np.sin(t * 9)
+actual = base - np.where(t > 0.5, 0.36 * (t - 0.5), 0)
+
+bands = np.linspace(0.12, 0.92, 7) ** 1.6
+threshold = 0.42
+
+story = {
+    "note": "Schematic illustrations, not data.",
+    "pattern": {"points": [[round(x, 3), round(y, 3)] for x, y in zip(xs, ys)],
+                "fit": [[0.04, round(intercept + slope * 0.04, 3)], [0.96, round(intercept + slope * 0.96, 3)]]},
+    "counterfactual": {"t": [round(v, 3) for v in t], "expected": [round(v, 3) for v in base],
+                       "actual": [round(v, 3) for v in actual], "break": 0.5},
+    "decision": {"bars": [round(v, 3) for v in bands], "threshold": threshold},
+}
+(HERO / "story.json").write_text(json.dumps(story, indent=1))
 
 (Path(sys.argv[2]) / "assets" / "figures" / "figures.json").write_text(json.dumps(MANIFEST, indent=1))
 print({k: len(v) for k, v in MANIFEST.items()}, sum(len(v) for v in MANIFEST.values()), "figures")

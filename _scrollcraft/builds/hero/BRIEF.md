@@ -15,8 +15,8 @@ reduced motion and on phones.
    white news paper, not the yellowish warm one I have right now; I also want
    rigorous looking"
 2. **Scroll journey.** "go with your pick". **Authored (delegated):** a person
-   first (name, line, photo); then the evidence comes out from behind him and a
-   real chart draws itself; then the hero settles into the existing front page.
+   first (name, line, photo); then three figures draw the way the owner works;
+   then the hero settles into the existing front page.
 3. **Energy curve.** "go with your pick". **Authored (delegated):** calm open,
    one passage of motion while the chart draws, calm close.
 4. **Feeling and the one moment.** "go with your pick". **Authored (delegated):**
@@ -24,7 +24,7 @@ reduced motion and on phones.
 5. **The one thing no other site does.** "I want the projects to tell a story by
    themselves, but of course, I want it to have rigor in it so a I want the
    graphs and images to be be more (both in quantity and quality)". Read as: the
-   hero's signature should be the work proving itself with real numbers, and the
+   hero's signature should tell the story of the method, and the
    project pages need more and better figures (done separately: 34 to 52 figures,
    including placebo tests and donor weights for the CARP study).
 6. **Distance from premium-minimal.** "go with your pick". **Authored
@@ -38,10 +38,10 @@ reduced motion and on phones.
 
 ## Journey (three beats)
 
-1. **Recognition.** A person: the nameplate, one line, his photograph.
-2. **Evidence.** Clippings of his charts slide out from behind him; the CARP
-   labor-productivity series draws itself year by year and the post-1988 gap
-   opens, with a running ledger of the real yearly gap.
+1. **Recognition.** A person: the nameplate, one line, a photograph.
+2. **Method.** Three figures draw in turn: a scatter finds its trend line; an
+   actual path pulls away from the expected one after a policy line; bars rise
+   past a threshold where action pays.
 3. **Handover.** The plate settles on its rule; the front page (lead story: the
    CARP study) begins underneath.
 
@@ -49,26 +49,26 @@ reduced motion and on phones.
 
 ```
 1  Recognition   a face and a plain claim on cool white paper, nothing moving yet
-2  Curiosity     clippings of charts edge out from behind the portrait as the hand moves
-3  Conviction    the line draws itself, the gap after 1988 opens, the ledger ticks to the real number
-4  Settled       the plate holds still, average gap stated, the front page takes over
+2  Curiosity     the first figure draws: scattered points, then a line through them
+3  Conviction    the second figure: the actual path leaves the expected one, the gap shades in
+4  Settled       the third figure: bars cross the line, the plate holds, the front page takes over
 ```
 
 No two adjacent states repeat. The quiet before the peak is beat 2, which is
-deliberately small (cards move a few dozen pixels).
+deliberately small (one small scatter).
 
 ## The peak
 
-> "I scrolled and the chart drew itself under his photo, and the gap after 1988
-> just kept widening until it said 18.2 percent."
+> "I scrolled and three little charts drew themselves, one after another, and
+> they told you how this person works before you read a word."
 
-Lives in the single pinned act, progress 0.10 to 0.86, the largest share of the
+Lives in the single pinned act, progress 0.06 to 0.88, the largest share of the
 act's scroll.
 
 ## Tell-someone sentence
 
-It's the site where **you scroll and his research draws itself in front of you,
-with the real numbers ticking along under the pen.**
+It's the site where **you scroll and the way the analyst thinks draws itself in
+three figures, one after the other.**
 
 ## Authored silence
 
@@ -78,9 +78,20 @@ None. The first screen greets with the headline and portrait already present.
 
 **Broadsheet plate** (new, see PLAN.md for why the eight defined grammars lost).
 Nav is the existing masthead, not a fixed bar. The hero is a front-page plate:
-portrait in its own column on a rule, type on paper, figures as captioned
-clippings. The close is the plate settling onto a double rule and handing over
+portrait in its own column, type on paper, the figures as one aligned strip of
+numbered panels. The close is the plate settling onto a double rule and handing over
 to running copy.
 Bans: full-bleed media, scrims, scrub video, `drift`, `spotlight`, `magnet`,
 centred hero copy, rotated or tilted cards, any colour beyond the site's ink,
 greys, and one oxblood accent.
+
+## Revision (owner feedback, 2026-10-25)
+
+> "The headshot is cropped in this weird way, pease change to this; the figures
+> look asymmetrical and disheveled, inconsistent, and unruly; please change to
+> better looking ones or at least something that tells a story, maybe create
+> figures that makes sense narratively and visually (not necessarily
+> project-based, reserve the project-based for the actual projects)"
+
+Done: new headshot; the clippings and CARP chart replaced by three schematic
+method figures of equal size, labelled "Schematic illustrations, not data."

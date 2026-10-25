@@ -28,9 +28,9 @@ assets/
   favicon-64.png
   apple-touch-icon.png
   og-image.jpg            # 1200x630 link-preview image
-  hero/                   # front-page hero layers (portrait cutout, clippings, CARP series)
+  hero/                   # front-page hero layers (portrait cutout, schematic geometry)
   scrollcraft/            # scroll-craft runtime used by the hero
-  hero.js                 # the hero's self-drawing chart
+  hero.js                 # draws the hero's three figures on scroll
   about-night-sky.jpg
   portfolio.pdf
   lian-cataytay-resume.pdf
@@ -64,12 +64,13 @@ python3 tools/figures.py <folder-with-project-repos> .
 ## Front-page hero
 
 The top of `index.html` is a scroll-driven plate built with the scroll-craft skill. As
-the reader scrolls, the CARP labor-productivity chart draws itself from the study's
-real series, with a running ledger of the yearly gap. Under reduced motion the plate is
-static and complete.
+the reader scrolls, three small figures draw themselves in turn: find the pattern, ask
+what would have happened, decide where to act. They are schematic illustrations of the
+method, not data; the project pages carry the real figures. Under reduced motion the
+plate is static and complete.
 
 - Engine: `assets/scrollcraft/` (unmodified scroll-craft runtime); page code: `assets/hero.js`.
-- Layers: `assets/hero/`. The clippings and `carp-labor.json` come from `tools/figures.py`;
+- Layers: `assets/hero/`. `story.json` (the figures' geometry) comes from `tools/figures.py`;
   the portrait cutout comes from `python3 tools/hero_portrait.py <headshot> assets/hero`.
 - Planning, brief and verification: `_scrollcraft/` (set in `.scrollcraft.json`). Jekyll
   skips underscore folders, so GitHub Pages does not publish it.

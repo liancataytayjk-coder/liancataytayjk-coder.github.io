@@ -66,4 +66,4 @@ constrain yours.
 
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
 |---|---|---|---|---|---|---|---|---|
-| liancataytay front-page hero (2026-10-25) | Broadsheet plate (new) | Existing newspaper masthead, not owned by the hero | Pinned plate, four planes: column rules, chart clippings, portrait cutout, chart plate | 1 act: pin, 2.6vh, inside a document page | Plate settles on a double rule and hands over to running copy | The CARP chart draws itself with a running ledger of the real yearly gap | Cool-white broadsheet, black and white photo and charts | Static HTML, GitHub Pages |
+| liancataytay front-page hero (2026-10-25) | Broadsheet plate (new) | Existing newspaper masthead, not owned by the hero | Pinned plate, three planes: column rules, portrait cutout, a strip of three schematic figures | 1 act: pin, 2.6vh, inside a document page | Plate settles on a double rule and hands over to running copy | Three method figures (pattern, counterfactual, decision) draw themselves in sequence | Cool-white broadsheet, black and white photo and charts | Static HTML, GitHub Pages |
