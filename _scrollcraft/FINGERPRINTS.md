@@ -63,3 +63,7 @@ If you want to see what a filled-in table looks like, and which shapes tend to
 collide, read `EXAMPLES.md` in the scroll-craft repository. Treat it as
 illustration only: those rows are somebody else's builds and they do **not**
 constrain yours.
+
+| Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
+|---|---|---|---|---|---|---|---|---|
+| liancataytay front-page hero (2026-10-25) | Broadsheet plate (new) | Existing newspaper masthead, not owned by the hero | Pinned plate, four planes: column rules, chart clippings, portrait cutout, chart plate | 1 act: pin, 2.6vh, inside a document page | Plate settles on a double rule and hands over to running copy | The CARP chart draws itself with a running ledger of the real yearly gap | Cool-white broadsheet, black and white photo and charts | Static HTML, GitHub Pages |

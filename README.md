@@ -28,7 +28,9 @@ assets/
   favicon-64.png
   apple-touch-icon.png
   og-image.jpg            # 1200x630 link-preview image
-  projects/epiwatch-mindanao/  # charts generated from the EpiWatch repo data
+  hero/                   # front-page hero layers (portrait cutout, clippings, CARP series)
+  scrollcraft/            # scroll-craft runtime used by the hero
+  hero.js                 # the hero's self-drawing chart
   about-night-sky.jpg
   portfolio.pdf
   lian-cataytay-resume.pdf
@@ -45,7 +47,6 @@ projects/
   ecommerce-marketplace-ads-performance-dashboard.html
   fpa-revenue-cost-expense-forecasting-dashboard.html
   crm-event-marketing-data-hygiene-system.html
-  epiwatch-mindanao-public-health-risk-forecasting.html
 ```
 
 ## Figures
@@ -59,6 +60,19 @@ folder and run:
 pip install matplotlib pandas openpyxl
 python3 tools/figures.py <folder-with-project-repos> .
 ```
+
+## Front-page hero
+
+The top of `index.html` is a scroll-driven plate built with the scroll-craft skill. As
+the reader scrolls, the CARP labor-productivity chart draws itself from the study's
+real series, with a running ledger of the yearly gap. Under reduced motion the plate is
+static and complete.
+
+- Engine: `assets/scrollcraft/` (unmodified scroll-craft runtime); page code: `assets/hero.js`.
+- Layers: `assets/hero/`. The clippings and `carp-labor.json` come from `tools/figures.py`;
+  the portrait cutout comes from `python3 tools/hero_portrait.py <headshot> assets/hero`.
+- Planning, brief and verification: `_scrollcraft/` (set in `.scrollcraft.json`). Jekyll
+  skips underscore folders, so GitHub Pages does not publish it.
 
 ## Updating the portfolio PDF
 

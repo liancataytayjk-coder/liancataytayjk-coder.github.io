@@ -1,26 +1,4 @@
 {
- "epiwatch-mindanao-public-health-risk-forecasting": [
-  {
-   "src": "assets/figures/epiwatch-mindanao-public-health-risk-forecasting-1.png",
-   "title": "Weekly reported cases across 24 Mindanao municipalities, January 2024 to May 2026",
-   "note": "Synthetic dengue-like surveillance data. Source: EpiWatch Mindanao repository."
-  },
-  {
-   "src": "assets/figures/epiwatch-mindanao-public-health-risk-forecasting-2.png",
-   "title": "Forecast versus actual next-four-week case burden, all municipalities",
-   "note": "Lag-weighted seasonal regression; model MAE 36.76 cases on the test window. Synthetic data."
-  },
-  {
-   "src": "assets/figures/epiwatch-mindanao-public-health-risk-forecasting-3.png",
-   "title": "Early Warning Risk Index by municipality, latest reporting week",
-   "note": "Bars are shaded by assigned warning level. Synthetic data. Source: EpiWatch Mindanao repository."
-  },
-  {
-   "src": "assets/figures/epiwatch-mindanao-public-health-risk-forecasting-4.png",
-   "title": "Anomaly detection for Jolo, Sulu, against its rolling historical baseline",
-   "note": "Synthetic data. Source: EpiWatch Mindanao repository."
-  }
- ],
  "customer-sentiment-intelligence-dashboard": [
   {
    "src": "assets/figures/customer-sentiment-intelligence-dashboard-1.png",
@@ -36,6 +14,16 @@
    "src": "assets/figures/customer-sentiment-intelligence-dashboard-3.png",
    "title": "Negative sentiment by review language",
    "note": "Source: Customer Sentiment Intelligence Dashboard repository."
+  },
+  {
+   "src": "assets/figures/customer-sentiment-intelligence-dashboard-4.png",
+   "title": "Distribution of star ratings across 500 reviews",
+   "note": "One- and two-star reviews in black. Source: Customer Sentiment Intelligence Dashboard repository."
+  },
+  {
+   "src": "assets/figures/customer-sentiment-intelligence-dashboard-5.png",
+   "title": "Negative sentiment by month",
+   "note": "Months with fewer than 10 reviews are omitted. Source: Customer Sentiment Intelligence Dashboard repository."
   }
  ],
  "ecommerce-customer-retention-analytics": [
@@ -53,6 +41,16 @@
    "src": "assets/figures/ecommerce-customer-retention-analytics-3.png",
    "title": "Repeat purchasing by months since first purchase, all monthly cohorts",
    "note": "Very few customers return after their first order, which drives the 59.1% churn rate. Source: E-commerce Customer Retention Analytics repository."
+  },
+  {
+   "src": "assets/figures/ecommerce-customer-retention-analytics-4.png",
+   "title": "Revenue and churn rate for the ten largest Brazilian states",
+   "note": "S\u00e3o Paulo (SP) alone accounts for 37.5% of revenue. Source: E-commerce Customer Retention Analytics repository."
+  },
+  {
+   "src": "assets/figures/ecommerce-customer-retention-analytics-5.png",
+   "title": "Revenue share of the ten largest product categories",
+   "note": "Category names translated with the dataset's own translation table. Source: E-commerce Customer Retention Analytics repository."
   }
  ],
  "ecommerce-marketplace-ads-performance-dashboard": [
@@ -65,6 +63,16 @@
    "src": "assets/figures/ecommerce-marketplace-ads-performance-dashboard-2.png",
    "title": "Recommended budget action for each campaign and SKU",
    "note": "Rows with unreliable KPIs are routed to data fixes before any budget change. Source: eCommerce Marketplace Ads Performance Dashboard repository."
+  },
+  {
+   "src": "assets/figures/ecommerce-marketplace-ads-performance-dashboard-3.png",
+   "title": "Ad revenue and return on ad spend for the eight largest product categories",
+   "note": "Source: eCommerce Marketplace Ads Performance Dashboard repository."
+  },
+  {
+   "src": "assets/figures/ecommerce-marketplace-ads-performance-dashboard-4.png",
+   "title": "Inventory status recorded for each SKU",
+   "note": "Most SKUs have no reliable inventory status, which is why budget actions start with data fixes. Source: eCommerce Marketplace Ads Performance Dashboard repository."
   }
  ],
  "fpa-revenue-cost-expense-forecasting-dashboard": [
@@ -77,6 +85,16 @@
    "src": "assets/figures/fpa-revenue-cost-expense-forecasting-dashboard-2.png",
    "title": "Gross margin by business unit",
    "note": "Overall gross margin 50.8%. Source: FP&A Revenue, Cost & Expense Forecasting Dashboard repository."
+  },
+  {
+   "src": "assets/figures/fpa-revenue-cost-expense-forecasting-dashboard-3.png",
+   "title": "Operating expenses above budget, by category",
+   "note": "Every category ran over budget. The hatched bar is cut at 25%: Learning & Development spent $0.96M against a $0.11M budget. Source: FP&A Revenue, Cost & Expense Forecasting Dashboard repository."
+  },
+  {
+   "src": "assets/figures/fpa-revenue-cost-expense-forecasting-dashboard-4.png",
+   "title": "369 flagged anomalies by type and severity",
+   "note": "Source: FP&A Revenue, Cost & Expense Forecasting Dashboard repository."
   }
  ],
  "crm-event-marketing-data-hygiene-system": [
@@ -89,6 +107,21 @@
    "src": "assets/figures/crm-event-marketing-data-hygiene-system-2.png",
    "title": "Referrals by follow-up status",
    "note": "310 referrals prepared for sales and marketing follow-up. Source: CRM & Event Marketing Data Hygiene System repository."
+  },
+  {
+   "src": "assets/figures/crm-event-marketing-data-hygiene-system-3.png",
+   "title": "Why contacts failed validation",
+   "note": "Source: CRM & Event Marketing Data Hygiene System repository."
+  },
+  {
+   "src": "assets/figures/crm-event-marketing-data-hygiene-system-4.png",
+   "title": "Clean contacts by region",
+   "note": "Region spellings merged (e.g. Ncr into NCR); 5 contacts with no region omitted. Source: CRM & Event Marketing Data Hygiene System repository."
+  },
+  {
+   "src": "assets/figures/crm-event-marketing-data-hygiene-system-5.png",
+   "title": "Event attendance rate in the ten cities with the most registrations",
+   "note": "Source: CRM & Event Marketing Data Hygiene System repository."
   }
  ],
  "ai-customer-churn-intelligence-system": [
@@ -106,6 +139,21 @@
    "src": "assets/figures/ai-customer-churn-intelligence-system-3.png",
    "title": "Churn rate by customer tenure",
    "note": "Source: AI Customer Churn Intelligence System repository."
+  },
+  {
+   "src": "assets/figures/ai-customer-churn-intelligence-system-4.png",
+   "title": "Churn rate by internet service",
+   "note": "Telco customer churn data, 7,043 customers. Source: AI Customer Churn Intelligence System repository."
+  },
+  {
+   "src": "assets/figures/ai-customer-churn-intelligence-system-5.png",
+   "title": "Churn rate by payment method",
+   "note": "Telco customer churn data, 7,043 customers. Source: AI Customer Churn Intelligence System repository."
+  },
+  {
+   "src": "assets/figures/ai-customer-churn-intelligence-system-6.png",
+   "title": "Monthly charges of customers who churned and customers who stayed",
+   "note": "Churners cluster at higher monthly charges. Source: AI Customer Churn Intelligence System repository."
   }
  ],
  "banking-risk-and-financial-performance-analysis": [
@@ -123,6 +171,16 @@
    "src": "assets/figures/banking-risk-and-financial-performance-analysis-3.png",
    "title": "Expected-loss exposure by risk band",
    "note": "Source: Banking Risk and Financial Performance Analysis repository."
+  },
+  {
+   "src": "assets/figures/banking-risk-and-financial-performance-analysis-4.png",
+   "title": "Observed default rate by loan grade",
+   "note": "Source: Banking Risk and Financial Performance Analysis repository."
+  },
+  {
+   "src": "assets/figures/banking-risk-and-financial-performance-analysis-5.png",
+   "title": "Credit scores of loans that defaulted and loans that were repaid",
+   "note": "Credit score is the strongest single driver in the model. Source: Banking Risk and Financial Performance Analysis repository."
   }
  ],
  "employee-attrition-risk-and-workforce-intelligence-analysis": [
@@ -152,6 +210,21 @@
    "src": "assets/figures/agricultural-scm-productivity-analysis-4.png",
    "title": "GDP per capita (placebo check): the Philippines and its synthetic control, 1970 to 2008",
    "note": "After 1988 the Philippines averages only 2.5% lower than its synthetic control (1989 to 2008). Source: Cataytay, Deluna and Evangelio, synthetic control analysis."
+  },
+  {
+   "src": "assets/figures/agricultural-scm-productivity-analysis-5.png",
+   "title": "Yearly labor productivity gap between the Philippines and its synthetic control",
+   "note": "Grey bars are the pre-treatment fit; black bars are post-1988 gaps (average 18.2%). Source: Cataytay, Deluna and Evangelio, synthetic control analysis."
+  },
+  {
+   "src": "assets/figures/agricultural-scm-productivity-analysis-6.png",
+   "title": "Placebo tests: the Philippines against every donor country",
+   "note": "Each bar reassigns the 1988 reform to one country; the Philippines (black) has the largest post-treatment divergence in all three outcomes. p is Fisher's exact permutation p-value. Source: study workbook."
+  },
+  {
+   "src": "assets/figures/agricultural-scm-productivity-analysis-7.png",
+   "title": "Donor countries and their weights in each synthetic control",
+   "note": "Weights sum to one for each outcome; pre-1988 fit error is about 5 to 6% of the outcome level. Source: study workbook."
   }
  ],
  "philippines-labor-market-trend-analysis": [
@@ -168,6 +241,16 @@
   {
    "src": "assets/figures/philippines-labor-market-trend-analysis-3.png",
    "title": "Labor force participation by sex",
+   "note": "Source: project repository."
+  },
+  {
+   "src": "assets/figures/philippines-labor-market-trend-analysis-4.png",
+   "title": "Employment by sector, 2012 to 2025",
+   "note": "Source: project repository."
+  },
+  {
+   "src": "assets/figures/philippines-labor-market-trend-analysis-5.png",
+   "title": "Largest service subsectors by employment, 2025",
    "note": "Source: project repository."
   }
  ],
@@ -193,6 +276,11 @@
    "src": "assets/figures/philippine-emigration-ardl-macroeconomic-analysis-2.png",
    "title": "Emigration and Philippine GDP per capita, 1981 to 2023",
    "note": "In the baseline ARDL model, a 1% rise in GDP per capita is linked to a 0.46% fall in long-run emigration. Source: project repository."
+  },
+  {
+   "src": "assets/figures/philippine-emigration-ardl-macroeconomic-analysis-3.png",
+   "title": "The determinants used in the ARDL models, 1981 to 2023",
+   "note": "All series are integrated of order one by ADF, Phillips-Perron and KPSS tests. Source: project repository."
   }
  ]
 }
