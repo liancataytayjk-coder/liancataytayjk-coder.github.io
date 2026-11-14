@@ -1261,48 +1261,51 @@ figcaption {
   pointer-events: none;
 }
 
-/* Two columns. Left: kicker, headline, deck, and directly under them the three
-   figures, centred as one block. Right: the portrait, standing on the plate's
-   double rule. Nothing overlaps; each element owns its cell. */
+/* Top row: the type on the left, the portrait on the right, standing on the
+   rule of the figure strip. Bottom row: three equal figures across the full
+   width. Nothing overlaps; each element owns its cell. */
 .plate-frame {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-  grid-template-rows: 1fr auto auto 1fr;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
   column-gap: clamp(1.5rem, 3.5vw, 3.5rem);
   border-bottom: 3px double var(--ink);
 }
 
 .plate-copy {
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 1;
+  align-self: center;
+  padding-bottom: 1rem;
 }
 
 .plate-headline {
   margin-top: 4px;
-  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  font-size: clamp(2.3rem, 3.9vw, 3.8rem);
   line-height: 1.02;
   letter-spacing: -0.015em;
 }
 
 .plate-deck {
-  max-width: 34em;
-  margin-top: 14px;
+  max-width: 36em;
+  margin-top: 12px;
   color: var(--ink-2);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-style: italic;
   line-height: 1.45;
 }
 
 .plate-subject {
   grid-column: 2;
-  grid-row: 1 / -1;
+  grid-row: 1;
+  height: clamp(220px, 38svh, 400px);
   min-height: 0;
-  padding-top: clamp(0.5rem, 2vh, 1.5rem);
+  padding-top: 8px;
 }
 
-/* As large as the cell allows, never stretched, feet (hands) on the rule. */
+/* As large as the cell allows, never stretched, hands on the figure strip's rule. */
 .plate-subject img {
   display: block;
   width: 100%;
@@ -1313,10 +1316,10 @@ figcaption {
 }
 
 .plate-steps {
-  grid-column: 1;
-  grid-row: 3;
-  margin: clamp(1.25rem, 4vh, 2.5rem) 0 clamp(1rem, 3vh, 2rem);
-  padding: 10px 0 0;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 0;
+  padding: 12px 0 clamp(0.75rem, 2.5vh, 1.5rem);
   border-top: 2px solid var(--ink);
 }
 
@@ -1325,7 +1328,7 @@ figcaption {
   justify-content: space-between;
   gap: 12px;
   align-items: baseline;
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   color: var(--ink);
 }
 
@@ -1333,30 +1336,34 @@ figcaption {
 
 .steps-note {
   color: var(--meta);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-style: italic;
 }
 
+/* Equal columns with an even gap, and a hairline centred in each gap, so all
+   three panels are exactly the same width. */
 .steps {
+  --gap: clamp(24px, 3.2vw, 44px);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .step {
-  padding: 0 14px;
+  position: relative;
+  min-width: 0;
+}
+
+.step + .step::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--gap) / -2);
   border-left: 1px solid var(--rule);
-}
-
-.step:first-child {
-  padding-left: 0;
-  border-left: 0;
-}
-
-.step:last-child {
-  padding-right: 0;
+  content: "";
 }
 
 .step-chart {
@@ -1367,24 +1374,32 @@ figcaption {
   font-family: var(--serif);
 }
 
-.step-chart .axis line { stroke: var(--ink); stroke-width: 0.9; }
-.step-chart .axis-label,
-.step-chart .note { fill: var(--meta); font-size: 9.5px; font-style: italic; }
-.step-chart .dot { fill: var(--paper); stroke: var(--ink); stroke-width: 1.1; }
-.step-chart .fit { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; }
-.step-chart .line { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
-.step-chart .line--expected { stroke-width: 1.4; stroke-dasharray: 5 4; }
-.step-chart .gap { fill: var(--rule); }
-.step-chart .mark { stroke: var(--meta); stroke-width: 0.9; stroke-dasharray: 2 3; }
-.step-chart .bar { fill: var(--rule); stroke: var(--ink); stroke-width: 0.6; }
-.step-chart .bar--act { fill: var(--ink); }
+.step-chart .axis line { stroke: var(--ink); stroke-width: 1; }
+.step-chart .axis-label { fill: var(--meta); font-size: 10.5px; font-style: italic; }
+.step-chart .note { fill: var(--meta); font-size: 11.5px; font-style: italic; }
+.step-chart .note--ink { fill: var(--ink); font-style: normal; font-weight: 700; }
+.step-chart .callout { fill: var(--accent); font-size: 13px; font-weight: 700; }
+.step-chart .dot { fill: var(--paper); stroke: var(--ink); stroke-width: 1.2; transition: opacity 160ms ease-out; }
+.step-chart .fit { stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.step-chart .line { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linejoin: round; }
+.step-chart .line--expected { stroke: var(--meta); stroke-width: 1.8; stroke-dasharray: 6 5; }
+.step-chart .gap { fill: var(--accent); fill-opacity: 0.16; }
+.step-chart .brace { stroke: var(--accent); stroke-width: 2; }
+.step-chart .mark { stroke: var(--meta); stroke-width: 1; stroke-dasharray: 2 3; }
+.step-chart .bar { fill: var(--rule); stroke: var(--ink); stroke-width: 0.8; transform-box: fill-box; transform-origin: 50% 100%; transition: fill 220ms ease-out; }
+.step-chart .bar.is-act { fill: var(--ink); }
+.step-chart .threshold { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 7 4; }
 
+/* Title and caption are one line each, so the three panels stay the same size. */
 .step-title {
-  margin-top: 6px;
+  margin-top: 8px;
+  overflow: hidden;
   color: var(--ink);
-  font-size: 1.06rem;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
   font-weight: 700;
   line-height: 1.25;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .step-n {
@@ -1395,13 +1410,16 @@ figcaption {
 
 .step-text {
   margin-top: 2px;
+  overflow: hidden;
   color: var(--ink-2);
-  font-size: 0.94rem;
+  font-size: clamp(0.88rem, 1.1vw, 1rem);
   line-height: 1.35;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-/* While a panel is drawing, its title carries the accent; untouched panels sit back. */
-.plate:not(.plate--static) .step { opacity: 0.55; transition: opacity 200ms var(--sc-ease-out, ease-out); }
+/* The panel being drawn is at full strength; the others sit back. */
+.plate:not(.plate--static) .step { opacity: 0.4; transition: opacity 240ms var(--sc-ease-out, ease-out); }
 .plate:not(.plate--static) .step.is-drawing,
 .plate:not(.plate--static) .step.is-done { opacity: 1; }
 
@@ -1410,32 +1428,48 @@ figcaption {
 
 /* Short laptop screens. */
 @media (min-width: 981px) and (max-height: 820px) {
-  .plate-headline { font-size: clamp(2.2rem, 3.6vw, 3.3rem); }
-  .plate-deck { font-size: 1.05rem; }
-  .step-text { display: none; }
-}
-
-/* Tablet and phone: one column. Headline, then the portrait standing on the
-   figure strip's rule, then the three figures. */
-@media (max-width: 980px) {
-  .plate-frame {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto minmax(0, 1fr) auto;
-    height: 100%;
-    border-bottom: 0;
-  }
-  .plate-copy { grid-row: 1; }
-  .plate-headline { font-size: clamp(2.1rem, 6.4vw, 3.4rem); }
-  .plate-subject { grid-column: 1; grid-row: 2; padding-top: 12px; }
-  .plate-steps { grid-row: 3; margin: 0; }
-}
-
-@media (max-width: 640px) {
-  .plate-stage { min-height: 600px; padding: 0.75rem 0 1rem; }
-  .plate-headline { font-size: 2.15rem; }
+  .plate-headline { font-size: clamp(2.1rem, 3.4vw, 3.1rem); }
   .plate-deck { font-size: 1rem; }
-  .steps-head { flex-direction: column; gap: 0; }
-  .step { padding: 0 6px; }
-  .step-title { font-size: 0.8rem; }
+  .plate-subject { height: clamp(200px, 34svh, 300px); }
+}
+
+@media (min-width: 981px) and (max-height: 700px) {
+  .plate-deck { display: none; }
   .step-text { display: none; }
+}
+
+/* Tablet: one column. Headline, the portrait on the strip's rule, the figures. */
+@media (max-width: 980px) {
+  .plate-frame { grid-template-columns: minmax(0, 1fr); }
+  .plate-copy { grid-row: 1; padding-bottom: 0; }
+  .plate-headline { font-size: clamp(2.1rem, 6.4vw, 3.2rem); }
+  .plate-subject { grid-column: 1; grid-row: 2; height: clamp(200px, 30svh, 340px); padding-top: 12px; }
+  .plate-steps { grid-row: 3; }
+}
+
+/* Phone: the three figures share one full-width slot and take turns as the
+   reader scrolls, so each one is large enough to read. */
+@media (max-width: 640px) {
+  .plate-stage { min-height: 600px; padding: 0.75rem 0 0.75rem; }
+  .plate-headline { font-size: 2.1rem; }
+  .plate-deck { font-size: 0.98rem; }
+  .plate-subject { height: clamp(150px, 24svh, 230px); }
+  .steps-head { flex-direction: column; gap: 0; margin-bottom: 6px; }
+  .steps-note { font-size: 0.74rem; }
+  .plate:not(.plate--static) .steps { grid-template-columns: minmax(0, 1fr); }
+  .step + .step::before { display: none; }
+  .plate:not(.plate--static) .step { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: none; }
+  .plate:not(.plate--static) .step.is-current { opacity: 1; visibility: visible; transition: opacity 240ms ease-out; }
+  .step-title { font-size: 1.05rem; }
+  .step-text { font-size: 0.92rem; }
+
+  /* Static plate on a phone: the three figures stacked, the page simply scrolls. */
+  .plate--static .plate-stage { height: auto; min-height: 0; }
+  .plate--static .steps { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+}
+
+/* Short phones: a smaller portrait and no deck keep everything on one screen. */
+@media (max-width: 640px) and (max-height: 740px) {
+  .plate-deck { display: none; }
+  .plate-subject { height: clamp(130px, 22svh, 170px); }
 }
