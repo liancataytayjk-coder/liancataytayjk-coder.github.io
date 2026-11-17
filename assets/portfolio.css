@@ -263,7 +263,7 @@ dd {
   display: grid;
   grid-template-columns: 40mm minmax(0, 1fr);
   gap: 6mm;
-  padding: 1.9mm 0;
+  padding: 2.6mm 0;
   border-bottom: 0.5pt solid var(--rule);
 }
 
